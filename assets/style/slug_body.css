@@ -41,6 +41,10 @@
   line-height: 2.1rem;
 }
 
+.slug_body a {
+  color: rgb(99, 99, 124)
+}
+
 .slug_body strong {
   font-size: 1.1rem;
   line-height: 2.1rem;
