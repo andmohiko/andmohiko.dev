@@ -5,8 +5,8 @@
         <div class="profile-content">
           <p class="profile-name">andmohiko</p>
           <p class="profile-text">
-            <span>R社とメンヘラテクノロジー</span>
-            <span>Python / Machine Learning / NLP / Vue.js / Typescript / Rails</span>
+            <span>メンヘラテクノロジー</span>
+            <span>Python / Machine Learning / NLP / React / Vue.js / Typescript / Rails / Firebase</span>
           </p>
         </div>
         <div class="profile-icon">
