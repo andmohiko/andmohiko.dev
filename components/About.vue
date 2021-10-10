@@ -6,7 +6,7 @@
           <p class="profile-name">andmohiko</p>
           <p class="profile-text">
             <span>メンヘラテクノロジー</span>
-            <span>Python / Machine Learning / NLP / React / Vue.js / Typescript / Rails / Firebase</span>
+            <span>Python / Machine Learning / NLP / React / Vue.js / Typescript / Rails / Firebase / BigQuery</span>
           </p>
         </div>
         <div class="profile-icon">
