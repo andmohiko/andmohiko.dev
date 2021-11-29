@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <Header />
-    <main class="container">
+    <main class="main">
       <nuxt />
     </main>
     <Footer />
@@ -19,7 +19,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 @import "~/assets/style/reset.css";
 @import "~/assets/style/slug_body.css";
 
@@ -46,9 +46,10 @@ html {
   background-color: rgb(36, 35, 38);
 }
 
-/* .container {
-  max-width: 1000px;
-  margin: 0 auto;
-} */
+.main {
+  /* max-width: 1000px;
+  margin: 0 auto; */
+  margin: 90px 0 80px 0;
+}
 </style>
 
