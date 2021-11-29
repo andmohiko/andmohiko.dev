@@ -6,7 +6,7 @@
     <div class="blog-content">
       <div v-for="(post, index) in posts" v-bind:key="post.fields.slug">
         <p v-if="showYear(posts, index)" class="post-year">{{ post.fields.publishedAt.slice(0,4) }}</p>
-        <card
+        <BlogTitleCard
           :title="post.fields.title"
           :slug="post.fields.slug"
           :headerImage="post.fields.headerImage"
@@ -19,14 +19,14 @@
 </template>
 
 <script>
-import Card from "~/components/card.vue";
+import BlogTitleCard from "~/components/BlogTitleCard.vue";
 import { createClient } from "~/plugins/contentful.js";
 
 const client = createClient();
 export default {
   transition: "slide-left",
   components: {
-    Card
+    BlogTitleCard
   },
   async asyncData({ env, params }) {
     return await client
@@ -56,7 +56,7 @@ export default {
 .blog-page {
   min-height: calc(100vh - 80px);
   width: 100%;
-  padding: 100px 30px 30px 30px;
+  padding: 10px 30px 30px 30px;
 
   display: flex;
   flex-direction: column;

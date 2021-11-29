@@ -49,7 +49,7 @@
         <h2>Blog</h2>
       </div>
       <div class="blog-content">
-        <Card
+        <BlogTitleCard
           v-for="post in posts"
           v-bind:key="post.fields.slug"
           :title="post.fields.title"
@@ -64,7 +64,7 @@
 
 <script>
 import About from "~/components/About.vue";
-import Card from "~/components/card.vue";
+import BlogTitleCard from "~/components/BlogTitleCard.vue";
 import { createClient } from "~/plugins/contentful.js";
 
 const client = createClient();
@@ -73,7 +73,7 @@ export default {
   transition: "slide-left",
   components: {
     About,
-    Card
+    BlogTitleCard
   },
   async asyncData({ env, params }) {
     return await client
@@ -107,8 +107,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 60px);
-
+  height: calc(100vh - 200px);
   color: #ffffff;
   h1 {
     font-size: 32px;
