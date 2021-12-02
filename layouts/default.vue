@@ -49,7 +49,7 @@ html {
 .main {
   /* max-width: 1000px;
   margin: 0 auto; */
-  margin: 90px 0 80px 0;
+  margin: 90px 0 0 0;
 }
 </style>
 
