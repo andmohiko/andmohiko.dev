@@ -49,7 +49,13 @@ const config = {
 
   modules: [
     '@nuxtjs/markdownit',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-analytics',
+    [
+      '@nuxtjs/google-adsense',
+      {
+        id: process.env.GA_ADSENSE_ID
+      }
+    ],
   ],
   markdownit: {
     injected: true,
