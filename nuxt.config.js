@@ -42,6 +42,10 @@ const config = {
     },
   },
 
+  buildModules: [
+    '@nuxtjs/stylelint-module'
+  ],
+
   plugins: [
 		{ src: '~plugins/contentful'},
 		// { src: '~plugins/prism'}
