@@ -18,34 +18,34 @@
 
 <style scoped lang="scss">
 .footer-container {
-  height: 80px;
-  background-color: #111;
   display: flex;
-  padding: 33px;
   justify-content: space-between;
+  height: 80px;
+  padding: 33px;
+  background-color: #111111;
 }
 
 .links {
   display: flex;
-  justify-content: left;
   align-items: center;
+  justify-content: left;
 
   img {
-    height: 22px;
     width: 22px;
+    height: 22px;
     margin-right: 25px;
   }
 }
 
 .copyright {
   display: flex;
-  justify-content: right;
   align-items: center;
+  justify-content: right;
 
   p {
-    line-height: 80px;
-    color: #ccc;
     font-size: 12px;
+    line-height: 80px;
+    color: #cccccc;
   }
 }
 </style>

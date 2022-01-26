@@ -25,28 +25,31 @@
 .header-container {
   position: fixed;
   top: 0;
-  background-color: rgb(36, 35, 38);
-  width: 100%;
-  height: 90px;
-  line-height: 90px;
   display: flex;
   justify-content: space-between;
+  width: 100%;
+  height: 90px;
+  padding: 0 30px;
   margin: 0 auto;
-  padding: 0px 30px;
+  line-height: 90px;
+  background-color: rgb(36, 35, 38);
 
   ul {
     display: flex;
   }
+
   li {
     margin-left: 4rem;
     list-style-type: none;
   }
+
   a {
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
     font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
   }
+
   a:hover {
     opacity: 0.7;
   }
@@ -62,12 +65,14 @@
 
 @media screen and (max-width: 750px) {
   .header-container {
-    padding: 0;
     justify-content: center;
+    padding: 0;
+
     li {
       margin-left: 1.5rem;
     }
   }
+
   .header-logo {
     img {
       display: none;
