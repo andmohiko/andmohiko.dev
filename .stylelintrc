@@ -2,7 +2,8 @@
   "extends": ["stylelint-config-standard", "stylelint-config-recommended-scss", "stylelint-config-recess-order", "stylelint-config-recommended-vue"],
   "rules": {
     "indentation": 2,
-    "color-hex-length": "long"
+    "color-hex-length": "long",
+    "color-function-notation": "legacy"
   },
   "overrides": [
     {
