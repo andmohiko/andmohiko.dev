@@ -99,82 +99,74 @@
 
 <style scoped lang="scss">
 .portfolio-container {
-  min-height: calc(100vh - 80px);
-  width: 100%;
-  padding: 100px 30px 30px 30px;
-
-  // background-image: url(../assets/bg_portfolio-min.jpg);
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  // background-position: center;
-
   display: flex;
   flex-direction: column;
-  // justify-content: center;
   align-items: center;
-  color: #fff;
-  // text-shadow: 0 2px 5px rgba(255, 255, 255, 0.5);
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  padding: 100px 30px 30px;
+  color: #ffffff;
 }
 
 .title {
-  width: 100%;
-
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  width: 100%;
 
   h1 {
-    font-weight: bold;
+    margin: 1.5rem 0 4rem;
     font-size: 2.2rem;
-    margin: 1.5rem 0 4rem 0;
-    text-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+    font-weight: bold;
   }
 }
 
 .portfolio-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .portfolio-card {
-  max-width: 720px;
-  height: 400px;
-  background-color: rgba(0, 0, 0, 0.2);
-  box-shadow: 1px 5px 5px 1px rgba(0, 0, 0, 0.2);
-  // border: 0.5px solid rgb(57, 72, 85);
-  border-radius: 5px;
-  padding: 15px 25px;
-  margin: 10px;
-
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  max-width: 720px;
+  height: 400px;
+  padding: 15px 25px;
+  margin: 10px;
+  background-color: rgba(0, 0, 0, 20%);
+  // border: 0.5px solid rgb(57, 72, 85);
+  border-radius: 5px;
+  box-shadow: 1px 5px 5px 1px rgba(0, 0, 0, 20%);
 
   img {
-    max-height: 240px;
     max-width: 360px;
-    text-align: center;
+    max-height: 240px;
     margin-bottom: 20px;
+    text-align: center;
   }
 
   h2 {
     font-size: 1.2rem;
     font-weight: bolder;
   }
+
   p {
-    color: #e1e1e1;
     margin: 10px 0;
     line-height: 1.5rem;
+    color: #e1e1e1;
   }
+
   a {
-    color: white;
     font-weight: bold;
+    color: white;
     text-decoration: none;
   }
+
   a:hover {
     opacity: 0.7;
   }
