@@ -91,97 +91,96 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .home-page {
-  // height: auto;
-  // width: 100%;
-  // padding: 100px 30px 30px 30px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .top-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   height: calc(100vh - 200px);
   color: #ffffff;
+
   h1 {
-    font-size: 32px;
     margin: 50px 0;
+    font-size: 32px;
   }
+
   p {
     font-size: 16px;
-  } 
+  }
 }
 
 .links {
   img {
-    height: 22px;
     width: 22px;
+    height: 22px;
     margin-right: 25px;
   }
 }
 
 .title {
   color: #ffffff;
+
   h2 {
+    padding: 0.3rem 0;
+    margin-bottom: 2rem;
     font-size: 2rem;
     font-weight: bolder;
-    margin-bottom: 2rem;
-    padding: 0.3rem 0;
-    // border-bottom: 1px solid #ddd;
   }
 }
 
 a {
-  color: white;
   font-weight: bold;
+  color: white;
   text-decoration: none;
 }
+
 a:hover {
   opacity: 0.7;
 }
 
 .about-container {
-  // height: calc(100vh - 80px);
-  size: cover;
-  width: 100%;
-  // background-image: url(../assets/bg-top-min.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  width: 100%;
   color: white;
+  // background-image: url(../assets/bg-top-min.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  // height: calc(100vh - 80px);
+  size: cover;
 
   h1 {
-    font-weight: bold;
-    font-size: 80px;
     margin-bottom: 30px;
+    font-size: 80px;
+    font-weight: bold;
   }
 
   h2 {
-    font-size: 26px;
     position: relative;
     top: 40px;
+    font-size: 26px;
   }
 }
 
 .section-container {
-  height: auto;
   display: flex;
   flex-direction: column;
-  height: auto;
   width: 100%;
   max-width: 850px;
-  margin: 100px 0 0 0;
+  height: auto;
   padding: 30px;
+  margin: 100px 0 0;
 
   // @media screen and (min-width: 1000px) {
   //   margin-left: calc(100vw/2 - 500px);
@@ -191,36 +190,41 @@ a:hover {
 .portfolio {
   &-content {
     h3 {
-      color: #ffffff;
+      padding-bottom: 20px;
       font-size: 1.6rem;
-      padding-bottom: 20px
+      color: #ffffff;
     }
+
     .subtitle {
-      color: #bbbbbb;
       font-size: 1.1rem;
+      color: #bbbbbb;
     }
+
     .description {
-      margin: 1.5rem 0 0 0;
-      color: #ebebeb;
-      font-size: 1rem;
-      line-height: 1.6rem;
       display: flex;
       flex-direction: column;
+      margin: 1.5rem 0 0;
+      font-size: 1rem;
+      line-height: 1.6rem;
+      color: #ebebeb;
     }
   }
+
   &-card {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
-    margin-bottom: 20px;
+    justify-content: space-between;
     padding-bottom: 0.5rem;
-    border-bottom: 0.5px dashed rgb(57, 72, 85);
+    margin-bottom: 20px;
+    border-bottom: 0.5px dashed #394855;
   }
+
   &-img {
     img {
       width: 100%;
       height: auto;
     }
+
     margin: 1rem 0;
   }
 }
