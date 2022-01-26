@@ -54,39 +54,33 @@ export default {
 
 <style scoped lang="scss">
 .blog-page {
-  min-height: calc(100vh - 80px);
-  width: 100%;
-  padding: 10px 30px 30px 30px;
-
   display: flex;
   flex-direction: column;
-  // justify-content: center;
   align-items: center;
-  color: #fff;
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  padding: 10px 30px 30px;
+  color: #ffffff;
 }
 
 .title {
-  width: 100%;
-
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  width: 100%;
 
   h1 {
-    font-weight: bold;
+    margin: 1.5rem 0 4rem;
     font-size: 2.2rem;
-    margin: 1.5rem 0 4rem 0;
-    text-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+    font-weight: bold;
   }
 }
 
 .blog-content {
   display: flex;
-  // flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
-  // background-color: rgba(0, 0, 0, 0.4);
 }
 
 .card {
@@ -95,8 +89,8 @@ export default {
 }
 
 .post-year {
+  margin: 14px 12px;
   font-size: 1.2rem;
   color: #aaaaaa;
-  margin: 14px 12px;
 }
 </style>

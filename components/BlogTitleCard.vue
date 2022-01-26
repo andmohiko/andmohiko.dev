@@ -17,39 +17,44 @@ export default {
 
 <style scoped lang="scss">
 .card {
-  width: auto;
-  height: auto;
-  margin-bottom: 20px;
-  padding-bottom: 0.5rem;
-  border-bottom: 0.5px dashed rgb(57, 72, 85);
   display: flex;
   justify-content: space-between;
+  width: auto;
+  height: auto;
+  padding-bottom: 0.5rem;
+  margin-bottom: 20px;
+  border-bottom: 0.5px dashed rgb(57, 72, 85);
 
   &-title {
     display: flex;
     text-decoration: none;
+
     h1 {
       font-size: 1.4rem;
-      color: white;
       line-height: 2rem;
+      color: white;
     }
   }
+
   &-date {
     display: flex;
     height: 25px;
     line-height: 25px;
+
     p {
-      font-size: 1rem;
       margin-left: 8px;
-      color: rgba(255, 255, 255, 0.8);
+      font-size: 1rem;
+      color: #aaaaaa;
       text-align: right;
       white-space: nowrap;
     }
   }
 }
+
 @media screen and (max-width: 750px) {
   .card {
     flex-direction: column;
+
     &-date {
       p {
         margin-left: 0;

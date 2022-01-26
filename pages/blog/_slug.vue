@@ -59,35 +59,34 @@ export default {
       })
       .catch(console.error);
   },
-	mounted() {
-		Prism.highlightAll()
-	}
+	// mounted() {
+	// 	Prism.highlightAll()
+	// }
 };
 </script>
 
 <style scoped lang="scss">
 .blog-content-container {
-  padding: 90px 2rem 2rem 2rem;
+  padding: 90px 2rem 2rem;
 
   @media screen and (max-width: 850px) {
-    padding: 90px 0 0 0;
+    padding: 90px 0 0;
   }
 }
 
 .blog-bg {
   display: flex;
   justify-content: center;
-
   max-width: 780px;
   margin: 0 auto;
-  border-radius: 5px;
   background-color: #f2f2f2;
+  border-radius: 5px;
   box-shadow: 0 0 3px #dedddd;
 }
 
 .blog {
-  max-width: 720px;
   width: 100%;
+  max-width: 720px;
   padding: 6%;
 
   &-date {
@@ -115,8 +114,8 @@ export default {
   color: #333333;
 
   pre {
-	/* white-space: pre-wrap; */
-    overflow-x:scroll;
+    /* white-space: pre-wrap; */
+    overflow-x: scroll;
   }
 }
 </style>
