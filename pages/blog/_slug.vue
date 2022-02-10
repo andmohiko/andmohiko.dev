@@ -58,11 +58,11 @@ export default {
         };
       })
       .catch(console.error);
-  },
-	mounted() {
-		Prism.highlightAll()
-	}
-};
+  }
+	// mounted() {
+	// 	Prism.highlightAll()
+	// }
+}
 </script>
 
 <style scoped lang="scss">
