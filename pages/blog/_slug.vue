@@ -26,9 +26,9 @@ export default {
     markdownIt
   },
   head() {
-    const description = this.post.fields?.description || 'andmohiko.dev blog post'
-    const headerImageUrl = this.post.fields?.headerImage ?
-      "https:" + this.post.fields.headerImage.fields.file.url :
+    const description = this.post.fields.description ? this.post.fields.description : 'andmohiko.dev blog post'
+    const headerImageUrl = this.post.fields.headerImage ?
+      'https:' + this.post.fields.headerImage.fields.file.url :
       '@/static/favicon.png'
     return {
       title: this.post.fields.title,
