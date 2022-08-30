@@ -5,13 +5,14 @@
         <div class="profile-content">
           <p class="profile-name">andmohiko</p>
           <p class="profile-text">
-            <span>メンヘラテクノロジー</span>
+            <span>株式会社メンヘラテクノロジーの工場長(エンジニア組織の統括)</span>
             <span>Python / Machine Learning / NLP / React / Vue.js / Typescript / Rails / Firebase / BigQuery</span>
+            <span>自作キーボードとスプラトゥーンがすき</span>
           </p>
         </div>
         <div class="profile-icon">
           <a href="https://twitter.com/andmohiko">
-            <img src="../assets/profilepich.png" alt="profilepic" />
+            <img src="@/assets/mohiko_aria.webp" alt="andmohiko" />
           </a>
         </div>
       </div>
@@ -22,7 +23,7 @@
 <style scoped lang="scss">
 .about-container {
   height: auto;
-  // width: 100%;
+  width: 100%;
   max-width: 850px;
   padding: 100px 0 30px 0;
 
@@ -52,7 +53,6 @@
 .about {
   height: auto;
   width: 100%;
-  // background-color: rgba(0, 0, 0, 0.6);
   border-radius: 5px;
   padding: 30px;
   line-height: 28px;
