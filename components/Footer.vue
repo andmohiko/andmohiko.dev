@@ -10,7 +10,7 @@
     </div>
     <div class="copyright">
       <p>
-        <small>© 2021 @andmohiko</small>
+        <small>© 2022 @andmohiko</small>
       </p>
     </div>
   </div>
