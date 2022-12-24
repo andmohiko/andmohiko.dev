@@ -44,7 +44,7 @@
 
         <div class="portfolio-card">
           <div class="portfolio-text">
-            <h3>東海オンエアスクショDB</h3>
+            <h3>東海スクショDB</h3>
             <span class="subtitle">東海オンエア 動画スクショ共有アプリ</span>
             <p class="description">
               <span>東海オンエアが大好きなので作りました。</span>
@@ -58,7 +58,7 @@
           </div>
           <div class="portfolio-img">
             <a href="https://tokai-db.vercel.app/">
-              <img src="../assets/portfolios/tokaidb.webp" alt="東海オンエアスクショDB" />
+              <img src="../assets/portfolios/tokaidb.webp" alt="東海スクショDB" />
             </a>
           </div>
         </div>
