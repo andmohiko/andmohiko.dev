@@ -26,7 +26,7 @@
             <span class="subtitle">スマブラ戦績記録・分析アプリ</span>
             <p class="description">
               <span>スマブラが上手くなりたすぎて作りました。</span>
-              <span>対戦の記録をつけていくとキャラごとの勝率とかを見れたり</span>
+              <span>対戦の記録をつけていくとキャラごとの勝率とかを見れたり、</span>
               <span>勝率の変化をグラフで見れます。</span>
               <span>自分の弱みを把握して対策できるアプリです。</span>
             </p>
@@ -38,6 +38,27 @@
           <div class="portfolio-img">
             <a href="https://smarepo.me/">
               <img src="../assets/portfolios/smarepo.png" alt="smarepo" />
+            </a>
+          </div>
+        </div>
+
+        <div class="portfolio-card">
+          <div class="portfolio-text">
+            <h3>東海オンエアスクショDB</h3>
+            <span class="subtitle">東海オンエア 動画スクショ共有アプリ</span>
+            <p class="description">
+              <span>東海オンエアが大好きなので作りました。</span>
+              <span>自分のすきなシーンや場面をスクショとして投稿してシェアすることができます</span>
+              <span>投稿のリンクを共有するとOGPで画像が表示されます</span>
+            </p>
+            <p class="description">
+              <span>Next.jsとTypeScriptとFirebaseを使っています</span>
+              <span>詳しくは<nuxt-link to="/blog/2021212">こちら</nuxt-link>のブログで書いてます。</span>
+            </p>
+          </div>
+          <div class="portfolio-img">
+            <a href="https://tokai-db.vercel.app/">
+              <img src="../assets/portfolios/tokaidb.webp" alt="東海オンエアスクショDB" />
             </a>
           </div>
         </div>
@@ -180,7 +201,7 @@ a:hover {
   height: auto;
   width: 100%;
   max-width: 850px;
-  margin: 100px 0 0 0;
+  margin: 80px 0 0 0;
   padding: 30px;
 
   // @media screen and (min-width: 1000px) {
@@ -212,11 +233,13 @@ a:hover {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-bottom: 20px;
+    margin: 20px 0 48px;
     padding-bottom: 0.5rem;
     border-bottom: 0.5px dashed rgb(57, 72, 85);
   }
   &-img {
+    max-width: 500px;
+
     img {
       width: 100%;
       height: auto;
