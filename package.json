@@ -22,7 +22,7 @@
     "dotenv": "^8.2.0",
     "fibers": "^5.0.2",
     "markdown-it-br": "^1.0.0",
-    "nuxt": "^2.0.0",
+    "nuxt": "^3.4.3",
     "prismjs": "^1.23.0",
     "pug-plain-loader": "^1.0.0",
     "sass": "^1.54.3",
