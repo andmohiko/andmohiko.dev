@@ -1,4 +1,6 @@
 :root {
   --color-black: #000000;
   --color-white: #ffffff;
+
+  --color-bg-black: rgb(36, 35, 38);
 }

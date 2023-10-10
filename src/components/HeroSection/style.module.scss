@@ -1,0 +1,25 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  height: calc(100vh - 40px);
+  color: var(--color-white);
+
+  .title {
+    font-size: 32px;
+  }
+
+  .links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+
+    .icon {
+      height: 24px;
+      width: 24px;
+    }
+  }
+}
