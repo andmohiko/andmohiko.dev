@@ -1,6 +1,7 @@
 ---
 import BaseHead from "~/components/BaseHead.astro";
 import FixedHeader from "~/components/navigations/FixedHeader.astro";
+import BottomFooter from "~/components/navigations/BottomFooter.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 import '@fontsource/noto-sans-jp/400.css';
@@ -19,6 +20,7 @@ import '@fontsource/noto-sans-jp/700.css';
       <main class='main'>
         <slot />
       </main>
+      <BottomFooter />
     </div>
   </body>
 </html>
@@ -30,6 +32,7 @@ import '@fontsource/noto-sans-jp/700.css';
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
   min-height: 100vh;
 
   color: var(--color-white);
