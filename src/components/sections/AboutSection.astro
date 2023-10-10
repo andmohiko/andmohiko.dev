@@ -1,0 +1,66 @@
+<section id="about" class="about">
+  <div class="profile">
+    <div class="profile-icon">
+      <a href="https://twitter.com/andmohiko">
+        <img src="/images/mohiko_aria.webp" alt="andmohiko" class="img" />
+      </a>
+    </div>
+    <div class="profile-content">
+      <p class="profile-name">andmohiko</p>
+      <p class="profile-text">
+        <span>株式会社メンヘラテクノロジーの工場長(エンジニア組織の統括)</span>
+        <span>Python / Machine Learning / NLP / React / Vue.js / Typescript / Rails / Firebase / BigQuery</span>
+        <span>自作キーボードとスプラトゥーンがすき</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<style lang="scss" scoped>
+.about {
+  height: auto;
+  width: 100%;
+  margin: 200px 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 36px;
+
+    .profile-icon {
+      .img {
+        height: 200px;
+        width: 200px;
+        border-radius: 100%;
+      }
+    }
+
+    .profile-content {
+      text-align: left;
+
+      .profile-name {
+        font-weight: bold;
+        font-size: 28px;
+        line-height: 2;
+        margin-bottom: 16px;
+      }
+
+      .profile-text {
+        font-size: 15px;
+        line-height: 1.8;
+        letter-spacing: 0.1px;
+
+        span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+</style>
