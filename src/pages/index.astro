@@ -2,9 +2,15 @@
 import DefaultLayout from "~/layouts/DefaultLayout.astro";
 import TopHero from "~/components/sections/TopHero.astro";
 import AboutSection from "~/components/sections/AboutSection.astro";
+import LatestBlogs from "~/components/sections/LatestBlogs.astro";
+
+import { getBlogNewestPosts } from "~/lib/contentful";
+
+const posts = await getBlogNewestPosts();
 ---
 
 <DefaultLayout>
 	<TopHero />
 	<AboutSection />
+	<LatestBlogs posts={posts} />
 </DefaultLayout>
