@@ -1,4 +1,4 @@
-import * as contentful from 'contentful'
+import contentful from 'contentful'
 import type { Blog } from '~/types/blog'
 
 const defaultConfig = {
