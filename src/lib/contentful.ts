@@ -12,7 +12,22 @@ export const createContentfulClient = (config = defaultConfig) => {
   })
 }
 
-export const getBlogNewestPosts = async () => {
+export const getAllBlogPosts = async () => {
+  const posts = await createContentfulClient()
+    .getEntries({
+      content_type: import.meta.env.CTF_BLOG_POST_TYPE_ID!,
+      order: '-fields.publishedAt',
+    })
+    .then((entries) => {
+      return {
+        posts: entries.items,
+      }
+    })
+    .catch(console.error)
+  return posts.posts
+}
+
+export const getBlogLatestPosts = async () => {
   const posts = await createContentfulClient()
     .getEntries({
       content_type: import.meta.env.CTF_BLOG_POST_TYPE_ID!,
