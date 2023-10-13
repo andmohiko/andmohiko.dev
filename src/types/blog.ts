@@ -8,6 +8,13 @@ export type Blog = {
   fields: {
     body: string
     description: string
+    headerImage?: {
+      fields: {
+        file: {
+          url: string
+        }
+      }
+    }
     publishedAt: string
     slug: string
     title: string

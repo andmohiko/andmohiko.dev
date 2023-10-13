@@ -1,4 +1,5 @@
 import * as contentful from 'contentful'
+import type { Blog } from '~/types/blog'
 
 const defaultConfig = {
   CTF_SPACE_ID: import.meta.env.CTF_SPACE_ID,
@@ -12,7 +13,7 @@ export const createContentfulClient = (config = defaultConfig) => {
   })
 }
 
-export const getAllBlogPosts = async () => {
+export const getAllBlogPosts = async (): Promise<Array<Blog>> => {
   const posts = await createContentfulClient()
     .getEntries({
       content_type: import.meta.env.CTF_BLOG_POST_TYPE_ID!,
@@ -27,17 +28,16 @@ export const getAllBlogPosts = async () => {
   return posts.posts
 }
 
-export const getBlogLatestPosts = async () => {
+export const getBlogById = async (slug: string): Promise<Blog> => {
   const posts = await createContentfulClient()
     .getEntries({
       content_type: import.meta.env.CTF_BLOG_POST_TYPE_ID!,
       order: '-fields.publishedAt',
     })
-    .then((entries) => {
-      return {
-        posts: entries.items.slice(0, 3),
-      }
-    })
+    .then((entries) =>
+      entries.items.filter((item) => item.fields.slug === slug),
+    )
     .catch(console.error)
-  return posts.posts
+  console.log('slug', slug, posts)
+  return posts[0]
 }
