@@ -1,0 +1,92 @@
+---
+import '~/styles/blog.css';
+
+import DefaultLayout from "~/layouts/DefaultLayout.astro";
+import BlogContainer from "~/components/containers/BlogContainer.astro";
+import dayjs from "dayjs";
+import { getAllBlogPosts, getBlogById } from '~/lib/contentful'
+import type { Blog } from '~/types/blog';
+
+import markdownIt from "markdown-it";
+
+export async function getStaticPaths() {
+  const blogs = await getAllBlogPosts();
+  return blogs.map((blog: Blog) => ({
+    params: {
+      id: blog.fields.slug,
+    },
+  }));
+}
+
+const { id } = Astro.params;
+const post = await getBlogById(id as string);
+const md = markdownIt()
+---
+
+<DefaultLayout>
+	<div class="blog-content-container">
+    <div class="blog-bg">
+      <BlogContainer blog={post} />
+    </div>
+  </div>
+</DefaultLayout>
+
+<style lang="scss" scoped>
+.blog-content-container {
+  padding: 90px 2rem 2rem 2rem;
+
+  @media screen and (max-width: 850px) {
+    padding: 90px 0 0 0;
+  }
+}
+
+.blog-bg {
+  display: flex;
+  justify-content: center;
+
+  max-width: 780px;
+  margin: 0 auto;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  box-shadow: 0 0 3px #dedddd;
+}
+
+.blog {
+  max-width: 720px;
+  width: 100%;
+  padding: 6%;
+
+  &-date {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #777777;
+    text-align: left;
+  }
+
+  &-title {
+    margin: 40px 0;
+    font-size: 2.5rem;
+    font-weight: bolder;
+    line-height: 3.5rem;
+    color: #333333;
+  }
+
+  &-headerImage {
+    max-width: 100%;
+    margin-bottom: 60px;
+  }
+}
+
+.slug_body {
+  color: #333333;
+
+  pre {
+	/* white-space: pre-wrap; */
+    overflow-x:scroll;
+  }
+}
+
+.blog-body {
+	color: var(--color-text-black);
+}
+</style>

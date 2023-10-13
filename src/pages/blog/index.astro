@@ -1,0 +1,12 @@
+---
+import DefaultLayout from "~/layouts/DefaultLayout.astro";
+import BlogList from "~/components/tables/BlogList.astro";
+
+import { getAllBlogPosts } from "~/lib/contentful";
+
+const posts = await getAllBlogPosts();
+---
+
+<DefaultLayout>
+	<BlogList posts={posts} isShowYear={true} />
+</DefaultLayout>
