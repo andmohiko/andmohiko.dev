@@ -1,8 +1,4 @@
 ---
-import '../styles/globals.css';
-import '../styles/reset.css';
-import '../styles/variables.css';
-
 interface Props {
 	title: string;
 	description: string;
@@ -19,11 +15,6 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
-
-<!-- Stylesheets -->
-<link rel="stylesheet" href="/styles/globals.css" />
-<link rel="stylesheet" href="/styles/reset.css" />
-<link rel="stylesheet" href="/styles/variables.css" />
 
 <!-- Font preloads -->
 <link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
