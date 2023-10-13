@@ -6,10 +6,9 @@ interface Props {
 	blog?: Blog
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
 const { title, description, blog } = Astro.props;
 
+const url = `${import.meta.env.APP_URL}/blog/${blog?.fields.slug}`
 const blogPageTitle = blog ? `${blog?.fields.title} | ${title}` : title;
 const blogPageDescription = blog ? blog?.fields.description : description;
 const headerImageUrl = blog?.fields.headerImage ?
@@ -23,7 +22,7 @@ const headerImageUrl = blog?.fields.headerImage ?
 <meta name="generator" content={Astro.generator} />
 
 <!-- Canonical URL -->
-<link rel="canonical" href={canonicalURL} />
+<link rel="canonical" href={url} />
 
 <!-- Primary Meta Tags -->
 <title>{blogPageTitle}</title>
@@ -32,7 +31,7 @@ const headerImageUrl = blog?.fields.headerImage ?
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:url" content={url} />
 <meta property="og:title" content={blogPageTitle} />
 <meta property="og:description" content={blogPageDescription} />
 <meta property="og:image" content={headerImageUrl} />
@@ -40,6 +39,6 @@ const headerImageUrl = blog?.fields.headerImage ?
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@andmohiko" />
-<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:url" content={url} />
 <meta property="twitter:title" content={blogPageTitle} />
 <meta property="twitter:description" content={blogPageDescription} />

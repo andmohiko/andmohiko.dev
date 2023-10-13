@@ -5,7 +5,7 @@ interface Props {
 	image?: string;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const url = import.meta.env.APP_URL
 
 const { title, description, image } = Astro.props;
 ---
@@ -17,7 +17,7 @@ const { title, description, image } = Astro.props;
 <meta name="generator" content={Astro.generator} />
 
 <!-- Canonical URL -->
-<link rel="canonical" href={canonicalURL} />
+<link rel="canonical" href={url} />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
@@ -26,13 +26,13 @@ const { title, description, image } = Astro.props;
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:url" content={url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@andmohiko" />
-<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:url" content={url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
