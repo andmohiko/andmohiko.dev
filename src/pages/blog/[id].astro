@@ -1,13 +1,10 @@
 ---
 import '~/styles/blog.css';
 
-import DefaultLayout from "~/layouts/DefaultLayout.astro";
+import BlogLayout from "~/layouts/BlogLayout.astro";
 import BlogContainer from "~/components/containers/BlogContainer.astro";
-import dayjs from "dayjs";
 import { getAllBlogPosts, getBlogById } from '~/lib/contentful'
 import type { Blog } from '~/types/blog';
-
-import markdownIt from "markdown-it";
 
 export async function getStaticPaths() {
   const blogs = await getAllBlogPosts();
@@ -20,16 +17,15 @@ export async function getStaticPaths() {
 
 const { id } = Astro.params;
 const post = await getBlogById(id as string);
-const md = markdownIt()
 ---
 
-<DefaultLayout>
+<BlogLayout blog={post}>
 	<div class="blog-content-container">
     <div class="blog-bg">
       <BlogContainer blog={post} />
     </div>
   </div>
-</DefaultLayout>
+</BlogLayout>
 
 <style lang="scss" scoped>
 .blog-content-container {
