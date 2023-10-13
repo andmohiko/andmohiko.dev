@@ -38,6 +38,5 @@ export const getBlogById = async (slug: string): Promise<Blog> => {
       entries.items.filter((item) => item.fields.slug === slug),
     )
     .catch(console.error)
-  console.log('slug', slug, posts)
   return posts[0]
 }
