@@ -5,14 +5,14 @@ import AboutSection from "~/components/sections/AboutSection.astro";
 import BlogList from "~/components/tables/BlogList.astro";
 import LatestWorks from "~/components/sections/LatestWorks.astro";
 
-import { getBlogLatestPosts } from "~/lib/contentful";
+import { getAllBlogPosts } from "~/lib/contentful";
 
-const posts = await getBlogLatestPosts();
+const posts = await getAllBlogPosts();
 ---
 
 <DefaultLayout>
 	<TopHero />
 	<AboutSection />
 	<LatestWorks />
-	<BlogList posts={posts} />
+	<BlogList posts={posts.slice(0, 3)} />
 </DefaultLayout>
