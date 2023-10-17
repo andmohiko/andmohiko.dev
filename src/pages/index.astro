@@ -6,13 +6,41 @@ import BlogList from "~/components/tables/BlogList.astro";
 import LatestWorks from "~/components/sections/LatestWorks.astro";
 
 import { getAllBlogPosts } from "~/lib/contentful";
+import { getAllEntries } from "~/lib/microcms"
+import type { Blog } from '~/types/blog'
+import dayjs from "dayjs";
 
 const posts = await getAllBlogPosts();
+const microcmsEntries = await getAllEntries();
+
+const contentfulBlogs: Blog[] = posts.map((post) => ({
+	body: post.fields.body,
+	description: post.fields.description,
+	headerImageUrl: post.fields.headerImage?.fields.file.url,
+	id: post.sys.id,
+	publishedAt: post.fields.publishedAt,
+	slug: post.fields.slug,
+	title: post.fields.title,
+	url: undefined,
+}))
+const entries: Blog[] = microcmsEntries.map((entry) => ({
+	body: undefined,
+	description: undefined,
+	headerImageUrl: undefined,
+	id: entry.id,
+	media: entry.media,
+	publishedAt: entry.publishAt,
+	slug: undefined,
+	title: entry.title,
+	url: entry.link,
+}))
+
+const blogs = [...contentfulBlogs, ...entries].sort((a, b) => dayjs(a.publishedAt).isBefore(dayjs(b.publishedAt)) ? 1 : -1 )
 ---
 
 <DefaultLayout>
 	<TopHero />
 	<AboutSection />
 	<LatestWorks />
-	<BlogList posts={posts.slice(0, 3)} />
+	<BlogList blogs={blogs.slice(0, 3)} />
 </DefaultLayout>
