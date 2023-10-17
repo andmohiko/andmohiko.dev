@@ -2,13 +2,13 @@
 import '~/styles/blog.css';
 
 import dayjs from "dayjs";
-import type { Blog } from '~/types/blog';
+import type { ContentfulBlog } from '~/types/blog';
 
 import styles from './style.module.scss'
 
 import markdownIt from "markdown-it";
 interface Props {
-  blog: Blog;
+  blog: ContentfulBlog;
 }
 
 const { blog } = Astro.props;

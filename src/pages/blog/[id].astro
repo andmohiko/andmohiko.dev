@@ -4,11 +4,11 @@ import '~/styles/blog.css';
 import BlogLayout from "~/layouts/BlogLayout.astro";
 import BlogContainer from "~/components/containers/BlogContainer.astro";
 import { getAllBlogPosts, getBlogById } from '~/lib/contentful'
-import type { Blog } from '~/types/blog';
+import type { ContentfulBlog } from '~/types/blog';
 
 export async function getStaticPaths() {
   const blogs = await getAllBlogPosts();
-  return blogs.map((blog: Blog) => ({
+  return blogs.map((blog: ContentfulBlog) => ({
     params: {
       id: blog.fields.slug,
     },

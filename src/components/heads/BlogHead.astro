@@ -1,9 +1,9 @@
 ---
-import type { Blog } from '~/types/blog';
+import type { ContentfulBlog } from '~/types/blog';
 interface Props {
 	title: string;
 	description: string;
-	blog?: Blog
+	blog?: ContentfulBlog
 }
 
 const { title, description, blog } = Astro.props;

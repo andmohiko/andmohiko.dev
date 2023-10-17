@@ -7,13 +7,13 @@ import BlogHead from "~/components/heads/BlogHead.astro";
 import FixedHeader from "~/components/navigations/FixedHeader.astro";
 import BottomFooter from "~/components/navigations/BottomFooter.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import type { Blog } from '~/types/blog';
+import type { ContentfulBlog } from '~/types/blog';
 
 import '@fontsource/noto-sans-jp/400.css';
 import '@fontsource/noto-sans-jp/700.css';
 
 interface Props {
-	blog: Blog
+	blog: ContentfulBlog
 }
 
 const { blog } = Astro.props;
