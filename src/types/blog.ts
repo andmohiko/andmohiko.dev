@@ -1,4 +1,4 @@
-export type Blog = {
+export type ContentfulBlog = {
   metadata: {
     tags: string[]
   }
@@ -19,4 +19,16 @@ export type Blog = {
     slug: string
     title: string
   }
+}
+
+export type Blog = {
+  body?: string
+  description?: string
+  headerImageUrl?: string
+  id: string
+  media?: string
+  publishedAt: string
+  slug?: string
+  title: string
+  url?: string
 }

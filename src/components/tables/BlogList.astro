@@ -2,20 +2,19 @@
 import SectionHeading from '~/components/typographys/SectionHeading.astro'
 import BlogTitleCard from '~/components/cards/BlogTitleCard.astro';
 import type { Blog } from '~/types/blog'
-import type { FailedToLoadModuleSSR } from 'node_modules/astro/dist/core/errors/errors-data';
 
 interface Props {
-  posts: Blog[];
+  blogs: Blog[];
   isShowYear?: boolean;
 }
 
-const { posts, isShowYear } = Astro.props;
+const { blogs, isShowYear } = Astro.props;
 
-const showYear = (posts, index, isShowYear) => {
+const showYear = (posts: Blog[], index: number, isShowYear: boolean) => {
   if (!isShowYear) return false;
-  const year = posts[index].fields.publishedAt.slice(0,4);
+  const year = posts[index].publishedAt.slice(0,4);
   if (index === 0) return true;
-  const prevYear = posts[index-1].fields.publishedAt.slice(0,4);
+  const prevYear = posts[index-1].publishedAt.slice(0,4);
   return year !== prevYear;
 }
 ---
@@ -23,12 +22,12 @@ const showYear = (posts, index, isShowYear) => {
 <section id="blog" class="blog">
   <SectionHeading>Blog</SectionHeading>
   <div class="blog-list">
-    {posts.map((post, index) => (
+    {blogs.map((blog, index) => (
       <>
-        {showYear(posts, index, isShowYear) && (
-          <p class="post-year">{post.fields.publishedAt.slice(0,4)}</p>
+        {showYear(blogs, index, Boolean(isShowYear)) && (
+          <p class="post-year">{blog.publishedAt.slice(0,4)}</p>
         )}
-        <BlogTitleCard blog={post} />
+        <BlogTitleCard blog={blog} />
       </>
     ))}
   </div>
