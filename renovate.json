@@ -4,7 +4,7 @@
   "extends": ["config:base", ":disableDependencyDashboard"],
   "automerge": false,
   "major": {
-    "enabled": true
+    "enabled": false
   },
   "autoApprove": false,
   "branchConcurrentLimit": 5
