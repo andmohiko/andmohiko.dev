@@ -7,12 +7,20 @@ interface Props {
 }
 
 const { blog } = Astro.props;
+
+const link = blog.media ? blog.url : `${import.meta.env.APP_URL}/blog/${blog.slug}`
 ---
 
 <article class="blog-title-card">
-  <a href={`${import.meta.env.APP_URL}/blog/${blog.fields.slug}`} class="blog-title-row">
-    <h3 class="title">{blog.fields.title}</h3>
-    <p class="date">{dayjs(new Date(blog.fields.publishedAt)).format('YYYY.MM.DD')}</p>
+  <a href={link} target={blog.media ? '_blank' : undefined} class="blog-title-row">
+    {blog.media ? (
+      <h3 class="title">
+        {blog.title}<span class="media">{` (${blog.media})`}</span>
+      </h3>
+    ) : (
+      <h3 class="title">{blog.title}</h3>
+    )}
+    <p class="date">{dayjs(new Date(blog.publishedAt)).format('YYYY.MM.DD')}</p>
   </a>
 </article>
 
@@ -32,6 +40,12 @@ const { blog } = Astro.props;
       font-weight: normal;
       line-height: 1.8;
       letter-spacing: 0.1px;
+
+      .media {
+        font-size: 15px;
+        line-height: 1.2;
+        opacity: 0.8;
+      }
     }
 
     .date {
