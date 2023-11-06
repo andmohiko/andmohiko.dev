@@ -9,8 +9,6 @@ interface Props {
 const { blog } = Astro.props;
 
 const link = blog.media ? blog.url : `${import.meta.env.APP_URL}/blog/${blog.slug}`
-
-console.log('blog', blog)
 ---
 
 <article class="blog-title-card">
