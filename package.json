@@ -2,6 +2,7 @@
   "name": "andmohiko.dev",
   "description": "andmohiko's portfolio site",
   "author": "andmohiko",
+  "license": "UNLICENSED",
   "private": true,
   "version": "0.0.1",
   "scripts": {
