@@ -1,0 +1,62 @@
+---
+import type { Work } from '~/types/work'
+
+interface Props {
+  work: Work
+}
+
+const { work } = Astro.props;
+---
+
+<article class="work-card">
+  <div class="header">
+    <h3 class="title">{work.title}</h3>
+    <div class="tags">
+      {work.tags.map((tag) => (<span class="tag">{tag}</span>))}
+    </div>
+  </div>
+  <img src={work.thumbnail.url} alt={work.title} class="thumbnail">
+  <!-- <div set:html={md.render(blog.fields.body)} class={styles.blogBody}></div> -->
+</article>
+
+<style lang="scss" scoped>
+.work-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.8;
+      letter-spacing: 0.1px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+
+      .tag {
+        background-color: var(--color-white);
+        padding: 2px 8px;
+        font-size: 13px;
+        font-weight: bold;
+        line-height: 1.5;
+        letter-spacing: 0.1px;
+        color: var(--color-text-black);
+      }
+    }
+  }
+  
+  .thumbnail {
+    max-width: 500px;
+  }
+}
+</style>

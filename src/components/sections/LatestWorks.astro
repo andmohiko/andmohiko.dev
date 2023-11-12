@@ -1,10 +1,22 @@
 ---
 import SectionHeading from '~/components/typographys/SectionHeading.astro'
+import WorkCard from '~/components/cards/WorkCard.astro';
+import type { Work } from '~/types/work'
+
+interface Props {
+  works: Work
+}
+
+const { works } = Astro.props;
+
+const work = works[0]
+console.log(work)
 ---
 
 <section id="works" class="works">
   <SectionHeading>Works</SectionHeading>
   <div class="portfolio-content">
+    <WorkCard work={work} />
     <div class="portfolio-card">
       <div class="portfolio-text">
         <h3>スマレポ</h3>
