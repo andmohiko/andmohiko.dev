@@ -1,0 +1,36 @@
+---
+interface Props {
+  link: string
+}
+
+const { link } = Astro.props;
+---
+
+<div class="more">
+  <a href={link} class="button">
+    More
+    <img src='/images/svgs/chevron-double-right.svg' alt='more' />
+  </a>
+</div>
+
+<style lang="scss" scoped>
+.more {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
+  .button {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--color-white);
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+</style>
