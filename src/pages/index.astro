@@ -2,9 +2,8 @@
 import DefaultLayout from "~/layouts/DefaultLayout.astro";
 import TopHero from "~/components/sections/TopHero.astro";
 import AboutSection from "~/components/sections/AboutSection.astro";
-import BlogList from "~/components/tables/BlogList.astro";
+import LatestBlogs from "~/components/sections/LatestBlogs.astro";
 import LatestWorks from "~/components/sections/LatestWorks.astro";
-
 import { getAllBlogPosts } from "~/lib/contentful";
 import { getAllEntries, getAllWorks } from "~/lib/microcms"
 import type { Blog } from '~/types/blog'
@@ -43,5 +42,5 @@ const blogs = [...contentfulBlogs, ...entries].sort((a, b) => dayjs(a.publishedA
 	<TopHero />
 	<AboutSection />
 	<LatestWorks works={works} />
-	<BlogList blogs={blogs.slice(0, 3)} />
+	<LatestBlogs blogs={blogs.slice(0, 3)} />
 </DefaultLayout>
