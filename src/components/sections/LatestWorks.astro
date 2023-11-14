@@ -11,8 +11,9 @@ interface Props {
 const { works } = Astro.props;
 
 const work1 = works.find((work) => work.title === 'スマレポ')!;
-const work2 = works.find((work) => work.title === '東海スクショDB')!;
-const latestWorks = [work1, work2];
+const work2 = works.find((work) => work.title === '地雷時計')!;
+const work3 = works.find((work) => work.title === '東海スクショDB')!;
+const latestWorks = [work1, work2, work3];
 ---
 
 <section id="works" class="latest-works">
