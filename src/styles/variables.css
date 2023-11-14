@@ -8,4 +8,7 @@
 
   --color-text-black: #333333;
   --color-text-gray: #666666;
+  --color-text-light-gray: #cccccc;
+  --color-text-link: #98c6f1;
+  --color-text-highlight: #6f8eac;
 }

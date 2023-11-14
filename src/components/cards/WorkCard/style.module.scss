@@ -1,0 +1,68 @@
+.workCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  padding-bottom: 32px;
+  border-bottom: 0.5px dashed rgb(80, 95, 108);
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.8;
+      letter-spacing: 0.1px;
+    }
+
+    .description {
+      color: var(--color-text-light-gray);
+      font-size: 15px;
+      line-height: 1.4;
+      letter-spacing: 0.1px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+
+      .tag {
+        background-color: var(--color-white);
+        padding: 2px 8px;
+        font-size: 13px;
+        font-weight: bold;
+        line-height: 1.5;
+        letter-spacing: 0.1px;
+        color: var(--color-text-black);
+      }
+    }
+  }
+
+  .thumbnail {
+    max-width: 500px;
+  }
+
+  h4 {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.6;
+    margin: 16px 0 8px;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  a {
+    color: var(--color-text-link);
+
+    &:hover {
+      color: var(--color-text-highlight);
+    }
+  }
+}
