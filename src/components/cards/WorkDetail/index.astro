@@ -11,7 +11,6 @@ const { work } = Astro.props;
 ---
 
 <article class={styles.workCard}>
-  <img src={work.thumbnail.url} alt={work.title} class={styles.thumbnail}>
   <div class={styles.header}>
     <h3 class={styles.title}>{work.title}</h3>
     <p class={styles.description}>{work.description}</p>
@@ -19,4 +18,8 @@ const { work } = Astro.props;
       {work.tags.map((tag) => (<span class={styles.tag}>{tag}</span>))}
     </div>
   </div>
+  <a href={work.link} target="_blank">
+    <img src={work.thumbnail.url} alt={work.title} class={styles.thumbnail}>
+  </a>
+  <div set:html={work.body}></div>
 </article>

@@ -1,6 +1,6 @@
 ---
 import SectionHeading from '~/components/typographys/SectionHeading.astro'
-import WorkCard from '~/components/cards/WorkCard/index.astro';
+import WorkDetail from '~/components/cards/WorkDetail/index.astro';
 import MoreButton from '~/components/buttons/MoreButton.astro';
 import type { Work } from '~/types/work'
 
@@ -20,7 +20,7 @@ const latestWorks = [work1, work2, work3];
   <SectionHeading>Works</SectionHeading>
   <div class="works">
     {latestWorks.map((work) => (
-      <WorkCard work={work} />
+      <WorkDetail work={work} />
     ))}
   </div>
   <MoreButton link="/works" />

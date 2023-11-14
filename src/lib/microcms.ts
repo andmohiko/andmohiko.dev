@@ -16,6 +16,9 @@ export const getEntryById = async (id: string) =>
   await microcmsClient.get({ endpoint: 'entries', contentId: id })
 
 export const getAllWorks = async (): Promise<Array<Work>> => {
-  const data = await microcmsClient.get({ endpoint: 'works' })
+  const data = await microcmsClient.get({
+    endpoint: 'works',
+    queries: { orders: '-startAt' },
+  })
   return data.contents
 }
