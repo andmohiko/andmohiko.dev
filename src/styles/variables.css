@@ -1,14 +1,14 @@
 :root {
-  --color-black: #000000;
-  --color-white: #ffffff;
+	--color-black: #000000;
+	--color-white: #ffffff;
 
-  --color-bg-black: rgb(36, 35, 38);
+	--color-bg-black: rgb(36, 35, 38);
 
-  --color-border-gray: #dddddd;
+	--color-border-gray: #dddddd;
 
-  --color-text-black: #333333;
-  --color-text-gray: #666666;
-  --color-text-light-gray: #cccccc;
-  --color-text-link: #98c6f1;
-  --color-text-highlight: #6f8eac;
+	--color-text-black: #333333;
+	--color-text-gray: #666666;
+	--color-text-light-gray: #cccccc;
+	--color-text-link: #98c6f1;
+	--color-text-highlight: #6f8eac;
 }

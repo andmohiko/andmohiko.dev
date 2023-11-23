@@ -1,47 +1,47 @@
 .workCard {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
 
-  .header {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
+	.header {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		width: 100%;
 
-    .title {
-      font-size: 24px;
-      font-weight: bold;
-      line-height: 1.8;
-      letter-spacing: 0.1px;
-    }
+		.title {
+			font-size: 24px;
+			font-weight: bold;
+			line-height: 1.8;
+			letter-spacing: 0.1px;
+		}
 
-    .description {
-      color: var(--color-text-light-gray);
-      font-size: 15px;
-      line-height: 1.4;
-      letter-spacing: 0.1px;
-    }
+		.description {
+			color: var(--color-text-light-gray);
+			font-size: 15px;
+			line-height: 1.4;
+			letter-spacing: 0.1px;
+		}
 
-    .tags {
-      display: flex;
-      gap: 8px;
+		.tags {
+			display: flex;
+			gap: 8px;
 
-      .tag {
-        background-color: var(--color-white);
-        padding: 2px 8px;
-        font-size: 13px;
-        font-weight: bold;
-        line-height: 1.5;
-        letter-spacing: 0.1px;
-        color: var(--color-text-black);
-      }
-    }
-  }
+			.tag {
+				background-color: var(--color-white);
+				padding: 2px 8px;
+				font-size: 13px;
+				font-weight: bold;
+				line-height: 1.5;
+				letter-spacing: 0.1px;
+				color: var(--color-text-black);
+			}
+		}
+	}
 
-  .thumbnail {
-    max-width: 400px;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-  }
+	.thumbnail {
+		max-width: 400px;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+	}
 }
