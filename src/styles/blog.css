@@ -32,7 +32,29 @@ pre {
 }
 
 img {
-	width: 100%;
-	height: auto;
 	margin: 16px 0;
+	width: 100%; /* 横幅を常に親要素いっぱいに */
+	height: auto; /* 幅に応じて高さを自動調整 */
+	max-height: 450px; /* 高さを400pxに制限 */
+	object-fit: contain; /* 画像のアスペクト比を維持 */
+}
+
+ul, ol {
+	padding-block: 0;
+	padding-left: 40px; /* デフォルトのインデント */
+	margin: 0;
+}
+
+li {
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+/* よりカスタマイズしたい場合の例: 丸の色やサイズ変更 */
+ul {
+	list-style-type: disc; /* 通常の丸型 */
+}
+
+ol {
+	list-style-type: decimal; /* 数字 */
 }
