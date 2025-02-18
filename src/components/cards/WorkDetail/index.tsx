@@ -9,7 +9,7 @@ type Props = {
 }
 
 const WorkDetail = ({ work }: Props): ReactNode => {
-  return (
+  return work ? (
     <article className={styles.workCard}>
       <div className={styles.header}>
         <h3 className={styles.title}>{work.title}</h3>
@@ -23,7 +23,7 @@ const WorkDetail = ({ work }: Props): ReactNode => {
       </a>
       <div dangerouslySetInnerHTML={{ __html: work.body }}></div>
     </article>
-  )
+  ) : null
 }
 
 export default WorkDetail
