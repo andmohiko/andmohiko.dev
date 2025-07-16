@@ -22,9 +22,27 @@
 
 import React from 'react'
 import type { Metadata } from 'next'
+import { DotGothic16, Kosugi_Maru } from 'next/font/google'
 import { GlobalNavigation } from '@/components/navigation/GlobalNavigation'
 import './globals.css'
 import styles from './layout.module.css'
+
+/**
+ * Google Fontsの設定
+ */
+const kosugiMaru = Kosugi_Maru({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-kosugi-maru',
+})
+
+const dotGothic16 = DotGothic16({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-dotgothic16',
+})
 
 /**
  * サイトメタデータの設定
@@ -131,7 +149,9 @@ const RootLayout: React.FC<RootLayoutProps> = ({ main, modal, children }) => {
         <meta name="msapplication-TileColor" content="#3b82f6" />
       </head>
 
-      <body className={styles.body}>
+      <body
+        className={`${styles.body} ${kosugiMaru.variable} ${dotGothic16.variable}`}
+      >
         {/* メインアプリケーション構造 */}
         <div className={styles.container}>
           {/* 左カラム：メインコンテンツ */}
