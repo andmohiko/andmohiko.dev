@@ -2,13 +2,14 @@ import React from 'react'
 import classNames from 'classnames'
 
 import styles from './style.module.css'
-import type { FontSizes, TextColor, TitleLevel } from './types'
+import type { FontSizes, TextColor, TitleLevel, TextOpacity } from './types'
 
 type Props = {
   children: React.ReactNode
   level: TitleLevel
   size?: FontSizes
   color?: TextColor
+  opacity?: TextOpacity
 }
 
 export const TitleText = ({
@@ -16,6 +17,7 @@ export const TitleText = ({
   level,
   size = 'md',
   color = 'white',
+  opacity = 'solid',
 }: Props): React.ReactElement => {
   const getFontSize = (size: FontSizes): number => {
     if (size === 'xl') {
@@ -43,6 +45,7 @@ export const TitleText = ({
           styles.titleText,
           styles[`_${color}`],
           styles[`_size${getFontSize(size)}`],
+          styles[`_${opacity}`],
         )}
       >
         {children}
@@ -57,6 +60,7 @@ export const TitleText = ({
           styles.titleText,
           styles[`_${color}`],
           styles[`_size${getFontSize(size)}`],
+          styles[`_${opacity}`],
         )}
       >
         {children}
@@ -71,6 +75,7 @@ export const TitleText = ({
           styles.titleText,
           styles[`_${color}`],
           styles[`_size${getFontSize(size)}`],
+          styles[`_${opacity}`],
         )}
       >
         {children}
@@ -85,6 +90,7 @@ export const TitleText = ({
           styles.titleText,
           styles[`_${color}`],
           styles[`_size${getFontSize(size)}`],
+          styles[`_${opacity}`],
         )}
       >
         {children}
@@ -99,6 +105,7 @@ export const TitleText = ({
           styles.titleText,
           styles[`_${color}`],
           styles[`_size${getFontSize(size)}`],
+          styles[`_${opacity}`],
         )}
       >
         {children}
@@ -113,6 +120,7 @@ export const TitleText = ({
           styles.titleText,
           styles[`_${color}`],
           styles[`_size${getFontSize(size)}`],
+          styles[`_${opacity}`],
         )}
       >
         {children}
@@ -126,6 +134,7 @@ export const TitleText = ({
         styles.titleText,
         styles[`_${color}`],
         styles[`_size${getFontSize(size)}`],
+        styles[`_${opacity}`],
       )}
     >
       {children}

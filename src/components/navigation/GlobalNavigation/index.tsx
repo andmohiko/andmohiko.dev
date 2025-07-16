@@ -96,8 +96,6 @@ export const GlobalNavigation: React.FC = () => {
           <Link
             key={item.href}
             href={item.href}
-            target="_blank"
-            rel="noopener noreferrer"
             aria-label={item.ariaLabel}
             aria-current={isCurrentPath(item.href) ? 'page' : undefined}
           >

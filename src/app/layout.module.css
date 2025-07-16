@@ -18,6 +18,7 @@
 .sidebar {
   flex-shrink: 0;
   background: var(--color-primary-dark);
+  padding-top: 200px;
 }
 
 /* モーダルレイヤー */

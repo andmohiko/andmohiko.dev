@@ -76,3 +76,11 @@
 ._right {
   text-align: right;
 }
+
+._solid {
+  opacity: 1;
+}
+
+._transparent {
+  opacity: 0.5;
+}
