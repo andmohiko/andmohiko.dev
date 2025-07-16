@@ -35,16 +35,20 @@
     align-items: center;
     gap: 16px;
 
-    .navigationItem {
-      display: flex;
-      align-items: center;
-      background-color: transparent;
-      border-radius: 100px;
-      padding: 8px 16px;
-    }
+    .navigationLink {
+      text-decoration: none;
 
-    .current {
-      background-color: var(--color-white);
+      .navigationItem {
+        display: flex;
+        align-items: center;
+        background-color: transparent;
+        border-radius: 100px;
+        padding: 8px 16px;
+      }
+
+      .current {
+        background-color: var(--color-white);
+      }
     }
   }
 

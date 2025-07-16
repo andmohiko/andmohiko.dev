@@ -12,12 +12,15 @@ import { ParagraphText } from '@/components/typography/ParagraphText'
 import dayjs from 'dayjs'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import { ContentPaginator } from '@/components/navigation/content-paginator'
 
 /**
  * BlogModalコンポーネントのプロパティ型
  */
 type BlogModalProps = {
   blog: ContentfulBlog
+  previousSlug?: string
+  nextSlug?: string
 }
 
 /**
@@ -26,7 +29,11 @@ type BlogModalProps = {
  * @param {BlogModalProps} props - コンポーネントのプロパティ
  * @returns {JSX.Element} ブログ詳細モーダル
  */
-export const BlogContent: React.FC<BlogModalProps> = ({ blog }) => {
+export const BlogContent: React.FC<BlogModalProps> = ({
+  blog,
+  previousSlug,
+  nextSlug,
+}) => {
   return (
     <div className={styles.wrapper}>
       <BaseModal>
@@ -48,7 +55,7 @@ export const BlogContent: React.FC<BlogModalProps> = ({ blog }) => {
           </div>
         </div>
       </BaseModal>
-      <div>navigation previous next</div>
+      <ContentPaginator previousSlug={previousSlug} nextSlug={nextSlug} />
     </div>
   )
 }

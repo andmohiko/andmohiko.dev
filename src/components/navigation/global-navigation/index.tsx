@@ -98,6 +98,7 @@ export const GlobalNavigation: React.FC = () => {
             href={item.href}
             aria-label={item.ariaLabel}
             aria-current={isCurrentPath(item.href) ? 'page' : undefined}
+            className={styles.navigationLink}
           >
             <li
               className={classNames(
@@ -123,14 +124,14 @@ export const GlobalNavigation: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <IoLogoGithub size={64} />
+          <IoLogoGithub size={64} color="var(--color-white)" />
         </Link>
         <Link
           href="https://x.com/andmohiko"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaXTwitter size={64} />
+          <FaXTwitter size={64} color="var(--color-white)" />
         </Link>
       </div>
       <p className={styles.copyright}>

@@ -43,8 +43,12 @@ type BlogModalPageProps = {
 const BlogModalPage: React.FC<BlogModalPageProps> = async ({ params }) => {
   const { slug } = params
   const blog = await getBlogById(slug)
+  const previousSlug = 'sample'
+  const nextSlug = 'sample2'
 
-  return <BlogContent blog={blog} />
+  return (
+    <BlogContent blog={blog} previousSlug={previousSlug} nextSlug={nextSlug} />
+  )
 }
 
 export default BlogModalPage

@@ -4,30 +4,27 @@
   gap: 48px;
   padding-top: 48px;
   width: 100%;
-}
 
-.content {
-  display: flex;
-  flex-direction: column;
-  padding: 96px 24px 24px;
-  width: 100%;
+  .content {
+    display: flex;
+    flex-direction: column;
+    padding: 96px 24px 24px;
+    width: 100%;
 
-  .title {
-    margin-bottom: 8px;
+    .title {
+      margin-bottom: 8px;
+    }
+
+    .date {
+      margin-bottom: 0px;
+    }
   }
-
-  .date {
-    margin-bottom: 0px;
-  }
-}
-
-.body {
-  color: var(--color-primary);
 }
 
 .body :global(h1) {
   font-size: 18px;
   font-weight: bold;
+  color: var(--color-primary);
   margin: 24px 0 16px 0;
   line-height: 1.25;
   text-wrap: balance;
@@ -36,6 +33,7 @@
 .body :global(h2) {
   font-size: 16px;
   font-weight: bold;
+  color: var(--color-primary);
   margin: 24px 0 16px;
   line-height: 1.25;
   padding-left: 8px;
@@ -46,6 +44,7 @@
 .body :global(h3) {
   font-size: 14px;
   font-weight: bold;
+  color: var(--color-primary);
   margin: 16px 0 8px;
   line-height: 1.25;
   text-wrap: balance;
@@ -54,38 +53,40 @@
 .body :global(h4) {
   font-size: 10px;
   font-weight: bold;
+  color: var(--color-primary);
   line-height: 1.25;
   text-wrap: balance;
 }
 
 .body :global(p) {
-  margin-bottom: 8px;
+  margin-block: 8px;
   padding-left: 8px;
   font-size: 12px;
   line-height: 2;
-  margin: 8px 0;
+  color: var(--color-primary);
 }
 
 .body :global(ul) {
-  padding-left: 8px;
+  margin-block: 8px;
+  padding-left: 24px;
   font-size: 12px;
   line-height: 1.75;
-  margin: 8px 0;
-  padding-left: 20px;
+  color: var(--color-primary);
   list-style-type: disc; /* 通常の丸型 */
 }
 
 .body :global(ol) {
-  padding-left: 8px;
+  margin-block: 8px;
+  padding-left: 24px;
   font-size: 12px;
-  line-height: 1.75;
-  margin: 8px 0;
-  padding-left: 20px;
+  line-height: 2;
+  color: var(--color-primary);
   list-style-type: decimal; /* 数字 */
 }
 
 .body :global(li) {
   margin: 4px 0;
+  color: var(--color-primary);
 }
 
 .body :global(blockquote) {
@@ -141,10 +142,12 @@
 }
 
 .body :global(strong) {
+  color: var(--color-primary);
   font-weight: bold;
 }
 
 .body :global(em) {
+  color: var(--color-primary);
   font-style: italic;
 }
 

@@ -17,7 +17,7 @@
 
 import React from 'react'
 import { usePathname } from 'next/navigation'
-import { GlobalNavigation } from '@/components/navigation/GlobalNavigation'
+import { GlobalNavigation } from '@/components/navigation/global-navigation'
 import styles from './style.module.css'
 
 /**
