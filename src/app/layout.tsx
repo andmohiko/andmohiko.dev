@@ -23,7 +23,7 @@
 import React from 'react'
 import type { Metadata } from 'next'
 import { DotGothic16, Kosugi_Maru } from 'next/font/google'
-import { GlobalNavigation } from '@/components/navigation/GlobalNavigation'
+import { RightColumn } from '@/components/layout/right-column'
 import './globals.css'
 import styles from './layout.module.css'
 
@@ -153,24 +153,17 @@ const RootLayout: React.FC<RootLayoutProps> = ({ main, modal, children }) => {
         className={`${styles.body} ${kosugiMaru.variable} ${dotGothic16.variable}`}
       >
         {/* メインアプリケーション構造 */}
-        <div className={styles.container}>
+        <main className={styles.container}>
           {/* 左カラム：メインコンテンツ */}
-          <main className={styles.mainContent} role="main">
+          <div className={styles.mainContent} role="main">
             {main || children}
-          </main>
-
-          {/* 右カラム：ナビゲーション */}
-          <aside className={styles.sidebar} role="complementary">
-            <GlobalNavigation />
-          </aside>
-        </div>
-
-        {/* モーダルレイヤー */}
-        {modal && (
-          <div className={styles.modalOverlay} role="dialog" aria-modal="true">
-            {modal}
           </div>
-        )}
+
+          {/* 右カラム：ナビゲーション・モーダル */}
+          <div className={styles.rightColumn}>
+            <RightColumn modal={modal} />
+          </div>
+        </main>
       </body>
     </html>
   )

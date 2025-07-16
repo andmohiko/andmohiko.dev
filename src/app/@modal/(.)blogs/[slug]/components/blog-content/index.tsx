@@ -1,0 +1,54 @@
+/**
+ * ブログ詳細コンポーネント
+ */
+
+'use client'
+
+import { ContentfulBlog } from '@/types/blog'
+import styles from './style.module.css'
+import { BaseModal } from '@/components/layout/base-modal'
+import { TitleText } from '@/components/typography/TitleText'
+import { ParagraphText } from '@/components/typography/ParagraphText'
+import dayjs from 'dayjs'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+
+/**
+ * BlogModalコンポーネントのプロパティ型
+ */
+type BlogModalProps = {
+  blog: ContentfulBlog
+}
+
+/**
+ * ブログ詳細モーダルコンポーネント
+ *
+ * @param {BlogModalProps} props - コンポーネントのプロパティ
+ * @returns {JSX.Element} ブログ詳細モーダル
+ */
+export const BlogContent: React.FC<BlogModalProps> = ({ blog }) => {
+  return (
+    <div className={styles.wrapper}>
+      <BaseModal>
+        <div className={styles.content}>
+          <div className={styles.title}>
+            <TitleText level="h1" size="lg" color="primary">
+              {blog.fields.title}
+            </TitleText>
+          </div>
+          <div className={styles.date}>
+            <ParagraphText size="lg" color="primary">
+              {dayjs(blog.fields.publishedAt).format('YYYY.MM.DD')}
+            </ParagraphText>
+          </div>
+          <div className={styles.body}>
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {blog.fields.body}
+            </ReactMarkdown>
+          </div>
+        </div>
+      </BaseModal>
+      <div>navigation previous next</div>
+    </div>
+  )
+}
