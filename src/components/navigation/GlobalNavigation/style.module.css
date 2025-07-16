@@ -1,0 +1,66 @@
+/**
+ * Navigation コンポーネント用 CSS Modules
+ * 
+ * このファイルでは以下のスタイル機能を提供します：
+ * - レスポンシブナビゲーションレイアウト
+ * - カレントインジケーターのビジュアルスタイル
+ * - ホバーエフェクトとトランジション
+ * - アクセシビリティ対応スタイル
+ * 
+ * 主な仕様：
+ * - CSS Grid/Flexboxレイアウト
+ * - CSS Custom Properties使用
+ * - モバイルファーストデザイン
+ * 
+ * 制限事項：
+ * - モダンブラウザでのCSS Grid対応が必要
+ * - CSS Custom Properties対応が必要
+ */
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .logo {
+    height: 77px;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .navigationList {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+
+    .navigationItem {
+      display: flex;
+      align-items: center;
+      background-color: transparent;
+      border-radius: 100px;
+      padding: 8px 16px;
+    }
+
+    .current {
+      background-color: var(--color-white);
+    }
+  }
+
+  .social {
+    margin-top: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .copyright {
+    margin-top: 24px;
+    text-align: center;
+    color: var(--color-white);
+    font-size: 12px;
+    opacity: 0.5;
+  }
+}

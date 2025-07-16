@@ -6,16 +6,14 @@ import type { FontSizes, TextColor } from './types'
 
 type Props = {
   children: React.ReactNode
-  weight?: 'normal' | 'bold'
   size?: FontSizes
   color?: TextColor
 }
 
 export const LabelText = ({
   children,
-  weight = 'normal',
   size = 'md',
-  color = 'black',
+  color = 'white',
 }: Props): React.ReactElement => {
   const getFontSize = (size: FontSizes): number => {
     if (size === 'lg') {
@@ -33,7 +31,6 @@ export const LabelText = ({
         styles.labelText,
         styles[`_${color}`],
         styles[`_size${getFontSize(size)}`],
-        styles[`_${weight}`],
       )}
     >
       {children}

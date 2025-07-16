@@ -16,7 +16,7 @@ export const ParagraphText = ({
   children,
   weight = 'normal',
   size = 'md',
-  color = 'black',
+  color = 'white',
   textAlign = 'left',
 }: Props): React.ReactElement => {
   const getFontSize = (size: FontSizes): number => {

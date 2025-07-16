@@ -4,19 +4,15 @@
 }
 
 ._black {
-  color: var(--color-gray800);
+  color: var(--color-black);
 }
 
 ._white {
-  color: var(--color-text-white);
+  color: var(--color-white);
 }
 
-._gray {
-  color: var(--color-gray400);
-}
-
-._red {
-  color: var(--color-base-red);
+._primary {
+  color: var(--color-primary);
 }
 
 /* TODO: font familyをHiragino Maru Gothic StdN W6にする */
@@ -34,6 +30,7 @@
 .labelText {
   line-height: 1.25;
   font-family: 'Noto Sans JP', sans-serif;
+  font-weight: bold;
 }
 
 ._size32 {

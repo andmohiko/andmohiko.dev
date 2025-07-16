@@ -15,7 +15,7 @@ export const TitleText = ({
   children,
   level,
   size = 'md',
-  color = 'black',
+  color = 'white',
 }: Props): React.ReactElement => {
   const getFontSize = (size: FontSizes): number => {
     if (size === 'xl') {
