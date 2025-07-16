@@ -48,7 +48,9 @@ export const BlogList: React.FC<Props> = ({ blogs }) => {
             key={blog.id}
             publishedAt={blog.publishedAt}
             title={blog.title}
-            slug={blog.slug ?? blog.url ?? ''}
+            slug={blog.slug}
+            url={blog.url}
+            media={blog.media}
           />
         </Fragment>
       ))}
