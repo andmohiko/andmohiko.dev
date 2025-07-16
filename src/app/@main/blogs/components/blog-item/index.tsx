@@ -15,7 +15,7 @@ type Props = {
 export const BlogItem = ({ publishedAt, title, slug }: Props) => {
   return (
     <div className={styles.blogItem}>
-      <Link href={`/blog/${slug}`} className={styles.link}>
+      <Link href={`/blogs/${slug}`} className={styles.link}>
         <LabelText size="md">{dayjs(publishedAt).format('MM.DD')}</LabelText>
         <TitleText level="span" size="md">
           {title}

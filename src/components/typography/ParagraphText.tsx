@@ -20,6 +20,9 @@ export const ParagraphText = ({
   textAlign = 'left',
 }: Props): React.ReactElement => {
   const getFontSize = (size: FontSizes): number => {
+    if (size === 'lg') {
+      return 14
+    }
     if (size === 'sm') {
       return 10
     }
