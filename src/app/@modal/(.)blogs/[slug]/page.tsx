@@ -42,9 +42,7 @@ type BlogModalPageProps = {
 export default async function BlogModalPage({ params }: BlogModalPageProps) {
   const param = await params
   const slug = (param.slug as string) || ''
-  const blog = await getBlogById(slug)
-  const previousSlug = 'sample'
-  const nextSlug = 'sample2'
+  const { blog, previousSlug, nextSlug } = await getBlogById(slug)
 
   return (
     <BlogContent blog={blog} previousSlug={previousSlug} nextSlug={nextSlug} />
