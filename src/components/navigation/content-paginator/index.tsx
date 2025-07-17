@@ -1,6 +1,7 @@
 import { IoChevronBackOutline, IoChevronForwardOutline } from 'react-icons/io5'
 import Link from 'next/link'
 import styles from './style.module.css'
+import { LabelText } from '@/components/typography/LabelText'
 
 type ContentPaginatorProps = {
   previousLabel?: string
@@ -19,14 +20,18 @@ export const ContentPaginator = ({
     <div className={styles.navigation}>
       {previousSlug && (
         <Link href={previousSlug} className={styles.previous}>
-          <IoChevronBackOutline size={24} />
-          {previousLabel}
+          <div className={styles.icon}>
+            <IoChevronBackOutline size={24} />
+          </div>
+          <LabelText>{previousLabel}</LabelText>
         </Link>
       )}
       {nextSlug && (
         <Link href={nextSlug} className={styles.next}>
-          {nextLabel}
-          <IoChevronForwardOutline size={24} />
+          <LabelText>{nextLabel}</LabelText>
+          <div className={styles.icon}>
+            <IoChevronForwardOutline size={24} />
+          </div>
         </Link>
       )}
     </div>
