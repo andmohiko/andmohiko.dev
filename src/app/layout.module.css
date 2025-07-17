@@ -1,6 +1,7 @@
 .body {
   background-color: var(--color-primary);
   position: relative;
+  margin-inline: 16px;
 
   .container {
     position: relative;
@@ -10,10 +11,19 @@
     min-height: 100vh;
     max-width: 1280px;
     margin: 0 auto;
-  }
 
-  .rightColumn {
-    width: 100%;
-    max-width: 616px;
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .rightColumn {
+      width: 100%;
+      max-width: 616px;
+
+      @media (max-width: 900px) {
+        display: none;
+      }
+    }
   }
 }

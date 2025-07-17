@@ -17,37 +17,55 @@
   .biography {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 24px;
     padding: 24px;
 
-    .description {
+    .profile {
       display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 8px;
+      flex-direction: column;
+      gap: 16px;
 
-      .occupation {
-        margin-right: 8px;
-      }
-
-      .verticalBorder {
-        width: 1px;
-        height: 100%;
-        background-color: var(--color-primary);
-      }
-
-      .social {
+      .profileHeader {
         display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 16px;
+        flex-direction: column;
+        gap: 0px;
+
+        .description {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 8px;
+
+          .occupation {
+            margin-right: 8px;
+          }
+
+          .verticalBorder {
+            width: 1px;
+            height: 100%;
+            background-color: var(--color-primary);
+          }
+
+          .social {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 16px;
+          }
+        }
       }
     }
 
-    .section {
+    .sections {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 16px;
+
+      .section {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
     }
   }
 }
@@ -59,4 +77,15 @@
   line-height: 1.25;
   padding-left: 8px;
   border-left: 4px solid var(--color-primary);
+}
+
+.sectionTile {
+  background-color: var(--color-primary-light-alt);
+  border-radius: 8px;
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 4px;
 }
