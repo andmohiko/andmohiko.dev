@@ -94,38 +94,34 @@ export const GlobalNavigation: React.FC = () => {
           className={styles.logo}
         />
         {/* navigation */}
-        <ul className={styles.navigationList} role="list">
+        <div className={styles.navigationList}>
           {navigationItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               aria-label={item.ariaLabel}
               aria-current={isCurrentPath(item.href) ? 'page' : undefined}
-              className={styles.navigationLink}
+              className={classNames(
+                styles.navigationItem,
+                isCurrentPath(item.href) && styles.current,
+              )}
             >
-              <li
-                className={classNames(
-                  styles.navigationItem,
-                  isCurrentPath(item.href) && styles.current,
-                )}
-                role="listitem"
+              <LabelText
+                size="lg"
+                color={isCurrentPath(item.href) ? 'primary' : 'white'}
               >
-                <LabelText
-                  size="lg"
-                  color={isCurrentPath(item.href) ? 'primary' : 'white'}
-                >
-                  {item.label}
-                </LabelText>
-              </li>
+                {item.label}
+              </LabelText>
             </Link>
           ))}
-        </ul>
+        </div>
         {/* social */}
         <div className={styles.social}>
           <Link
             href="https://github.com/andmohiko"
             target="_blank"
             rel="noopener noreferrer"
+            className={styles.icon}
           >
             <IoLogoGithub size={64} color="var(--color-white)" />
           </Link>
@@ -133,6 +129,7 @@ export const GlobalNavigation: React.FC = () => {
             href="https://x.com/andmohiko"
             target="_blank"
             rel="noopener noreferrer"
+            className={styles.icon}
           >
             <FaXTwitter size={64} color="var(--color-white)" />
           </Link>
@@ -155,38 +152,34 @@ export const GlobalNavigation: React.FC = () => {
           className={styles.logo}
         />
         {/* navigation */}
-        <ul className={styles.navigationList} role="list">
+        <div className={styles.navigationList}>
           {navigationItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               aria-label={item.ariaLabel}
               aria-current={isCurrentPath(item.href) ? 'page' : undefined}
-              className={styles.navigationLink}
+              className={classNames(
+                styles.navigationItem,
+                isCurrentPath(item.href) && styles.current,
+              )}
             >
-              <li
-                className={classNames(
-                  styles.navigationItem,
-                  isCurrentPath(item.href) && styles.current,
-                )}
-                role="listitem"
+              <LabelText
+                size="md"
+                color={isCurrentPath(item.href) ? 'primary' : 'white'}
               >
-                <LabelText
-                  size="md"
-                  color={isCurrentPath(item.href) ? 'primary' : 'white'}
-                >
-                  {item.label}
-                </LabelText>
-              </li>
+                {item.label}
+              </LabelText>
             </Link>
           ))}
-        </ul>
+        </div>
         {/* social */}
         <div className={styles.social}>
           <Link
             href="https://github.com/andmohiko"
             target="_blank"
             rel="noopener noreferrer"
+            className={styles.icon}
           >
             <IoLogoGithub size={48} color="var(--color-white)" />
           </Link>
@@ -194,6 +187,7 @@ export const GlobalNavigation: React.FC = () => {
             href="https://x.com/andmohiko"
             target="_blank"
             rel="noopener noreferrer"
+            className={styles.icon}
           >
             <FaXTwitter size={48} color="var(--color-white)" />
           </Link>
