@@ -3,8 +3,8 @@ import type { Entry } from '@/types/entry'
 import type { Work } from '@/types/work'
 
 export const microcmsClient = createClient({
-  serviceDomain: process.env.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN,
-  apiKey: process.env.NEXT_PUBLIC_MICROCMS_API_KEY,
+  serviceDomain: process.env.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN!,
+  apiKey: process.env.NEXT_PUBLIC_MICROCMS_API_KEY!,
 })
 
 export const getAllEntries = async (): Promise<Array<Entry>> => {

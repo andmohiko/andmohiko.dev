@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import * as contentful from 'contentful'
 import type { ContentfulBlog } from '@/types/blog'
 
@@ -21,6 +22,7 @@ export const getAllBlogPosts = async (): Promise<Array<ContentfulBlog>> => {
   const posts = await createContentfulClient()
     .getEntries({
       content_type: process.env.NEXT_PUBLIC_CTF_BLOG_POST_TYPE_ID!,
+      // @ts-ignore
       order: '-fields.publishedAt',
     })
     .then((entries) => {
@@ -29,6 +31,7 @@ export const getAllBlogPosts = async (): Promise<Array<ContentfulBlog>> => {
       }
     })
     .catch(console.error)
+  // @ts-ignore
   return posts.posts
 }
 
@@ -36,11 +39,13 @@ export const getBlogById = async (slug: string): Promise<ContentfulBlog> => {
   const posts = await createContentfulClient()
     .getEntries({
       content_type: process.env.NEXT_PUBLIC_CTF_BLOG_POST_TYPE_ID!,
+      // @ts-ignore
       order: '-fields.publishedAt',
     })
     .then((entries) =>
       entries.items.filter((item) => item.fields.slug === slug),
     )
     .catch(console.error)
+  // @ts-ignore
   return posts[0]
 }

@@ -28,10 +28,9 @@ import { getBlogById } from '@/lib/contentful'
  */
 type BlogModalPageProps = {
   /** ルートパラメータ */
-  params: {
-    /** ブログ記事のスラッグ */
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 /**
@@ -40,8 +39,9 @@ type BlogModalPageProps = {
  * @param {BlogModalPageProps} props - ページのプロパティ
  * @returns {Promise<JSX.Element>} ブログ詳細モーダル
  */
-const BlogModalPage: React.FC<BlogModalPageProps> = async ({ params }) => {
-  const { slug } = params
+export default async function BlogModalPage({ params }: BlogModalPageProps) {
+  const param = await params
+  const slug = (param.slug as string) || ''
   const blog = await getBlogById(slug)
   const previousSlug = 'sample'
   const nextSlug = 'sample2'
@@ -50,5 +50,3 @@ const BlogModalPage: React.FC<BlogModalPageProps> = async ({ params }) => {
     <BlogContent blog={blog} previousSlug={previousSlug} nextSlug={nextSlug} />
   )
 }
-
-export default BlogModalPage

@@ -29,10 +29,10 @@ export const revalidate = false
  */
 type BlogDetailPageProps = {
   /** ルートパラメータ */
-  params: {
+  params: Promise<{
     /** ブログ記事のスラッグ */
     slug: string
-  }
+  }>
 }
 
 /**
@@ -42,7 +42,8 @@ type BlogDetailPageProps = {
  * @returns {Promise<JSX.Element>} ブログ詳細ページ
  */
 const BlogDetailPage: React.FC<BlogDetailPageProps> = async ({ params }) => {
-  const { slug } = params
+  const param = await params
+  const slug = (param.slug as string) || ''
   const blog = await getBlogById(slug)
   const previousSlug = 'sample'
   const nextSlug = 'sample2'
