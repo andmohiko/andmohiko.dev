@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     template: '%s | andmohiko.dev',
   },
   description:
-    'Frontend Engineer andmohikoのポートフォリオサイト。Web開発の作品とブログを掲載しています。',
+    'andmohikoのポートフォリオサイト。Web開発の作品とブログを掲載しています。',
   keywords: [
     'Portfolio',
     'Blog',
@@ -87,7 +87,8 @@ export const metadata: Metadata = {
     url: 'https://andmohiko.dev',
     siteName: 'andmohiko.dev',
     title: 'andmohiko.dev - Portfolio & Blog',
-    description: 'Frontend Engineer andmohikoのポートフォリオサイト',
+    description:
+      'andmohikoのポートフォリオサイト。Web開発の作品とブログを掲載しています。',
     images: [
       {
         url: '/images/og-image.png',
@@ -100,7 +101,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'andmohiko.dev - Portfolio & Blog',
-    description: 'Frontend Engineer andmohikoのポートフォリオサイト',
+    description:
+      'andmohikoのポートフォリオサイト。Web開発の作品とブログを掲載しています。',
     creator: '@andmohiko',
     images: ['/images/og-image.png'],
   },
