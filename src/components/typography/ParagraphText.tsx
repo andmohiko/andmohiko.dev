@@ -2,7 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 
 import styles from './style.module.css'
-import type { FontSizes, TextColor } from './types'
+import type { FontSizes, TextColor, TextOpacity } from './types'
 
 type Props = {
   children: React.ReactNode
@@ -10,6 +10,7 @@ type Props = {
   size?: FontSizes
   color?: TextColor
   textAlign?: 'left' | 'center' | 'right'
+  opacity?: TextOpacity
 }
 
 export const ParagraphText = ({
@@ -18,6 +19,7 @@ export const ParagraphText = ({
   size = 'md',
   color = 'white',
   textAlign = 'left',
+  opacity = '100',
 }: Props): React.ReactElement => {
   const getFontSize = (size: FontSizes): number => {
     if (size === 'lg') {
@@ -37,6 +39,7 @@ export const ParagraphText = ({
         styles[`_size${getFontSize(size)}`],
         styles[`_${weight}`],
         styles[`_${textAlign}`],
+        styles[`_opacity${opacity}`],
       )}
     >
       {children}

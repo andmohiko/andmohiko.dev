@@ -25,6 +25,7 @@ import classNames from 'classnames'
 
 import { LabelText } from '@/components/typography/LabelText'
 import styles from './style.module.css'
+import { ParagraphText } from '@/components/typography/ParagraphText'
 
 /**
  * ナビゲーション項目の型定義
@@ -134,9 +135,11 @@ export const GlobalNavigation: React.FC = () => {
           <FaXTwitter size={64} color="var(--color-white)" />
         </Link>
       </div>
-      <p className={styles.copyright}>
-        <small>&copy; andmohiko.dev</small>
-      </p>
+      <div className={styles.copyright}>
+        <ParagraphText size="xs" opacity="50" textAlign="center">
+          &copy; andmohiko.dev
+        </ParagraphText>
+      </div>
     </nav>
   )
 }
