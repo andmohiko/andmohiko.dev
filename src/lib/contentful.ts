@@ -35,17 +35,40 @@ export const getAllBlogPosts = async (): Promise<Array<ContentfulBlog>> => {
   return posts.posts
 }
 
-export const getBlogById = async (slug: string): Promise<ContentfulBlog> => {
-  const posts = await createContentfulClient()
+// ブログ詳細ページのデータを取得
+export const getBlogById = async (
+  slug: string,
+): Promise<{
+  blog: ContentfulBlog
+  previousSlug: string
+  nextSlug: string
+}> => {
+  console.log('slug in func', slug)
+  const allPosts = await createContentfulClient()
     .getEntries({
       content_type: process.env.NEXT_PUBLIC_CTF_BLOG_POST_TYPE_ID!,
       // @ts-ignore
       order: '-fields.publishedAt',
     })
-    .then((entries) =>
-      entries.items.filter((item) => item.fields.slug === slug),
-    )
+    .then((entries) => {
+      return {
+        posts: entries.items,
+      }
+    })
     .catch(console.error)
   // @ts-ignore
-  return posts[0]
+  const posts = allPosts.posts
+  const blog = posts.find((post: ContentfulBlog) => post.fields.slug === slug)
+  const previousSlug = posts[posts.indexOf(blog) - 1].fields.slug
+  const nextSlug = posts[posts.indexOf(blog) + 1].fields.slug
+  console.log('data', {
+    blog,
+    previousSlug,
+    nextSlug,
+  })
+  return {
+    blog,
+    previousSlug,
+    nextSlug,
+  }
 }
