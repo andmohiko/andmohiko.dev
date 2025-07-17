@@ -1,9 +1,24 @@
 .sidebar {
-  padding-top: 240px;
-  padding-left: 40px;
-  width: 100%;
+  position: fixed;
+  top: 50%;
+  right: calc(50% - 340px);
+  transform: translate(50%, -50%);
+  z-index: 1;
+
+  @media (max-width: 1200px) {
+    right: 232px;
+  }
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+
+.footerNavigation {
+  display: none;
 
   @media (max-width: 900px) {
     padding: 40px 0 120px 0;
+    display: block;
   }
 }

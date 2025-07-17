@@ -45,8 +45,13 @@ export const RightColumn = ({ modal }: ModalControllerProps) => {
   }
 
   return (
-    <aside className={styles.sidebar} role="complementary">
-      <GlobalNavigation />
-    </aside>
+    <>
+      <aside className={styles.sidebar} role="complementary">
+        <GlobalNavigation />
+      </aside>
+      <div className={styles.footerNavigation} role="complementary">
+        <GlobalNavigation />
+      </div>
+    </>
   )
 }
