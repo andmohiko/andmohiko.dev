@@ -152,11 +152,11 @@ const RootLayout: React.FC<RootLayoutProps> = ({ main, modal, children }) => {
 
         {/* favicon設定 */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        {/* <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> */}
 
         {/* PWA manifest */}
-        <link rel="manifest" href="/manifest.json" />
+        {/* <link rel="manifest" href="/manifest.json" /> */}
 
         {/* テーマカラー */}
         <meta name="theme-color" content="#3b82f6" />
