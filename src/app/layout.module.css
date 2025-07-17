@@ -20,6 +20,10 @@
     .rightColumn {
       width: 100%;
       max-width: 616px;
+
+      @media (max-width: 900px) {
+        max-width: 100%;
+      }
     }
   }
 }

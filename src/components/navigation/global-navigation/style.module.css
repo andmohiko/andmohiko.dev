@@ -3,6 +3,10 @@
   flex-direction: column;
   width: 100%;
 
+  @media (max-width: 900px) {
+    display: none;
+  }
+
   .logo {
     height: 77px;
     width: 100%;
@@ -43,5 +47,55 @@
 
   .copyright {
     margin-top: 24px;
+  }
+}
+
+.navigationSp {
+  display: none;
+
+  .logo {
+    height: 48px;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .navigationList {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+
+    .navigationLink {
+      text-decoration: none;
+
+      .navigationItem {
+        display: flex;
+        align-items: center;
+        background-color: transparent;
+        border-radius: 100px;
+        padding: 6px 16px 10px;
+      }
+
+      .current {
+        background-color: var(--color-white);
+      }
+    }
+  }
+
+  .social {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .copyright {
+    margin-top: 24px;
+  }
+
+  @media (max-width: 900px) {
+    display: block;
   }
 }

@@ -82,64 +82,128 @@ export const GlobalNavigation: React.FC = () => {
   }
 
   return (
-    <nav className={styles.navigation} role="navigation">
-      {/* logo */}
-      <Image
-        src="/images/logo.png"
-        alt="logo"
-        width={2000}
-        height={516}
-        className={styles.logo}
-      />
-      {/* navigation */}
-      <ul className={styles.navigationList} role="list">
-        {navigationItems.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            aria-label={item.ariaLabel}
-            aria-current={isCurrentPath(item.href) ? 'page' : undefined}
-            className={styles.navigationLink}
-          >
-            <li
-              className={classNames(
-                styles.navigationItem,
-                isCurrentPath(item.href) && styles.current,
-              )}
-              role="listitem"
+    <>
+      {/* PC用 */}
+      <nav className={styles.navigation} role="navigation">
+        {/* logo */}
+        <Image
+          src="/images/logo.png"
+          alt="logo"
+          width={2000}
+          height={516}
+          className={styles.logo}
+        />
+        {/* navigation */}
+        <ul className={styles.navigationList} role="list">
+          {navigationItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              aria-label={item.ariaLabel}
+              aria-current={isCurrentPath(item.href) ? 'page' : undefined}
+              className={styles.navigationLink}
             >
-              <LabelText
-                size="lg"
-                color={isCurrentPath(item.href) ? 'primary' : 'white'}
+              <li
+                className={classNames(
+                  styles.navigationItem,
+                  isCurrentPath(item.href) && styles.current,
+                )}
+                role="listitem"
               >
-                {item.label}
-              </LabelText>
-            </li>
+                <LabelText
+                  size="lg"
+                  color={isCurrentPath(item.href) ? 'primary' : 'white'}
+                >
+                  {item.label}
+                </LabelText>
+              </li>
+            </Link>
+          ))}
+        </ul>
+        {/* social */}
+        <div className={styles.social}>
+          <Link
+            href="https://github.com/andmohiko"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <IoLogoGithub size={64} color="var(--color-white)" />
           </Link>
-        ))}
-      </ul>
-      {/* social */}
-      <div className={styles.social}>
-        <Link
-          href="https://github.com/andmohiko"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <IoLogoGithub size={64} color="var(--color-white)" />
-        </Link>
-        <Link
-          href="https://x.com/andmohiko"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaXTwitter size={64} color="var(--color-white)" />
-        </Link>
-      </div>
-      <div className={styles.copyright}>
-        <ParagraphText size="xs" opacity="50" textAlign="center">
-          &copy; andmohiko.dev
-        </ParagraphText>
-      </div>
-    </nav>
+          <Link
+            href="https://x.com/andmohiko"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaXTwitter size={64} color="var(--color-white)" />
+          </Link>
+        </div>
+        <div className={styles.copyright}>
+          <ParagraphText size="xs" opacity="50" textAlign="center">
+            &copy; andmohiko.dev
+          </ParagraphText>
+        </div>
+      </nav>
+
+      {/* SP用 */}
+      <nav className={styles.navigationSp} role="navigation">
+        {/* logo */}
+        <Image
+          src="/images/logo.png"
+          alt="logo"
+          width={2000}
+          height={516}
+          className={styles.logo}
+        />
+        {/* navigation */}
+        <ul className={styles.navigationList} role="list">
+          {navigationItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              aria-label={item.ariaLabel}
+              aria-current={isCurrentPath(item.href) ? 'page' : undefined}
+              className={styles.navigationLink}
+            >
+              <li
+                className={classNames(
+                  styles.navigationItem,
+                  isCurrentPath(item.href) && styles.current,
+                )}
+                role="listitem"
+              >
+                <LabelText
+                  size="md"
+                  color={isCurrentPath(item.href) ? 'primary' : 'white'}
+                >
+                  {item.label}
+                </LabelText>
+              </li>
+            </Link>
+          ))}
+        </ul>
+        {/* social */}
+        <div className={styles.social}>
+          <Link
+            href="https://github.com/andmohiko"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <IoLogoGithub size={48} color="var(--color-white)" />
+          </Link>
+          <Link
+            href="https://x.com/andmohiko"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaXTwitter size={48} color="var(--color-white)" />
+          </Link>
+        </div>
+        <div className={styles.copyright}>
+          <ParagraphText opacity="50" textAlign="center">
+            &copy; andmohiko.dev
+          </ParagraphText>
+        </div>
+      </nav>
+    </>
   )
 }
