@@ -21,11 +21,9 @@ export const ProfileContent = () => {
               andmohiko
             </TitleText>
             <div className={styles.description}>
-              <div className={styles.occupation}>
-                <LabelText size="sm" color="primary">
-                  株式会社スーパーハムスターCTO
-                </LabelText>
-              </div>
+              <LabelText size="sm" color="primary">
+                株式会社スーパーハムスターCTO
+              </LabelText>
               <div className={styles.verticalBorder} />
               <div className={styles.social}>
                 <Link
@@ -48,7 +46,7 @@ export const ProfileContent = () => {
 
           <GridTwoColumnLayout>
             <ParagraphText size="md" color="primary">
-              1997年 東京都生まれ。
+              1996年 埼玉県生まれ。
               <br />
               大学ではコンピュータサイエンスを専攻し、大学院では機械学習とメンヘラの研究をしていました。
               <br />

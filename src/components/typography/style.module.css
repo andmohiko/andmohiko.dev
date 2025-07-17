@@ -18,40 +18,38 @@
 /* TODO: font familyをHiragino Maru Gothic StdN W6にする */
 .titleText {
   line-height: 1.25;
-  letter-spacing: 0.05em;
+
   font-family:
-    'Kosugi Maru',
-    'DotGothic16',
+    'Zen Maru Gothic',
     -apple-system,
     BlinkMacSystemFont,
     'Segoe UI',
     sans-serif;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .paragraphText {
   line-height: 1.75;
-  letter-spacing: 0.05em;
+
   font-family:
-    'Kosugi Maru',
-    'DotGothic16',
+    'Zen Maru Gothic',
     -apple-system,
     BlinkMacSystemFont,
     'Segoe UI',
     sans-serif;
+  font-weight: 400;
 }
 
 .labelText {
   line-height: 1.25;
-  letter-spacing: 0.05em;
+
   font-family:
-    'Kosugi Maru',
-    'DotGothic16',
+    'Zen Maru Gothic',
     -apple-system,
     BlinkMacSystemFont,
     'Segoe UI',
     sans-serif;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 ._size32 {

@@ -22,7 +22,8 @@
 
 import React from 'react'
 import type { Metadata } from 'next'
-import { DotGothic16, Kosugi_Maru } from 'next/font/google'
+import Script from 'next/script'
+import { DotGothic16, Kosugi_Maru, Zen_Maru_Gothic } from 'next/font/google'
 import { RightColumn } from '@/components/layout/right-column'
 import './globals.css'
 import styles from './layout.module.css'
@@ -42,6 +43,20 @@ const dotGothic16 = DotGothic16({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-dotgothic16',
+})
+
+const zenMaruGothic400 = Zen_Maru_Gothic({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-zen-maru-gothic',
+})
+
+const zenMaruGothic600 = Zen_Maru_Gothic({
+  weight: '700',
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-zen-maru-gothic',
 })
 
 /**
@@ -150,7 +165,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ main, modal, children }) => {
       </head>
 
       <body
-        className={`${styles.body} ${kosugiMaru.variable} ${dotGothic16.variable}`}
+        className={`${styles.body} ${kosugiMaru.variable} ${dotGothic16.variable} ${zenMaruGothic400.variable} ${zenMaruGothic600.variable}`}
       >
         {/* メインアプリケーション構造 */}
         <main className={styles.container}>
