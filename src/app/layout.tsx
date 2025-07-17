@@ -22,7 +22,6 @@
 
 import React from 'react'
 import type { Metadata } from 'next'
-import Script from 'next/script'
 import { DotGothic16, Kosugi_Maru, Zen_Maru_Gothic } from 'next/font/google'
 import { RightColumn } from '@/components/layout/right-column'
 import './globals.css'
