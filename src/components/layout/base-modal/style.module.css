@@ -10,9 +10,9 @@
     position: relative;
 
     .close {
-      position: absolute;
-      top: 16px;
-      right: 16px;
+      position: fixed;
+      top: 56px;
+      right: calc(50% - 630px);
       z-index: 1;
       border: none;
       background-color: var(--color-white);
@@ -28,6 +28,10 @@
         background-color: var(--color-primary-light-alt);
         opacity: 0.7;
         transition: opacity 0.3s ease;
+      }
+
+      @media (max-width: 1200px) {
+        right: 24px;
       }
 
       @media (max-width: 900px) {
