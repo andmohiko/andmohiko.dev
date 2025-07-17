@@ -1,7 +1,7 @@
 .body {
   background-color: var(--color-primary);
   position: relative;
-  margin-inline: 16px;
+  margin: 0 16px 48px;
 
   .container {
     position: relative;
@@ -20,10 +20,6 @@
     .rightColumn {
       width: 100%;
       max-width: 616px;
-
-      @media (max-width: 900px) {
-        display: none;
-      }
     }
   }
 }
