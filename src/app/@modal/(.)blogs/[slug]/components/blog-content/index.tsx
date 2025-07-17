@@ -55,7 +55,10 @@ export const BlogContent: React.FC<BlogModalProps> = ({
           </div>
         </div>
       </BaseModal>
-      <ContentPaginator previousSlug={previousSlug} nextSlug={nextSlug} />
+      <ContentPaginator
+        previousSlug={`/blogs/${previousSlug}`}
+        nextSlug={`/blogs/${nextSlug}`}
+      />
     </div>
   )
 }

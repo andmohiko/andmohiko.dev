@@ -12,6 +12,7 @@ import { getAllEntries } from '@/lib/microcms'
 import { Blog } from '@/types/blog'
 import dayjs from 'dayjs'
 import styles from './style.module.css'
+import { ContentPaginator } from '@/components/navigation/content-paginator'
 
 /**
  * ページメタデータの設定
@@ -40,7 +41,7 @@ export const revalidate = false
  *
  * @returns {Promise<JSX.Element>} ブログ一覧ページ
  */
-const BlogListPage = async (): Promise<React.ReactNode> => {
+export default async function BlogListPage(): Promise<React.ReactNode> {
   const posts = await getAllBlogPosts()
   const microcmsEntries = await getAllEntries()
 
@@ -71,12 +72,14 @@ const BlogListPage = async (): Promise<React.ReactNode> => {
   )
 
   return (
-    <div className={styles.blogListPage}>
-      <main className={styles.blogListMain}>
-        <BlogList blogs={blogs} />
-      </main>
-    </div>
+    <main className={styles.blogListMain}>
+      <BlogList blogs={blogs} />
+      <ContentPaginator
+        previousLabel="work"
+        nextLabel="profile"
+        previousSlug="/"
+        nextSlug="/profile"
+      />
+    </main>
   )
 }
-
-export default BlogListPage

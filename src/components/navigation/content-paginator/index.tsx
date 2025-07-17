@@ -3,25 +3,29 @@ import Link from 'next/link'
 import styles from './style.module.css'
 
 type ContentPaginatorProps = {
+  previousLabel?: string
+  nextLabel?: string
   previousSlug?: string
   nextSlug?: string
 }
 
 export const ContentPaginator = ({
+  previousLabel = 'previous',
+  nextLabel = 'next',
   previousSlug,
   nextSlug,
 }: ContentPaginatorProps) => {
   return (
     <div className={styles.navigation}>
       {previousSlug && (
-        <Link href={`/blogs/${previousSlug}`} className={styles.previous}>
+        <Link href={previousSlug} className={styles.previous}>
           <IoChevronBackOutline size={24} />
-          previous
+          {previousLabel}
         </Link>
       )}
       {nextSlug && (
-        <Link href={`/blogs/${nextSlug}`} className={styles.next}>
-          next
+        <Link href={nextSlug} className={styles.next}>
+          {nextLabel}
           <IoChevronForwardOutline size={24} />
         </Link>
       )}
