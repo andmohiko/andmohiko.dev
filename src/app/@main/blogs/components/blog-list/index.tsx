@@ -39,7 +39,7 @@ export const BlogList: React.FC<Props> = ({ blogs }) => {
         <Fragment key={blog.id}>
           {showYear(blogs, index) && (
             <div className={styles.year}>
-              <TitleText level="span" size="lg" opacity="transparent">
+              <TitleText level="span" size="lg" opacity="50">
                 {blog.publishedAt.slice(0, 4)}
               </TitleText>
             </div>
