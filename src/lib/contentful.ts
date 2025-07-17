@@ -40,10 +40,9 @@ export const getBlogById = async (
   slug: string,
 ): Promise<{
   blog: ContentfulBlog
-  previousSlug: string
-  nextSlug: string
+  previousSlug: string | undefined
+  nextSlug: string | undefined
 }> => {
-  console.log('slug in func', slug)
   const allPosts = await createContentfulClient()
     .getEntries({
       content_type: process.env.NEXT_PUBLIC_CTF_BLOG_POST_TYPE_ID!,
@@ -59,13 +58,10 @@ export const getBlogById = async (
   // @ts-ignore
   const posts = allPosts.posts
   const blog = posts.find((post: ContentfulBlog) => post.fields.slug === slug)
-  const previousSlug = posts[posts.indexOf(blog) - 1].fields.slug
-  const nextSlug = posts[posts.indexOf(blog) + 1].fields.slug
-  console.log('data', {
-    blog,
-    previousSlug,
-    nextSlug,
-  })
+  const index = posts.indexOf(blog)
+  const nextSlug = index > 0 ? posts[index - 1].fields.slug : undefined
+  const previousSlug =
+    index < posts.length - 1 ? posts[index + 1].fields.slug : undefined
   return {
     blog,
     previousSlug,

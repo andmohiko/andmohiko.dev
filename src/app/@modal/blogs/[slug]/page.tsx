@@ -46,10 +46,8 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = async ({ params }) => {
   const slug = (param.slug as string) || ''
   const { blog, previousSlug, nextSlug } = await getBlogById(slug)
 
-  return blog ? (
+  return (
     <BlogContent blog={blog} previousSlug={previousSlug} nextSlug={nextSlug} />
-  ) : (
-    <div>loading...</div>
   )
 }
 

@@ -13,6 +13,7 @@ import dayjs from 'dayjs'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { ContentPaginator } from '@/components/navigation/content-paginator'
+import { LabelText } from '@/components/typography/LabelText'
 
 /**
  * BlogModalコンポーネントのプロパティ型
@@ -37,27 +38,33 @@ export const BlogContent: React.FC<BlogModalProps> = ({
   return (
     <div className={styles.wrapper}>
       <BaseModal>
-        <div className={styles.content}>
-          <div className={styles.title}>
-            <TitleText level="h1" size="lg" color="primary">
-              {blog.fields.title}
-            </TitleText>
+        {blog ? (
+          <div className={styles.content}>
+            <div className={styles.title}>
+              <TitleText level="h1" size="lg" color="primary">
+                {blog.fields.title}
+              </TitleText>
+            </div>
+            <div className={styles.date}>
+              <ParagraphText size="lg" color="primary">
+                {dayjs(blog.fields.publishedAt).format('YYYY.MM.DD')}
+              </ParagraphText>
+            </div>
+            <div className={styles.body}>
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                {blog.fields.body}
+              </ReactMarkdown>
+            </div>
           </div>
-          <div className={styles.date}>
-            <ParagraphText size="lg" color="primary">
-              {dayjs(blog.fields.publishedAt).format('YYYY.MM.DD')}
-            </ParagraphText>
-          </div>
-          <div className={styles.body}>
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
-              {blog.fields.body}
-            </ReactMarkdown>
-          </div>
-        </div>
+        ) : (
+          <LabelText size="lg" color="primary">
+            loading...
+          </LabelText>
+        )}
       </BaseModal>
       <ContentPaginator
-        previousSlug={`/blogs/${previousSlug}`}
-        nextSlug={`/blogs/${nextSlug}`}
+        previousSlug={previousSlug ? `/blogs/${previousSlug}` : undefined}
+        nextSlug={nextSlug ? `/blogs/${nextSlug}` : undefined}
       />
     </div>
   )
