@@ -41,7 +41,14 @@ export const RightColumn = ({ modal }: ModalControllerProps) => {
 
   // 詳細ページでかつmodalが存在する場合のみ表示
   if (isDetailPage && modal && React.isValidElement(modal)) {
-    return modal
+    return (
+      <>
+        {modal}
+        <div className={styles.footerNavigation} role="complementary">
+          <GlobalNavigation />
+        </div>
+      </>
+    )
   }
 
   return (
