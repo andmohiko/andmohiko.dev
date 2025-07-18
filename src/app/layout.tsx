@@ -70,7 +70,7 @@ export const metadata: Metadata = {
       'andmohikoのポートフォリオサイト。Web開発の作品とブログを掲載しています。',
     images: [
       {
-        url: 'https://andmohiko-dev-git-feature-nextjs-andmohikos-projects.vercel.app/images/og-image.webp',
+        url: 'https://andmohiko-dev-git-feature-nextjs-andmohikos-projects.vercel.app/ogp.png',
         width: 2272,
         height: 1280,
         alt: 'andmohiko.dev',
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
       'andmohikoのポートフォリオサイト。Web開発の作品とブログを掲載しています。',
     creator: '@andmohiko',
     images: [
-      'https://andmohiko-dev-git-feature-nextjs-andmohikos-projects.vercel.app/images/og-image.webp',
+      'https://andmohiko-dev-git-feature-nextjs-andmohikos-projects.vercel.app/ogp.png',
     ],
   },
   robots: {
