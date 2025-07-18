@@ -73,13 +73,13 @@ export const metadata: Metadata = {
         url: 'https://andmohiko-dev-git-feature-nextjs-andmohikos-projects.vercel.app/ogp.png',
         width: 2272,
         height: 1280,
-        alt: 'andmohiko.dev',
-        type: 'image/webp',
+        alt: 'andmohiko.dev - Portfolio & Blog',
+        type: 'image/png',
       },
     ],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'andmohiko.dev - Portfolio & Blog',
     description:
       'andmohikoのポートフォリオサイト。Web開発の作品とブログを掲載しています。',
