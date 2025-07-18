@@ -70,20 +70,21 @@ export const metadata: Metadata = {
       'andmohikoのポートフォリオサイト。Web開発の作品とブログを掲載しています。',
     images: [
       {
-        url: '/images/og-image.png',
-        width: 1200,
-        height: 630,
+        url: '/images/og-image.webp',
+        width: 2272,
+        height: 1280,
         alt: 'andmohiko.dev',
+        type: 'image/webp',
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title: 'andmohiko.dev - Portfolio & Blog',
     description:
       'andmohikoのポートフォリオサイト。Web開発の作品とブログを掲載しています。',
     creator: '@andmohiko',
-    images: ['/images/og-image.png'],
+    images: ['/images/og-image.webp'],
   },
   robots: {
     index: true,
