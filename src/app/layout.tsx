@@ -25,6 +25,7 @@ import type { Metadata } from 'next'
 import { Zen_Maru_Gothic } from 'next/font/google'
 import { LeftColumn } from '@/components/layout/left-column'
 import { RightColumn } from '@/components/layout/right-column'
+import { ServiceWorkerRegistration } from '@/components/pwa/service-worker-registration'
 import './globals.css'
 import styles from './layout.module.css'
 
@@ -132,20 +133,22 @@ const RootLayout: React.FC<RootLayoutProps> = ({ main, modal, children }) => {
 
         {/* favicon設定 */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        {/* <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> */}
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
         {/* PWA manifest */}
-        {/* <link rel="manifest" href="/manifest.json" /> */}
+        {/* Next.js App Routerが自動的にapp/manifest.tsを処理します */}
 
         {/* テーマカラー */}
-        <meta name="theme-color" content="#3b82f6" />
-        <meta name="msapplication-TileColor" content="#3b82f6" />
+        <meta name="theme-color" content="#652C8F" />
+        <meta name="msapplication-TileColor" content="#652C8F" />
       </head>
 
       <body
         className={`${styles.body} ${zenMaruGothic400.variable} ${zenMaruGothic600.variable}`}
       >
+        {/* PWA Service Worker登録 */}
+        <ServiceWorkerRegistration />
+
         {/* メインアプリケーション構造 */}
         <main className={styles.container}>
           {/* 左カラム：メインコンテンツ */}
