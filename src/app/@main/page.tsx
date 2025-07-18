@@ -1,47 +1,54 @@
 /**
- * ポートフォリオページ
- *
- * このコンポーネントでは以下の機能を提供します：
- * - メインスロットでのポートフォリオ表示
- * - 静的サイト生成によるパフォーマンス最適化
- * - コンテンツページネーター機能
- *
- * 主な仕様：
- * - ビルド時に静的ページを生成
- * - CDN配信による高速表示
- * - ページネーション機能
+ * ブログ一覧ページコンポーネント
  *
  * 制限事項：
- * - Next.js App RouterのParallel Routesが必要
+ * - ビルド時にContentfulからデータを取得
  * - ランタイムでのデータ更新なし
- *
- * @returns {NextPage} ポートフォリオページ
  */
-
-import React from 'react'
-import { NextPage } from 'next'
+import { Metadata } from 'next'
+import { getAllWorks } from '@/lib/microcms'
 import styles from './page.module.css'
 import { ContentPaginator } from '@/components/navigation/content-paginator'
+import { WorkList } from './components/work-list'
+
+/**
+ * ページメタデータの設定
+ */
+export const metadata: Metadata = {
+  title: 'andmohiko.dev',
+  description:
+    'andmohikoのポートフォリオサイト。ブログと人生と過去につくったもの。',
+  openGraph: {
+    title: 'andmohiko.dev',
+    description:
+      'andmohikoのポートフォリオサイト。ブログと人生と過去につくったもの。',
+    type: 'website',
+  },
+}
 
 /**
  * 静的生成の設定
- * ビルド時に静的ページを生成
+ * ビルド時にContentfulからデータを取得して静的ページを生成
  */
 export const dynamic = 'force-static'
 export const revalidate = false
 
-const PortfolioPage: NextPage = () => {
+/**
+ * ポートフォリオページコンポーネント
+ *
+ * @returns {Promise<JSX.Element>} ポートフォリオページ
+ */
+export default async function WorksListPage(): Promise<React.ReactNode> {
+  const works = await getAllWorks()
   return (
-    <main className={styles.mainContent}>
-      <h1>ポートフォリオ</h1>
+    <main className={styles.workListMain}>
+      <WorkList works={works} />
       <ContentPaginator
-        previousLabel="profile"
-        nextLabel="blog"
-        previousSlug="/profile"
-        nextSlug="/blogs"
+        previousLabel="work"
+        nextLabel="profile"
+        previousSlug="/"
+        nextSlug="/profile"
       />
     </main>
   )
 }
-
-export default PortfolioPage

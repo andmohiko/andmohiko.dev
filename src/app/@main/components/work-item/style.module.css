@@ -1,0 +1,40 @@
+.link {
+  text-decoration: none;
+
+  .workItem {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .thumbnail {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    .texts {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      @media (max-width: 900px) {
+        display: none;
+      }
+    }
+
+    .textsSp {
+      display: none;
+
+      @media (max-width: 900px) {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+  }
+}
