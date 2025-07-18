@@ -55,11 +55,20 @@ export const metadata: Metadata = {
     template: '%s | andmohiko.dev',
   },
   description:
-    'andmohikoのポートフォリオサイト。Web開発の作品とブログを掲載しています。',
+    'andmohikoのポートフォリオサイト。ブログと人生と過去につくったもの。',
   authors: [{ name: 'andmohiko' }],
   creator: 'andmohiko',
   publisher: 'andmohiko',
   metadataBase: new URL('https://andmohiko.dev'),
+  keywords: [
+    'andmohiko',
+    'もひこ',
+    '伊藤智彦',
+    'いとうともひこ',
+    'Tomohiko Ito',
+    'ポートフォリオ',
+    'Portfolio',
+  ],
   openGraph: {
     type: 'website',
     locale: 'ja_JP',
@@ -67,7 +76,7 @@ export const metadata: Metadata = {
     siteName: 'andmohiko.dev',
     title: 'andmohiko.dev - Portfolio & Blog',
     description:
-      'andmohikoのポートフォリオサイト。Web開発の作品とブログを掲載しています。',
+      'andmohikoのポートフォリオサイト。ブログと人生と過去につくったもの。',
     images: [
       {
         url: 'https://andmohiko-dev-git-feature-nextjs-andmohikos-projects.vercel.app/ogp.png',
@@ -82,7 +91,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'andmohiko.dev - Portfolio & Blog',
     description:
-      'andmohikoのポートフォリオサイト。Web開発の作品とブログを掲載しています。',
+      'andmohikoのポートフォリオサイト。ブログと人生と過去につくったもの。',
     creator: '@andmohiko',
     images: [
       'https://andmohiko-dev-git-feature-nextjs-andmohikos-projects.vercel.app/ogp.png',
