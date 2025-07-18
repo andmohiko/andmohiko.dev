@@ -9,7 +9,6 @@ import styles from './style.module.css'
 import { BaseModal } from '@/components/layout/base-modal'
 import { TitleText } from '@/components/typography/TitleText'
 import { ParagraphText } from '@/components/typography/ParagraphText'
-import dayjs from 'dayjs'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { ContentPaginator } from '@/components/navigation/content-paginator'
@@ -19,8 +18,13 @@ import { LabelText } from '@/components/typography/LabelText'
  * BlogModalコンポーネントのプロパティ型
  */
 type BlogModalProps = {
+  /** ブログ記事データ */
   blog: ContentfulBlog
+  /** サーバーサイドでフォーマット済みの日付文字列 */
+  formattedDate: string
+  /** 前の記事のスラッグ */
   previousSlug?: string
+  /** 次の記事のスラッグ */
   nextSlug?: string
 }
 
@@ -32,6 +36,7 @@ type BlogModalProps = {
  */
 export const BlogContent: React.FC<BlogModalProps> = ({
   blog,
+  formattedDate,
   previousSlug,
   nextSlug,
 }) => {
@@ -47,7 +52,7 @@ export const BlogContent: React.FC<BlogModalProps> = ({
             </div>
             <div className={styles.date}>
               <ParagraphText size="lg" color="primary">
-                {dayjs(blog.fields.publishedAt).format('YYYY.MM.DD')}
+                {formattedDate}
               </ParagraphText>
             </div>
             <div className={styles.body}>

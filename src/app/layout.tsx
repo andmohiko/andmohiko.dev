@@ -55,15 +55,6 @@ export const metadata: Metadata = {
   },
   description:
     'andmohikoのポートフォリオサイト。Web開発の作品とブログを掲載しています。',
-  keywords: [
-    'Portfolio',
-    'Blog',
-    'Frontend',
-    'React',
-    'Next.js',
-    'TypeScript',
-    'Web Development',
-  ],
   authors: [{ name: 'andmohiko' }],
   creator: 'andmohiko',
   publisher: 'andmohiko',
