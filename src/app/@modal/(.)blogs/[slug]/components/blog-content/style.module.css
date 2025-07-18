@@ -141,6 +141,10 @@
   &::-webkit-scrollbar {
     display: none;
   }
+
+  @media (max-width: 650px) {
+    max-width: calc(100vw - 108px);
+  }
 }
 
 .body :global(a) {
