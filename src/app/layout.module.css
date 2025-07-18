@@ -17,6 +17,41 @@
       gap: 24px;
     }
 
+    .mainContent {
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(155, 155, 155, 0.3) transparent;
+
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(155, 155, 155, 0.3);
+        border-radius: 3px;
+
+        &:hover {
+          background-color: rgba(155, 155, 155, 0.5);
+        }
+      }
+
+      &:focus-visible {
+        outline: 2px solid #3b82f6;
+        outline-offset: 2px;
+      }
+
+      @media (max-width: 768px) {
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+
     .rightColumn {
       width: 100%;
       max-width: 616px;

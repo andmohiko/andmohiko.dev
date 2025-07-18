@@ -22,7 +22,8 @@
 
 import React from 'react'
 import type { Metadata } from 'next'
-import { DotGothic16, Kosugi_Maru, Zen_Maru_Gothic } from 'next/font/google'
+import { Zen_Maru_Gothic } from 'next/font/google'
+import { LeftColumn } from '@/components/layout/left-column'
 import { RightColumn } from '@/components/layout/right-column'
 import './globals.css'
 import styles from './layout.module.css'
@@ -30,20 +31,6 @@ import styles from './layout.module.css'
 /**
  * Google Fontsの設定
  */
-const kosugiMaru = Kosugi_Maru({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-kosugi-maru',
-})
-
-const dotGothic16 = DotGothic16({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-dotgothic16',
-})
-
 const zenMaruGothic400 = Zen_Maru_Gothic({
   weight: '400',
   subsets: ['latin'],
@@ -166,14 +153,14 @@ const RootLayout: React.FC<RootLayoutProps> = ({ main, modal, children }) => {
       </head>
 
       <body
-        className={`${styles.body} ${kosugiMaru.variable} ${dotGothic16.variable} ${zenMaruGothic400.variable} ${zenMaruGothic600.variable}`}
+        className={`${styles.body} ${zenMaruGothic400.variable} ${zenMaruGothic600.variable}`}
       >
         {/* メインアプリケーション構造 */}
         <main className={styles.container}>
           {/* 左カラム：メインコンテンツ */}
-          <div className={styles.mainContent} role="main">
-            {main || children}
-          </div>
+          <LeftColumn main={main} className={styles.mainContent}>
+            {children}
+          </LeftColumn>
 
           {/* 右カラム：ナビゲーション・モーダル */}
           <div className={styles.rightColumn}>
