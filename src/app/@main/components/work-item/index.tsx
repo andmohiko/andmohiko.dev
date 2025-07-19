@@ -15,7 +15,7 @@ type Props = {
 
 export const WorkItem = ({ id, thumbnailUrl, title, description }: Props) => {
   return (
-    <Link href={`/work/${id}`} className={styles.link}>
+    <Link href={`/works/${id}`} className={styles.link}>
       <div className={styles.workItem}>
         <Image
           src={thumbnailUrl}

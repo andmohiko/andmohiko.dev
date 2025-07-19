@@ -45,7 +45,7 @@ export const BaseModal: React.FC<Props> = ({ children }) => {
       return
     }
     if (pathname.startsWith('/works')) {
-      push('/works')
+      push('/')
       return
     }
     back()

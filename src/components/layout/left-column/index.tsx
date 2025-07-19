@@ -48,8 +48,10 @@ export const LeftColumn: React.FC<LeftColumnProps> = ({
   className,
 }) => {
   const pathname = usePathname()
-  // /blogs/[slug]の場合はモーダルを開く。正規表現で判定する
-  const isOpenModal = /\/blogs\/[a-zA-Z0-9-]+$/.test(pathname)
+  // /blogs/[slug]または/works/[slug]の場合はモーダルを開く。正規表現で判定する
+  const isOpenModal =
+    /\/blogs\/[a-zA-Z0-9-]+$/.test(pathname) ||
+    /\/works\/[a-zA-Z0-9-]+$/.test(pathname)
   return (
     <div
       className={classNames(className, {
