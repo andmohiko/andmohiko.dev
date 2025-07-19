@@ -5,6 +5,7 @@ import styles from './style.module.css'
 
 import { LabelText } from '@/components/typography/LabelText'
 import { TitleText } from '@/components/typography/TitleText'
+import classNames from 'classnames'
 
 type Props = {
   publishedAt: string
@@ -12,13 +13,28 @@ type Props = {
   slug?: string
   url?: string
   media?: string
+  isInBlogDetailPage: boolean
+  isCurrentBlog: boolean
 }
 
-export const BlogItem = ({ publishedAt, title, slug, url, media }: Props) => {
+export const BlogItem = ({
+  publishedAt,
+  title,
+  slug,
+  url,
+  media,
+  isInBlogDetailPage,
+  isCurrentBlog,
+}: Props) => {
   return (
-    <div className={styles.blogItem}>
+    <div
+      className={classNames(styles.blogItem, {
+        [styles.overlay]: isInBlogDetailPage && !isCurrentBlog,
+      })}
+    >
       {slug ? (
         <Link href={`/blogs/${slug}`} className={styles.link}>
+          {isCurrentBlog && <div className={styles.current} />}
           <LabelText size="md">{dayjs(publishedAt).format('MM.DD')}</LabelText>
           <TitleText level="span" size="md">
             {title}

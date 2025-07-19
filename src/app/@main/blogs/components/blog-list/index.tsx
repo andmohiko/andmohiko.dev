@@ -10,6 +10,7 @@ import { BlogItem } from '../blog-item'
 import styles from './style.module.css'
 import { Fragment } from 'react'
 import { TitleText } from '@/components/typography/TitleText'
+import { usePathname } from 'next/navigation'
 
 /**
  * BlogListコンポーネントのプロパティ型
@@ -32,6 +33,9 @@ export const BlogList: React.FC<Props> = ({ blogs }) => {
     const prevYear = posts[index - 1].publishedAt.slice(0, 4)
     return year !== prevYear
   }
+  const pathname = usePathname()
+  const isInBlogDetailPage = pathname.includes('/blogs/')
+  const slug = pathname.split('/').pop()
 
   return (
     <div className={styles.blogList}>
@@ -51,6 +55,8 @@ export const BlogList: React.FC<Props> = ({ blogs }) => {
             slug={blog.slug}
             url={blog.url}
             media={blog.media}
+            isInBlogDetailPage={isInBlogDetailPage}
+            isCurrentBlog={slug === blog.slug}
           />
         </Fragment>
       ))}

@@ -5,6 +5,7 @@
 
   .link {
     display: flex;
+    align-items: center;
     gap: 16px;
     text-decoration: none;
     cursor: pointer;
@@ -12,5 +13,17 @@
     &:hover {
       opacity: 0.8;
     }
+
+    .current {
+      margin-top: 2px;
+      width: 8px;
+      height: 8px;
+      background-color: var(--color-white);
+      border-radius: 50%;
+    }
   }
+}
+
+.overlay {
+  opacity: 0.25;
 }
