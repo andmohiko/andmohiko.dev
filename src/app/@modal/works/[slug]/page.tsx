@@ -18,7 +18,6 @@
 import React from 'react'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import dayjs from 'dayjs'
 import { WorkContent } from '../../(.)works/[slug]/components/work-content'
 import { getAllWorks } from '@/lib/microcms'
 
