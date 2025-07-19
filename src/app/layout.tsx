@@ -22,6 +22,7 @@
 
 import React from 'react'
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Zen_Maru_Gothic } from 'next/font/google'
 import { LeftColumn } from '@/components/layout/left-column'
 import { RightColumn } from '@/components/layout/right-column'
@@ -158,6 +159,15 @@ const RootLayout: React.FC<RootLayoutProps> = ({ main, modal, children }) => {
       <body
         className={`${styles.body} ${zenMaruGothic400.variable} ${zenMaruGothic600.variable}`}
       >
+        <div className={styles.background}>
+          <Image
+            src="/images/background.webp"
+            alt="background"
+            width={1280}
+            height={1280}
+            className={styles.backgroundImage}
+          />
+        </div>
         {/* PWA Service Worker登録 */}
         <ServiceWorkerRegistration />
 
