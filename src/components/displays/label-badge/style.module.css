@@ -1,0 +1,5 @@
+.labelBadge {
+  background-color: var(--color-primary-light-alt);
+  padding: 2px 12px;
+  border-radius: 50px;
+}

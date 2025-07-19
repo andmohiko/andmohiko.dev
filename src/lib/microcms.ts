@@ -18,7 +18,7 @@ export const getEntryById = async (id: string) =>
 export const getAllWorks = async (): Promise<Array<Work>> => {
   const data = await microcmsClient.get({
     endpoint: 'works',
-    queries: { orders: '-startAt' },
+    queries: { orders: '-startAt', limit: 100 },
   })
   return data.contents
 }

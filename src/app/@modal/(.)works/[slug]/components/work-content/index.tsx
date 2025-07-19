@@ -12,6 +12,7 @@ import { ContentPaginator } from '@/components/navigation/content-paginator'
 import { LabelText } from '@/components/typography/LabelText'
 import Image from 'next/image'
 import { ParagraphText } from '@/components/typography/ParagraphText'
+import { LabelBadge } from '@/components/displays/label-badge'
 
 /**
  * WorkModalコンポーネントのプロパティ型
@@ -56,6 +57,11 @@ export const WorkContent: React.FC<WorkModalProps> = ({
                 <ParagraphText color="primary">
                   {work.description}
                 </ParagraphText>
+                <div className={styles.tags}>
+                  {work.tags.map((tag) => (
+                    <LabelBadge key={tag} label={tag} />
+                  ))}
+                </div>
               </div>
               <div
                 dangerouslySetInnerHTML={{ __html: work.body }}
