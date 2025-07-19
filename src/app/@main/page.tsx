@@ -44,10 +44,10 @@ export default async function WorksListPage(): Promise<React.ReactNode> {
     <main className={styles.workListMain}>
       <WorkList works={works} />
       <ContentPaginator
-        previousLabel="work"
-        nextLabel="profile"
-        previousSlug="/"
-        nextSlug="/profile"
+        previousLabel="profile"
+        nextLabel="blog"
+        previousSlug="/profile"
+        nextSlug="/blogs"
       />
     </main>
   )
