@@ -6,10 +6,9 @@
 
 import { Work } from '@/types/work'
 import { WorkItem } from '../work-item'
+import { usePathname } from 'next/navigation'
 
 import styles from './style.module.css'
-import { Fragment } from 'react'
-import { TitleText } from '@/components/typography/TitleText'
 
 /**
  * WorkListコンポーネントのプロパティ型
@@ -26,6 +25,12 @@ type Props = {
  * @returns {React.ReactElement} ポートフォリオ一覧表示
  */
 export const WorkList: React.FC<Props> = ({ works }) => {
+  const pathname = usePathname()
+  // /works/123 のような子ページを開いているかどうか
+  const isInWorkDetailPage = pathname.includes('/works/')
+  // /works/123 のような子ページのIDを取得する
+  const workId = pathname.split('/').pop()
+
   return (
     <div className={styles.workList}>
       {works.map((work) => (
@@ -35,6 +40,8 @@ export const WorkList: React.FC<Props> = ({ works }) => {
           thumbnailUrl={work.thumbnail.url}
           title={work.title}
           description={work.description}
+          isInWorkDetailPage={isInWorkDetailPage}
+          isCurrentWork={workId === work.id}
         />
       ))}
     </div>

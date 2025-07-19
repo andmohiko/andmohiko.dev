@@ -37,4 +37,13 @@
       }
     }
   }
+
+  /* .overlay {
+    position: relative;
+    background-color: var(--color-primary-light-alt);
+    z-index: 1;
+  } */
+  .overlay {
+    opacity: 0.25;
+  }
 }
