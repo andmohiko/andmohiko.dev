@@ -44,7 +44,7 @@ export const BlogContent: React.FC<BlogModalProps> = ({
     <div className={styles.wrapper}>
       <BaseModal>
         {blog ? (
-          <div className={styles.content}>
+          <article className={styles.content}>
             <div className={styles.title}>
               <TitleText level="h1" size="lg" color="primary">
                 {blog.fields.title}
@@ -60,7 +60,7 @@ export const BlogContent: React.FC<BlogModalProps> = ({
                 {blog.fields.body}
               </ReactMarkdown>
             </div>
-          </div>
+          </article>
         ) : (
           <LabelText size="lg" color="primary">
             loading...
