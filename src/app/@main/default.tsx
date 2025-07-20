@@ -17,11 +17,11 @@
 
 import React from 'react'
 import { getAllBlogPosts } from '@/lib/contentful'
-import { BlogList } from './blogs/components/blog-list'
-import { getAllEntries } from '@/lib/microcms'
+import { getAllEntries, getAllWorks } from '@/lib/microcms'
 import { Blog } from '@/types/blog'
 import dayjs from 'dayjs'
 import styles from './blogs/style.module.css'
+import { DefaultContainer } from './components/default-container'
 
 /**
  * 静的生成の設定
@@ -65,13 +65,12 @@ const MainDefault: React.FC = async () => {
   const blogs = [...contentfulBlogs, ...entries].sort((a, b) =>
     dayjs(a.publishedAt).isBefore(dayjs(b.publishedAt)) ? 1 : -1,
   )
+  const works = await getAllWorks()
 
   return (
-    <div className={styles.blogListPage}>
-      <main className={styles.blogListMain}>
-        <BlogList blogs={blogs} />
-      </main>
-    </div>
+    <main className={styles.blogListMain}>
+      <DefaultContainer works={works} blogs={blogs} />
+    </main>
   )
 }
 
