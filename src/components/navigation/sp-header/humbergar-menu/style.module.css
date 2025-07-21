@@ -14,6 +14,12 @@
   display: grid;
   place-items: center;
   border: none;
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--color-primary-light);
+    transition: background-color 0.3s ease;
+  }
 }
 
 .openButton,
@@ -35,6 +41,11 @@
       transform 0.5s ease,
       opacity 0.5s ease;
   }
+}
+
+.closeButton {
+  height: 32px;
+  width: 32px;
 }
 
 .openButton {
