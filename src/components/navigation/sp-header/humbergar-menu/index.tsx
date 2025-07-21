@@ -39,7 +39,11 @@ export const HumbergarMenu = () => {
             isOpen && styles.navContentOpen,
           )}
         >
-          <SPNavi color="primary" showCopyright={false} />
+          <SPNavi
+            color="primary"
+            showCopyright={false}
+            onLinkClick={() => setIsOpen(false)}
+          />
         </div>
       </nav>
     </div>

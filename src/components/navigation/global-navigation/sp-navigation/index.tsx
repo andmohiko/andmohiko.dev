@@ -28,6 +28,7 @@ type Color = 'primary' | 'white'
 type Props = {
   color?: Color
   showCopyright?: boolean
+  onLinkClick?: () => void
 }
 
 const getTextColor = (color: Color, isCurrent: boolean): Color => {
@@ -40,7 +41,11 @@ const getTextColor = (color: Color, isCurrent: boolean): Color => {
   return 'white'
 }
 
-export const SPNavi = ({ color = 'white', showCopyright = true }: Props) => {
+export const SPNavi = ({
+  color = 'white',
+  showCopyright = true,
+  onLinkClick,
+}: Props) => {
   const pathname = usePathname()
 
   return (
@@ -59,6 +64,7 @@ export const SPNavi = ({ color = 'white', showCopyright = true }: Props) => {
           <Link
             key={item.href}
             href={item.href}
+            onClick={onLinkClick}
             aria-label={item.ariaLabel}
             aria-current={
               isCurrentPath(pathname, item.href) ? 'page' : undefined
