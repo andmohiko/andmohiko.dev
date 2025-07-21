@@ -1,0 +1,27 @@
+.spHeader {
+  display: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 32px 16px;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+
+  @media (max-width: 900px) {
+    display: flex;
+  }
+}
+
+.spacer {
+  display: none;
+
+  height: 112px;
+  width: 100%;
+
+  @media (max-width: 900px) {
+    display: block;
+  }
+}
