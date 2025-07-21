@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './style.module.css'
-import { SPNavi } from '../../global-navigation/sp-navigation/sp-navigation'
+import { SPNavi } from '../../global-navigation/sp-navigation'
 import { useState } from 'react'
 import { IoMdCloseCircleOutline } from 'react-icons/io'
 import classNames from 'classnames'

@@ -14,8 +14,8 @@
  */
 
 import React from 'react'
-import { SPNavi } from './sp-navigation/sp-navigation'
-import { PCNavi } from './pc-navigation/pc-navigation'
+import { SPNavi } from './sp-navigation'
+import { PCNavi } from './pc-navigation'
 
 /**
  * 現在のパスがナビゲーション項目にマッチするかチェック
