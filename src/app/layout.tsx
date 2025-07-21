@@ -26,7 +26,6 @@ import Image from 'next/image'
 import { Zen_Maru_Gothic } from 'next/font/google'
 import { LeftColumn } from '@/components/layout/left-column'
 import { RightColumn } from '@/components/layout/right-column'
-import { ServiceWorkerRegistration } from '@/components/pwa/service-worker-registration'
 import './globals.css'
 import styles from './layout.module.css'
 
@@ -154,6 +153,10 @@ const RootLayout: React.FC<RootLayoutProps> = ({ main, modal, children }) => {
         {/* テーマカラー */}
         <meta name="theme-color" content="#652C8F" />
         <meta name="msapplication-TileColor" content="#652C8F" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+        />
       </head>
 
       <body
@@ -168,8 +171,6 @@ const RootLayout: React.FC<RootLayoutProps> = ({ main, modal, children }) => {
             className={styles.backgroundImage}
           />
         </div>
-        {/* PWA Service Worker登録 */}
-        <ServiceWorkerRegistration />
 
         {/* メインアプリケーション構造 */}
         <main className={styles.container}>
