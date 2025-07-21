@@ -14,10 +14,6 @@
   display: grid;
   place-items: center;
   border: none;
-
-  &::-webkit-details-marker {
-    display: none;
-  }
 }
 
 .openButton,
