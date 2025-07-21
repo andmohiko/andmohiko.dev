@@ -6,7 +6,12 @@ export const SPHeader = () => {
   return (
     <>
       <header className={styles.spHeader}>
-        <Image src="/images/logo.png" alt="logo" width={124} height={32} />
+        <Image
+          src="/images/logo_white.png"
+          alt="logo"
+          width={124}
+          height={32}
+        />
         <HumbergarMenu />
       </header>
 

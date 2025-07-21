@@ -28,7 +28,7 @@ export const PCNavi = () => {
     <nav className={styles.navigation} role="navigation">
       {/* logo */}
       <Image
-        src="/images/logo.png"
+        src="/images/logo_white.png"
         alt="logo"
         width={2000}
         height={516}
