@@ -34,7 +34,10 @@ export const HumbergarMenu = () => {
 
       <nav className={classNames(styles.nav, isOpen && styles.open)}>
         <div
-          className={classNames(styles.content, isOpen && styles.contentOpen)}
+          className={classNames(
+            styles.navContent,
+            isOpen && styles.navContentOpen,
+          )}
         >
           <SPNavi color="primary" showCopyright={false} />
         </div>
