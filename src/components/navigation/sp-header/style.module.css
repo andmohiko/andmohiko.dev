@@ -16,6 +16,12 @@
 }
 
 .spacer {
+  display: none;
+  
   height: 112px;
   width: 100%;
+
+  @media (max-width: 900px) {
+      display: block;
+    }
 }
