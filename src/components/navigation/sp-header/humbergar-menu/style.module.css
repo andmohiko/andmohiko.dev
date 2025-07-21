@@ -1,0 +1,85 @@
+.humbergarMenu {
+    position: relative;
+}
+
+.button {
+    position: relative;
+    z-index: 1;
+
+    list-style: none;
+    background-color: var(--color-white);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    border: none;
+
+    &::-webkit-details-marker {
+        display: none;
+    }
+}
+
+.openButton,
+.closeButton {
+    position: absolute;
+    transform: scale(0);
+    opacity: 0;
+    
+    &.show {
+        transition: transform 0.5s ease 0.25s, opacity 0.5s ease 0.25s;
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    &:not(.show) {
+        transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+}
+
+.openButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 4px;
+
+    & > span {
+        width: 18px;
+        height: 2px;
+        background-color: var(--color-primary);
+        border-radius: 2px;
+    }
+}
+
+.nav {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    padding: 48px 24px 24px;
+    width: calc(100vw - 16px);
+    background-color: var(--color-white);
+    border-radius: 16px;
+
+    transform-origin: calc(100% - 32px) 32px;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.3s ease;
+
+    &.open {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.content {
+    /* コンテンツのアニメーション */
+    transform: translateY(24px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.contentOpen {
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform 0.5s ease 0.25s, opacity 0.25s ease 0.25s;
+}

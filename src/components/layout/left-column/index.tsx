@@ -24,6 +24,8 @@ import React from 'react'
 import styles from './style.module.css'
 import { usePathname } from 'next/navigation'
 
+import { SPHeader } from '@/components/navigation/sp-header'
+
 /**
  * LeftColumnコンポーネントのプロパティ型
  */
@@ -53,13 +55,17 @@ export const LeftColumn: React.FC<LeftColumnProps> = ({
     /\/blogs\/[a-zA-Z0-9-]+$/.test(pathname) ||
     /\/works\/[a-zA-Z0-9-]+$/.test(pathname)
   return (
-    <div
-      className={classNames(className, {
-        [styles.overlay]: isOpenModal,
-      })}
-      role="main"
-    >
-      {main || children}
-    </div>
+    <>
+      <SPHeader />
+
+      <div
+        className={classNames(className, {
+          [styles.overlay]: isOpenModal,
+        })}
+        role="main"
+      >
+        {main || children}
+      </div>
+    </>
   )
 }
