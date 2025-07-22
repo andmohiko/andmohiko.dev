@@ -45,6 +45,7 @@ export const RightColumn = ({ modal }: ModalControllerProps) => {
 
   return (
     <div
+      key={isDetailModal ? pathname : 'default'} // ページ遷移の際にkeyを変更させることでanimationを適用
       className={classNames(
         styles.rightColumn,
         !!isDetailModal && styles.modal,
