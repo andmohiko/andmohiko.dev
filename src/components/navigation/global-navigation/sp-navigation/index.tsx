@@ -91,6 +91,7 @@ export const SPNavi = ({
           target="_blank"
           rel="noopener noreferrer"
           className={styles.icon}
+          aria-label="GitHub"
         >
           <IoLogoGithub size={48} color={`var(--color-${color})`} />
         </Link>
@@ -99,6 +100,7 @@ export const SPNavi = ({
           target="_blank"
           rel="noopener noreferrer"
           className={styles.icon}
+          aria-label="X"
         >
           <FaXTwitter size={48} color={`var(--color-${color})`} />
         </Link>

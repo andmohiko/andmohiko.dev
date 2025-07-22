@@ -65,6 +65,7 @@ export const PCNavi = () => {
           target="_blank"
           rel="noopener noreferrer"
           className={styles.icon}
+          aria-label="GitHub"
         >
           <IoLogoGithub size={64} color="var(--color-white)" />
         </Link>
@@ -73,6 +74,7 @@ export const PCNavi = () => {
           target="_blank"
           rel="noopener noreferrer"
           className={styles.icon}
+          aria-label="X"
         >
           <FaXTwitter size={64} color="var(--color-white)" />
         </Link>
