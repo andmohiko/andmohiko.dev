@@ -171,6 +171,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ main, modal, children }) => {
             alt="background"
             width={1280}
             height={1280}
+            priority={true}
             className={styles.backgroundImage}
           />
         </div>
