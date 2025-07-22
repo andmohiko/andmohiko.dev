@@ -17,6 +17,8 @@ type Props = {
   description: string
   isInWorkDetailPage: boolean
   isCurrentWork: boolean
+  /** LCP対策：最初の数枚を優先読み込みにするフラグ */
+  isPriority?: boolean
 }
 
 export const WorkItem = ({
@@ -26,6 +28,7 @@ export const WorkItem = ({
   description,
   isInWorkDetailPage,
   isCurrentWork,
+  isPriority = false,
 }: Props) => {
   return (
     <Link href={`/works/${id}`} className={styles.link}>
@@ -40,7 +43,8 @@ export const WorkItem = ({
           width={276}
           height={276}
           className={styles.thumbnail}
-          loading="lazy"
+          loading={isPriority ? undefined : 'lazy'}
+          priority={isPriority}
           placeholder="blur"
           blurDataURL={getBlurPlaceholder()}
           sizes={generateImageSizes(276)}

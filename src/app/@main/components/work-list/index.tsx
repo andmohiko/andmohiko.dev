@@ -33,7 +33,7 @@ export const WorkList: React.FC<Props> = ({ works }) => {
 
   return (
     <div className={styles.workList}>
-      {works.map((work) => (
+      {works.map((work, index) => (
         <WorkItem
           key={work.id}
           id={work.id}
@@ -42,6 +42,7 @@ export const WorkList: React.FC<Props> = ({ works }) => {
           description={work.description}
           isInWorkDetailPage={isInWorkDetailPage}
           isCurrentWork={workId === work.id}
+          isPriority={index < 4}
         />
       ))}
     </div>
