@@ -27,14 +27,17 @@ import Script from 'next/script'
 declare global {
   interface Window {
     gtag: (
-      command: 'config' | 'event' | 'js',
-      targetId: string | Date,
+      command: 'config' | 'event' | 'js' | 'consent',
+      targetIdOrAction: string | Date | 'update' | 'default',
       parameters?: {
         page_path?: string
         anonymize_ip?: boolean
         event_category?: string
         event_label?: string
         value?: number
+        analytics_storage?: 'granted' | 'denied'
+        ad_storage?: 'granted' | 'denied'
+        wait_for_update?: number
       },
     ) => void
     dataLayer: unknown[]
@@ -86,10 +89,24 @@ export const GoogleAnalytics: React.FC<GoogleAnalyticsProps> = ({
           __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
+            
+            // コンセント管理の初期設定
+            gtag('consent', 'default', {
+              analytics_storage: 'denied',
+              ad_storage: 'denied',
+              wait_for_update: 500
+            });
+            
             gtag('js', new Date());
             gtag('config', '${measurementId}', {
               page_path: window.location.pathname,
               anonymize_ip: true,
+              cookie_expires: 63072000,
+              cookie_update: true,
+              cookie_flags: 'SameSite=None;Secure',
+              allow_google_signals: false,
+              allow_ad_personalization_signals: false,
+              storage: 'none'
             });
           `,
         }}
