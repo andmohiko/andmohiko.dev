@@ -14,7 +14,6 @@
  */
 
 import React from 'react'
-import { SPNavi } from './sp-navigation'
 import { PCNavi } from './pc-navigation'
 
 /**
