@@ -1,0 +1,6 @@
+# Cloudflare Pages設定ファイル
+name = "andmohiko-dev"
+compatibility_date = "2023-12-30"
+
+# Node.js互換性を有効化
+compatibility_flags = ["nodejs_compat"]
