@@ -30,6 +30,7 @@ export const ProfileContent = () => {
                   href="https://github.com/andmohiko"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="GitHub"
                 >
                   <IoLogoGithub size={32} color="var(--color-primary)" />
                 </Link>
@@ -37,6 +38,7 @@ export const ProfileContent = () => {
                   href="https://x.com/andmohiko"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="X"
                 >
                   <FaXTwitter size={32} color="var(--color-primary)" />
                 </Link>
@@ -69,11 +71,11 @@ export const ProfileContent = () => {
                   Frontend
                 </LabelText>
                 <ParagraphText size="md" color="primary">
-                  ・React / Next.js
+                  React
                   <br />
-                  ・Vue.js / Nuxt.js
+                  Vue.js
                   <br />
-                  ・Astro
+                  Astro
                 </ParagraphText>
               </SectionTile>
               <SectionTile>
@@ -81,13 +83,13 @@ export const ProfileContent = () => {
                   Backend
                 </LabelText>
                 <ParagraphText size="md" color="primary">
-                  ・TypeScript
+                  TypeScript
                   <br />
-                  ・Node.js / Express
+                  Node.js
                   <br />
-                  ・Hono
+                  Hono
                   <br />
-                  ・Python
+                  Python
                 </ParagraphText>
               </SectionTile>
               <SectionTile>
@@ -95,15 +97,13 @@ export const ProfileContent = () => {
                   Tools
                 </LabelText>
                 <ParagraphText size="md" color="primary">
-                  ・Firebase
+                  Firebase
                   <br />
-                  ・GCP
+                  GCP
                   <br />
-                  ・BigQuery
+                  BigQuery
                   <br />
-                  ・Supabase
-                  <br />
-                  ・Docker
+                  PostgreSQL
                 </ParagraphText>
               </SectionTile>
             </GridThreeColumnLayout>
@@ -151,18 +151,26 @@ export const ProfileContent = () => {
           </div>
           <div className={styles.section}>
             <SectionHeading label="Gears" />
-            <GridThreeColumnLayout>
+            <GridTwoColumnLayout gap={4}>
               <SectionTile>
                 <LabelText size="sm" color="primary">
                   Keyboard
                 </LabelText>
                 <ParagraphText size="md" color="primary">
-                  ・cocot46plus
+                  cocot46plus
                   <br />
-                  ・Corne Cherry V3
+                  Corne Cherry V3
                 </ParagraphText>
               </SectionTile>
-            </GridThreeColumnLayout>
+              <SectionTile>
+                <LabelText size="sm" color="primary">
+                  Camera
+                </LabelText>
+                <ParagraphText size="md" color="primary">
+                  Sigma dp1Quattro
+                </ParagraphText>
+              </SectionTile>
+            </GridTwoColumnLayout>
           </div>
         </div>
       </div>

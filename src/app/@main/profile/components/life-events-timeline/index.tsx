@@ -3,6 +3,7 @@ import { LabelText } from '@/components/typography/LabelText'
 import { TitleText } from '@/components/typography/TitleText'
 import { ParagraphText } from '@/components/typography/ParagraphText'
 import Link from 'next/link'
+import { desc } from 'framer-motion/client'
 
 type LifeEvent = {
   time: string
@@ -12,15 +13,34 @@ type LifeEvent = {
 
 const lifeEvents: LifeEvent[] = [
   {
+    time: '2025.05.17 (28歳)',
+    title: '自分のロゴを作る',
+    description:
+      'デザイナーに依頼し、自分のロゴを作ってもらう。シーシャをイメージしたロゴということで、「andmohiko」のoが吐いた煙がmになっているのがおしゃれポイント。',
+  },
+  {
     time: '2025.04.21 (28歳)',
     title: '自宅にシーシャを買う',
     description:
       'シーシャを自分で作るイベントに参加したことをきっかけに、シーシャ台一式を購入し、自宅でもシーシャを作るようになる。毎日AFチェリー単品を練習する。',
   },
   {
+    time: '2025.01.18 (28歳)',
+    title: 'ポケカの平日大会で優勝',
+    description:
+      'ポケカのジムバトルで初めて優勝する。最後はボスの指令をトップで引いて勝つ。',
+  },
+  {
+    time: '2024.09.19 (27歳)',
+    title: 'スマブラVIP入り',
+    description:
+      'スマブラで目標にしていたVIP入りを達成する。このゲームを5年間やってきてよかった。途中でロイからファルコにキャラ替えしたり、ひたすらトレモに潜ったりして、ようやくVIPに入れて嬉しかった。',
+  },
+  {
     time: '2024.03.20 (27歳)',
     title: 'スーパーハムスターCTO就任',
-    description: '株式会社スーパーハムスターのCTOになりました。',
+    description:
+      '株式会社スーパーハムスターのCTOに就任する。開発・マネジメント・採用などを担当する。',
   },
   {
     time: '2023.08.27 (26歳)',
@@ -69,6 +89,11 @@ const lifeEvents: LifeEvent[] = [
     description:
       '新卒でmenuというフードデリバリーサービスのサーバーサイドエンジニアに就職する。Laravelを使って店舗向けシステムのサーバーサイド開発を担当する。',
   },
+  // {
+  //   time: '2021.03.27 (24歳)',
+  //   title: '公園に1日立ち続けエンジニアを採用',
+  //   description: '',
+  // },
   {
     time: '2021.01.07 (24歳)',
     title: 'スマレポをリリース',
