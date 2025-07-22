@@ -2,6 +2,7 @@ import styles from './style.module.css'
 import { LabelText } from '@/components/typography/LabelText'
 import { TitleText } from '@/components/typography/TitleText'
 import { ParagraphText } from '@/components/typography/ParagraphText'
+import Link from 'next/link'
 
 type LifeEvent = {
   time: string
@@ -11,15 +12,98 @@ type LifeEvent = {
 
 const lifeEvents: LifeEvent[] = [
   {
+    time: '2025.04.21 (28歳)',
+    title: '自宅にシーシャを買う',
+    description:
+      'シーシャを自分で作るイベントに参加したことをきっかけに、シーシャ台一式を購入し、自宅でもシーシャを作るようになる。毎日AFチェリー単品を練習する。',
+  },
+  {
     time: '2024.03.20 (27歳)',
     title: 'スーパーハムスターCTO就任',
     description: '株式会社スーパーハムスターのCTOになりました。',
   },
   {
+    time: '2023.08.27 (26歳)',
+    title: 'トラックボール一体型の40%キーボードを購入',
+    description: (
+      <>
+        キーボードとマウスを使うときの手の動きを最小限にするため、
+        <a
+          href="https://x.com/andmohiko/status/1693596478651134137"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          キーボードとトラックボールが一体になっている「cocot46plus」を購入する。
+        </a>
+        遂にホームポジションから動く必要がなくなり最強になる。
+      </>
+    ),
+  },
+  {
+    time: '2022.02.27 (25歳)',
+    title: '自作キーボードを始める',
+    description: (
+      <>
+        キーボードでは数字キーが不要であることに気づき、分割型の40%キーボードが欲しくなったため、
+        <Link href="/blogs/20220227">
+          Corne Cherry V3を購入し、自作キーボードを始める。
+        </Link>
+      </>
+    ),
+  },
+  {
     time: '2021.08.01 (24歳)',
     title: 'メンヘラテクノロジーに1人目の正社員として入社',
+    description: (
+      <>
+        <Link href="/blogs/20210730">
+          新卒で入社した株式会社menuを4ヶ月で辞め
+        </Link>
+        、学生の頃から働いていたメンヘラテクノロジーに1人目の正社員として入社する。開発責任者として自社プロダクトを開発しながら受託開発のPMを担当する。
+      </>
+    ),
+  },
+  {
+    time: '2021.04.01 (24歳)',
+    title: '新卒でレアゾンホールディングスに入社する',
     description:
-      '新卒で入社した株式会社menuを4ヶ月で辞め、学生の頃から働いていたメンヘラテクノロジーに入社しました。開発責任者として、自社プロダクトを開発しながら受託開発のPMをしました。',
+      '新卒でmenuというフードデリバリーサービスのサーバーサイドエンジニアに就職する。Laravelを使って店舗向けシステムのサーバーサイド開発を担当する。',
+  },
+  {
+    time: '2021.01.07 (24歳)',
+    title: 'スマレポをリリース',
+    description: (
+      <>
+        年末年始でデザイン・開発し、年明けに
+        <Link href="/blogs/20210131">
+          スマブラ戦績管理アプリ「スマレポ」をリリースする。
+        </Link>
+        リリース前から反響があり、リリース初日に500人以上のユーザーが登録する。はじめて個人開発でバズる。不具合や考慮できていないことをたくさん発見し、プロダクト開発を学ぶ。今でもスマブラ界隈の人からはスマレポを作った人として認知されており、ニッチで熱量の高いコミュニティに向けてプロダクトを届けることの楽しさを実感している。
+      </>
+    ),
+  },
+  {
+    time: '2021.02.18 (24歳)',
+    title: 'スプラトゥーンを始める',
+    description: (
+      <>
+        Nintendo Directで
+        <Link
+          href="https://www.youtube.com/watch?v=tAlggq5dT3M"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          スプラトゥーン3のトレーラー
+        </Link>
+        が発表され、その日にスプラ2をGEOで購入する。新作でスタートダッシュをきれるように今作を練習することに。
+      </>
+    ),
+  },
+  {
+    time: '2020.09.13 (23歳)',
+    title: '初めてシーシャを体験する',
+    description:
+      '友人に連れられ、初めてシーシャを吸う。よくわからず友達の強ミントを吸ったら意外と吸えてしまった。自分からシーシャに行き始めるのはまだ先。',
   },
   {
     time: '2020.08.01 (23歳)',
@@ -28,10 +112,33 @@ const lifeEvents: LifeEvent[] = [
       '親友が病気で亡くなる。人が死ぬということに実感を持つ。自分がいつ死んでもいいように生きようと思うようになる。',
   },
   {
+    time: '2020.06.04 (23歳)',
+    title: '初めて採用面接を担当する',
+    description:
+      '気づけばメンヘラテクノロジーでリードエンジニアになっており、メンバーを採用するため、はじめて面接をする側にまわる。',
+  },
+  {
+    time: '2020.04.13 (22歳)',
+    title: '本格的にスマブラにハマる',
+    description:
+      'コロナ禍に入ったことをきっかけに、本格的にスマブラにのめり込む。それまでアクションゲームはほとんど経験がなかったため、逆VIPから始める。',
+  },
+  {
     time: '2019.12.18 (23歳)',
     title: 'メンヘラテクノロジーにジョイン',
-    description:
-      'ドレッドのCTOの紹介で<a href="https://x.com/pascarrr" target="_blank" rel="noopener noreferrer">らんらん(@pascarrr)</a>と知り合い、メンヘラテクノロジーにフロントエンドエンジニアとしてジョインする。',
+    description: (
+      <>
+        ドレッドのCTOの紹介で
+        <a
+          href="https://x.com/pascarrr"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          らんらん(@pascarrr)
+        </a>
+        と知り合い、メンヘラテクノロジーにフロントエンドエンジニアとしてジョインする。リリース前の「メンヘラせんぱい」の開発に参加し、モダンフロントエンドとFirebaseを勉強しながら作業を進める。
+      </>
+    ),
   },
   {
     time: '2019.10.07 (22歳)',
