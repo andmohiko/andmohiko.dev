@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Cloudflare Pages対応設定
+  serverExternalPackages: ['contentful', 'microcms-js-sdk'],
 }
 
 export default nextConfig

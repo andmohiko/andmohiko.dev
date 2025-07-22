@@ -20,6 +20,10 @@
 
 import type { MetadataRoute } from 'next'
 
+// Cloudflare Pages対応の静的生成設定
+export const dynamic = 'force-static'
+export const revalidate = false
+
 /**
  * PWA マニフェスト設定
  *

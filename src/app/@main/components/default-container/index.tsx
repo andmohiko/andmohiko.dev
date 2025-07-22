@@ -15,8 +15,6 @@ export const DefaultContainer = ({ works, blogs }: Props) => {
   const pathname = usePathname()
   const isInBlogPage = pathname.includes('/blogs')
   const isInWorkPage = pathname.includes('/works')
-  console.log('isInBlogPage', isInBlogPage)
-  console.log('isInWorkPage', isInWorkPage)
 
   if (isInBlogPage) {
     return <BlogList blogs={blogs} />
