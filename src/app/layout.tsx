@@ -26,6 +26,7 @@ import Image from 'next/image'
 import { Zen_Maru_Gothic } from 'next/font/google'
 import { LeftColumn } from '@/components/layout/left-column'
 import { RightColumn } from '@/components/layout/right-column'
+import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics'
 import './globals.css'
 import styles from './layout.module.css'
 
@@ -156,6 +157,11 @@ const RootLayout: React.FC<RootLayoutProps> = ({ main, modal, children }) => {
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+        />
+
+        {/* Google Analytics */}
+        <GoogleAnalytics
+          measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ''}
         />
       </head>
 
