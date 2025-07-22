@@ -154,10 +154,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ main, modal, children }) => {
         {/* テーマカラー */}
         <meta name="theme-color" content="#652C8F" />
         <meta name="msapplication-TileColor" content="#652C8F" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         {/* Google Analytics */}
         <GoogleAnalytics
