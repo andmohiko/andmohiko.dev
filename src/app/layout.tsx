@@ -181,14 +181,10 @@ const RootLayout: React.FC<RootLayoutProps> = ({ main, modal, children }) => {
         {/* メインアプリケーション構造 */}
         <main className={styles.container}>
           {/* 左カラム：メインコンテンツ */}
-          <LeftColumn main={main} className={styles.mainContent}>
-            {children}
-          </LeftColumn>
+          <LeftColumn main={main}>{children}</LeftColumn>
 
           {/* 右カラム：ナビゲーション・モーダル */}
-          <div className={styles.rightColumn}>
-            <RightColumn modal={modal} />
-          </div>
+          <RightColumn modal={modal} />
         </main>
       </body>
     </html>

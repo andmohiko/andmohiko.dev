@@ -14,7 +14,6 @@
  */
 
 import React from 'react'
-import { SPNavi } from './sp-navigation'
 import { PCNavi } from './pc-navigation'
 
 /**
@@ -37,10 +36,5 @@ export const isCurrentPath = (pathname: string, href: string): boolean => {
  * @returns {JSX.Element} ナビゲーションコンポーネント
  */
 export const GlobalNavigation: React.FC = () => {
-  return (
-    <>
-      <PCNavi />
-      <SPNavi />
-    </>
-  )
+  return <PCNavi />
 }

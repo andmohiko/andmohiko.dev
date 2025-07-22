@@ -25,6 +25,7 @@ import styles from './style.module.css'
 import { usePathname } from 'next/navigation'
 
 import { SPHeader } from '@/components/navigation/sp-header'
+import { SPNavi } from '@/components/navigation/global-navigation/sp-navigation'
 
 /**
  * LeftColumnコンポーネントのプロパティ型
@@ -44,28 +45,24 @@ type LeftColumnProps = {
  * @param {LeftColumnProps} props - コンポーネントのプロパティ
  * @returns {React.ReactNode} メインコンテンツまたは子要素
  */
-export const LeftColumn: React.FC<LeftColumnProps> = ({
-  main,
-  children,
-  className,
-}) => {
+export const LeftColumn: React.FC<LeftColumnProps> = ({ main, children }) => {
   const pathname = usePathname()
   // /blogs/[slug]または/works/[slug]の場合はモーダルを開く。正規表現で判定する
   const isOpenModal =
     /\/blogs\/[a-zA-Z0-9-]+$/.test(pathname) ||
     /\/works\/[a-zA-Z0-9-]+$/.test(pathname)
   return (
-    <>
+    <div
+      className={classNames(styles.mainContent, {
+        [styles.overlay]: isOpenModal,
+      })}
+      role="main"
+    >
       <SPHeader />
 
-      <div
-        className={classNames(className, {
-          [styles.overlay]: isOpenModal,
-        })}
-        role="main"
-      >
-        {main || children}
-      </div>
-    </>
+      {main || children}
+
+      <SPNavi />
+    </div>
   )
 }

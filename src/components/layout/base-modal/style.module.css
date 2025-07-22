@@ -8,6 +8,7 @@
     background-color: var(--color-white);
     border-radius: 16px;
     position: relative;
+    width: 100%;
 
     .close {
       position: fixed;
