@@ -37,10 +37,5 @@ export const isCurrentPath = (pathname: string, href: string): boolean => {
  * @returns {JSX.Element} ナビゲーションコンポーネント
  */
 export const GlobalNavigation: React.FC = () => {
-  return (
-    <>
-      <PCNavi />
-      <SPNavi />
-    </>
-  )
+  return <PCNavi />
 }

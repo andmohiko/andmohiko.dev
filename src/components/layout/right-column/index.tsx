@@ -19,6 +19,7 @@ import React from 'react'
 import { usePathname } from 'next/navigation'
 import { GlobalNavigation } from '@/components/navigation/global-navigation'
 import styles from './style.module.css'
+import classNames from 'classnames'
 
 /**
  * モーダルコントローラーのプロパティ型
@@ -39,26 +40,23 @@ export const RightColumn = ({ modal }: ModalControllerProps) => {
   // 詳細ページのパスパターンをチェック
   const isDetailPage = /^\/(blogs|works)\/[^/]+$/.test(pathname)
 
-  // 詳細ページでかつmodalが存在する場合のみ表示
-  if (isDetailPage && modal && React.isValidElement(modal)) {
-    return (
-      <>
-        {modal}
-        <div className={styles.footerNavigation} role="complementary">
-          <GlobalNavigation />
-        </div>
-      </>
-    )
-  }
+  // 詳細ページでかつmodalが存在する場合
+  const isDetailModal = isDetailPage && modal && React.isValidElement(modal)
 
   return (
-    <>
-      <aside className={styles.sidebar} role="complementary">
-        <GlobalNavigation />
-      </aside>
-      <div className={styles.footerNavigation} role="complementary">
-        <GlobalNavigation />
-      </div>
-    </>
+    <div
+      className={classNames(
+        styles.rightColumn,
+        !!isDetailModal && styles.modal,
+      )}
+    >
+      {isDetailModal ? (
+        <>{modal}</>
+      ) : (
+        <aside className={styles.sidebar} role="complementary">
+          <GlobalNavigation />
+        </aside>
+      )}
+    </div>
   )
 }
