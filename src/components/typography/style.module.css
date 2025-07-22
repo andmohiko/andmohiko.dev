@@ -1,0 +1,109 @@
+.baseText {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+._black {
+  color: var(--color-black);
+}
+
+._white {
+  color: var(--color-white);
+}
+
+._primary {
+  color: var(--color-primary);
+}
+
+/* TODO: font familyをHiragino Maru Gothic StdN W6にする */
+.titleText {
+  line-height: 1.25;
+
+  font-family:
+    'Zen Maru Gothic',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  font-weight: 600;
+}
+
+.paragraphText {
+  line-height: 1.75;
+
+  font-family:
+    'Zen Maru Gothic',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  font-weight: 400;
+}
+
+.labelText {
+  line-height: 1.25;
+
+  font-family:
+    'Zen Maru Gothic',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  font-weight: 600;
+}
+
+._size32 {
+  font-size: 32px;
+}
+
+._size24 {
+  font-size: 24px;
+}
+
+._size20 {
+  font-size: 20px;
+}
+
+._size16 {
+  font-size: 16px;
+}
+
+._size14 {
+  font-size: 14px;
+}
+
+._size12 {
+  font-size: 12px;
+}
+
+._bold {
+  font-weight: bold;
+}
+
+._normal {
+  font-weight: normal;
+}
+
+._left {
+  text-align: left;
+}
+
+._center {
+  text-align: center;
+}
+
+._right {
+  text-align: right;
+}
+
+._opacity50 {
+  opacity: 0.5;
+}
+
+._opacity70 {
+  opacity: 0.7;
+}
+
+._opacity100 {
+  opacity: 1;
+}

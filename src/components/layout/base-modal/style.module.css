@@ -1,0 +1,46 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  .modal {
+    background-color: var(--color-white);
+    border-radius: 16px;
+    position: relative;
+    width: 100%;
+
+    .close {
+      position: fixed;
+      top: 56px;
+      right: calc(50% - 630px);
+      z-index: 1;
+      border: none;
+      background-color: var(--color-white);
+      cursor: pointer;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background-color: var(--color-primary-light-alt);
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
+      }
+
+      /* 1312px = (max-width の1280px) + (body の左右のマージン 16px * 2) */
+      @media (max-width: 1312px) {
+        right: 24px;
+      }
+
+      @media (max-width: 900px) {
+        position: fixed;
+        top: 32px;
+        right: 24px;
+      }
+    }
+  }
+}

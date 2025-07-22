@@ -1,0 +1,9 @@
+.blogList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .year {
+    margin-top: 48px;
+  }
+}

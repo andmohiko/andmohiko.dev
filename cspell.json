@@ -1,0 +1,43 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "andmohiko",
+    "autosize",
+    "cocot",
+    "Contentful",
+    "Corne",
+    "dotgothic",
+    "dropzone",
+    "firebase",
+    "firestore",
+    "flatMap",
+    "hookform",
+    "Kosugi",
+    "mantine",
+    "Maru",
+    "microcms",
+    "millis",
+    "Navigations",
+    "nextjs",
+    "Nuxt",
+    "predeploy",
+    "recaptcha",
+    "SAPIX",
+    "Supabase",
+    "Tomohiko",
+    "turbopack",
+    "twiml",
+    "vercel",
+    "webp"
+  ],
+  "ignorePaths": [
+    "node_modules",
+    ".next",
+    "public",
+    "*.js",
+    "*.log",
+    ".turbo",
+    ".git"
+  ]
+}

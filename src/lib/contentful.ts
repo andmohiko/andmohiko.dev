@@ -1,9 +1,14 @@
-import contentful from 'contentful'
-import type { ContentfulBlog } from '~/types/blog'
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import * as contentful from 'contentful'
+import type { ContentfulBlog } from '@/types/blog'
 
+/**
+ * @description Contentfulのクライアント設定のデフォルト値
+ * @property {string} CTF_SPACE_ID - ContentfulのスペースID
+ */
 const defaultConfig = {
-  CTF_SPACE_ID: import.meta.env.CTF_SPACE_ID,
-  CTF_CDA_ACCESS_TOKEN: import.meta.env.CTF_CDA_ACCESS_TOKEN,
+  CTF_SPACE_ID: process.env.NEXT_PUBLIC_CTF_SPACE_ID,
+  CTF_CDA_ACCESS_TOKEN: process.env.NEXT_PUBLIC_CTF_CDA_ACCESS_TOKEN,
 }
 
 export const createContentfulClient = (config = defaultConfig) => {
@@ -16,7 +21,8 @@ export const createContentfulClient = (config = defaultConfig) => {
 export const getAllBlogPosts = async (): Promise<Array<ContentfulBlog>> => {
   const posts = await createContentfulClient()
     .getEntries({
-      content_type: import.meta.env.CTF_BLOG_POST_TYPE_ID!,
+      content_type: process.env.NEXT_PUBLIC_CTF_BLOG_POST_TYPE_ID!,
+      // @ts-ignore
       order: '-fields.publishedAt',
     })
     .then((entries) => {
@@ -25,18 +31,40 @@ export const getAllBlogPosts = async (): Promise<Array<ContentfulBlog>> => {
       }
     })
     .catch(console.error)
+  // @ts-ignore
   return posts.posts
 }
 
-export const getBlogById = async (slug: string): Promise<ContentfulBlog> => {
-  const posts = await createContentfulClient()
+// ブログ詳細ページのデータを取得
+export const getBlogById = async (
+  slug: string,
+): Promise<{
+  blog: ContentfulBlog
+  previousSlug: string | undefined
+  nextSlug: string | undefined
+}> => {
+  const allPosts = await createContentfulClient()
     .getEntries({
-      content_type: import.meta.env.CTF_BLOG_POST_TYPE_ID!,
+      content_type: process.env.NEXT_PUBLIC_CTF_BLOG_POST_TYPE_ID!,
+      // @ts-ignore
       order: '-fields.publishedAt',
     })
-    .then((entries) =>
-      entries.items.filter((item) => item.fields.slug === slug),
-    )
+    .then((entries) => {
+      return {
+        posts: entries.items,
+      }
+    })
     .catch(console.error)
-  return posts[0]
+  // @ts-ignore
+  const posts = allPosts.posts
+  const blog = posts.find((post: ContentfulBlog) => post.fields.slug === slug)
+  const index = posts.indexOf(blog)
+  const nextSlug = index > 0 ? posts[index - 1].fields.slug : undefined
+  const previousSlug =
+    index < posts.length - 1 ? posts[index + 1].fields.slug : undefined
+  return {
+    blog,
+    previousSlug,
+    nextSlug,
+  }
 }
