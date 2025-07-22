@@ -33,6 +33,7 @@ export const PCNavi = () => {
         width={2000}
         height={516}
         className={styles.logo}
+        priority={true}
       />
       {/* navigation */}
       <div className={styles.navigationList}>

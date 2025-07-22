@@ -57,6 +57,7 @@ export const SPNavi = ({
         width={187}
         height={48}
         className={styles.logo}
+        priority={true}
       />
       {/* navigation */}
       <div className={styles.navigationList}>
