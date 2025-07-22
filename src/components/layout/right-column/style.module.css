@@ -3,7 +3,8 @@
   max-width: 616px;
   height: 100vh;
   overflow-y: auto;
-
+  padding-top: 48px;
+  padding-bottom: 80px;
   /* スクロールバーを非表示 */
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -14,7 +15,7 @@
 
   @media (max-width: 900px) {
     max-width: 100%;
-    padding: 24px 0 80px;
+    padding-top: 24px;
     position: absolute;
     top: 0;
 
