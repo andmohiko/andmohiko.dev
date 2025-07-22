@@ -16,9 +16,7 @@
  * @returns {NextPage} ポートフォリオページ
  */
 
-import React from 'react'
 import { NextPage } from 'next'
-import styles from './page.module.css'
 
 /**
  * 静的生成の設定
@@ -28,13 +26,7 @@ export const dynamic = 'force-static'
 export const revalidate = false
 
 const PortfolioPage: NextPage = () => {
-  return (
-    <div className={styles.container}>
-      <div className={styles.mainContent}>
-        <h1>ポートフォリオ</h1>
-      </div>
-    </div>
-  )
+  return <h1>andmohiko.dev</h1>
 }
 
 export default PortfolioPage
