@@ -30,7 +30,8 @@
         transition: opacity 0.3s ease;
       }
 
-      @media (max-width: 1200px) {
+      /* 1312px = (max-width の1280px) + (body の左右のマージン 16px * 2) */
+      @media (max-width: 1312px) {
         right: 24px;
       }
 
