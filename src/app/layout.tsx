@@ -37,6 +37,7 @@ const zenMaruGothic400 = Zen_Maru_Gothic({
   weight: '400',
   subsets: ['latin'],
   display: 'swap',
+  preload: true,
   variable: '--font-zen-maru-gothic',
 })
 
@@ -44,6 +45,7 @@ const zenMaruGothic600 = Zen_Maru_Gothic({
   weight: '700',
   subsets: ['latin'],
   display: 'swap',
+  preload: true,
   variable: '--font-zen-maru-gothic',
 })
 

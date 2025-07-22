@@ -8,6 +8,7 @@ import { TitleText } from '@/components/typography/TitleText'
 import Image from 'next/image'
 import { ParagraphText } from '@/components/typography/ParagraphText'
 import classNames from 'classnames'
+import { getBlurPlaceholder, generateImageSizes } from '@/lib/blur-placeholder'
 
 type Props = {
   id: string
@@ -39,6 +40,11 @@ export const WorkItem = ({
           width={276}
           height={276}
           className={styles.thumbnail}
+          loading="lazy"
+          placeholder="blur"
+          blurDataURL={getBlurPlaceholder()}
+          sizes={generateImageSizes(276)}
+          quality={75}
         />
         <div className={styles.texts}>
           <TitleText level="h3" size="lg">

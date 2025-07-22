@@ -13,6 +13,7 @@ import { LabelText } from '@/components/typography/LabelText'
 import Image from 'next/image'
 import { ParagraphText } from '@/components/typography/ParagraphText'
 import { LabelBadge } from '@/components/displays/label-badge'
+import { getBlurPlaceholder, generateImageSizes } from '@/lib/blur-placeholder'
 
 /**
  * WorkModalコンポーネントのプロパティ型
@@ -48,6 +49,11 @@ export const WorkContent: React.FC<WorkModalProps> = ({
               width={780}
               height={320}
               className={styles.thumbnail}
+              priority={true}
+              placeholder="blur"
+              blurDataURL={getBlurPlaceholder()}
+              sizes={generateImageSizes(780)}
+              quality={85}
             />
             <div className={styles.texts}>
               <div className={styles.header}>
