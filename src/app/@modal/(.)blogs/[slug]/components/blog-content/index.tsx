@@ -4,6 +4,7 @@
 
 'use client'
 
+import Image from 'next/image'
 import { ContentfulBlog } from '@/types/blog'
 import styles from './style.module.css'
 import { BaseModal } from '@/components/layout/base-modal'
@@ -45,6 +46,15 @@ export const BlogContent: React.FC<BlogModalProps> = ({
       <BaseModal>
         {blog ? (
           <article className={styles.content}>
+            {blog.fields.headerImage && (
+              <Image
+                src={`https:${blog.fields.headerImage.fields.file.url}?fm=webp`}
+                alt={blog.fields.title}
+                width={568}
+                height={300}
+                className={styles.thumbnail}
+              />
+            )}
             <div className={styles.title}>
               <TitleText level="h1" size="lg" color="primary">
                 {blog.fields.title}
