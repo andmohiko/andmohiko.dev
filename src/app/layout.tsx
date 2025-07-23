@@ -57,8 +57,7 @@ export const metadata: Metadata = {
     default: 'andmohiko.dev - Portfolio & Blog',
     template: '%s | andmohiko.dev',
   },
-  description:
-    'andmohikoのポートフォリオサイト。ブログと人生と過去につくったもの。',
+  description: 'andmohikoのポートフォリオサイト。人生とブログとつくったもの。',
   authors: [{ name: 'andmohiko' }],
   creator: 'andmohiko',
   publisher: 'andmohiko',
@@ -79,7 +78,7 @@ export const metadata: Metadata = {
     siteName: 'andmohiko.dev',
     title: 'andmohiko.dev - Portfolio & Blog',
     description:
-      'andmohikoのポートフォリオサイト。ブログと人生と過去につくったもの。',
+      'andmohikoのポートフォリオサイト。人生とブログとつくったもの。',
     images: [
       {
         url: 'https://andmohiko-dev-git-feature-nextjs-andmohikos-projects.vercel.app/ogp.png',
@@ -94,7 +93,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'andmohiko.dev - Portfolio & Blog',
     description:
-      'andmohikoのポートフォリオサイト。ブログと人生と過去につくったもの。',
+      'andmohikoのポートフォリオサイト。人生とブログとつくったもの。',
     creator: '@andmohiko',
     images: [
       'https://andmohiko-dev-git-feature-nextjs-andmohikos-projects.vercel.app/ogp.png',
