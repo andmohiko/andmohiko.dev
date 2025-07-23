@@ -3,7 +3,6 @@ import { LabelText } from '@/components/typography/LabelText'
 import { TitleText } from '@/components/typography/TitleText'
 import { ParagraphText } from '@/components/typography/ParagraphText'
 import Link from 'next/link'
-import { desc } from 'framer-motion/client'
 
 type LifeEvent = {
   time: string
@@ -37,10 +36,27 @@ const lifeEvents: LifeEvent[] = [
       'スマブラで目標にしていたVIP入りを達成する。このゲームを5年間やってきてよかった。途中でロイからファルコにキャラ替えしたり、ひたすらトレモに潜ったりして、ようやくVIPに入れて嬉しかった。',
   },
   {
-    time: '2024.03.20 (27歳)',
+    time: '2024.03.23 (27歳)',
     title: 'スーパーハムスターCTO就任',
     description:
       '株式会社スーパーハムスターのCTOに就任する。開発・マネジメント・採用などを担当する。',
+  },
+  {
+    time: '2023.11.08 (27歳)',
+    title: '地雷女子のChrome拡張をリリース',
+    description: (
+      <>
+        個人開発で
+        <a
+          href="https://chromewebstore.google.com/detail/%E5%9C%B0%E9%9B%B7%E6%99%82%E8%A8%88/lafchmgcdcohhlaigmjdngcpdckablkc?authuser=0&hl=en&pli=1"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          「地雷時計」というChrome拡張
+        </a>
+        をリリースする。この個人開発を見て求人に応募してくれたエンジニアもいる。
+      </>
+    ),
   },
   {
     time: '2023.08.27 (26歳)',
@@ -85,15 +101,42 @@ const lifeEvents: LifeEvent[] = [
   },
   {
     time: '2021.04.01 (24歳)',
-    title: '新卒でレアゾンホールディングスに入社する',
+    title: '新卒でレアゾンホールディングスに入社',
     description:
       '新卒でmenuというフードデリバリーサービスのサーバーサイドエンジニアに就職する。Laravelを使って店舗向けシステムのサーバーサイド開発を担当する。',
   },
-  // {
-  //   time: '2021.03.27 (24歳)',
-  //   title: '公園に1日立ち続けエンジニアを採用',
-  //   description: '',
-  // },
+  {
+    time: '2021.03.27 (24歳)',
+    title: '公園に1日立ち続け、エンジニアを採用',
+    description: (
+      <>
+        <a
+          href="https://ascii.jp/limit/group/ida/elem/000/004/049/4049104/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          天気が良かったので公園で採用活動をしたら、ハイスペ大学生を採用できた。
+        </a>
+        当日のお昼頃にらんらんから「今から公園に行きませんか」という謎の誘いを受け、池袋西口公園に行く。1日立ち続けていたらエンジニア大学生を採用できてしまった。なんで？
+      </>
+    ),
+  },
+  {
+    time: '2021.02.03 (24歳)',
+    title: 'メンヘラ×機械学習で修論を書く',
+    description: (
+      <>
+        <a
+          href="http://altmetrics.ceek.jp/article/id.nii.ac.jp/1001/00209776/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          「SNSデータを使った『メンヘラ』の予測」
+        </a>
+        という修論を書く。大学4年生の頃のインターン先で自然言語処理を勉強したことから始まり、大学院生の間はメンヘラテクノロジーで働くという、これまでのエンジニアキャリアの集大成のようなもの。修論発表当日のタイムラインがざわざわする。
+      </>
+    ),
+  },
   {
     time: '2021.01.07 (24歳)',
     title: 'スマレポをリリース',
@@ -126,7 +169,7 @@ const lifeEvents: LifeEvent[] = [
   },
   {
     time: '2020.09.13 (23歳)',
-    title: '初めてシーシャを体験する',
+    title: '初めてシーシャを体験',
     description:
       '友人に連れられ、初めてシーシャを吸う。よくわからず友達の強ミントを吸ったら意外と吸えてしまった。自分からシーシャに行き始めるのはまだ先。',
   },
@@ -138,7 +181,7 @@ const lifeEvents: LifeEvent[] = [
   },
   {
     time: '2020.06.04 (23歳)',
-    title: '初めて採用面接を担当する',
+    title: '初めて採用面接を担当',
     description:
       '気づけばメンヘラテクノロジーでリードエンジニアになっており、メンバーを採用するため、はじめて面接をする側にまわる。',
   },
@@ -173,13 +216,13 @@ const lifeEvents: LifeEvent[] = [
   },
   {
     time: '2019.09.29 (22歳)',
-    title: 'Webエンジニアに進路を変更する',
+    title: 'Webエンジニアに進路を変更',
     description:
       '機械学習エンジニアとして就職することの難しさを感じ、Web開発にジョブチェンジする。HTMLとCSSの勉強から始め、インターン先でモダンフロントエンド開発のタスクをもらう。',
   },
   {
     time: '2019.09.15 (23歳)',
-    title: 'DMMでインターンする',
+    title: 'DMMでインターン',
     description:
       '合同会社DMM.comの2週間のサマーインターンに参加し、動画配信プラットフォームのレコメンドエンジンの改善に取り組む。ドメイン知識を活かし、ユーザーの回遊率を上げることに成功する。商品のパッケージを会議室に映しながら「レコメンドエンジンとはどうあるべきか」という成果発表をする。',
   },
@@ -267,9 +310,9 @@ const lifeEvents: LifeEvent[] = [
   },
   {
     time: '2013.02.01 (17歳)',
-    title: '苦手なベクトルを克服する',
+    title: '苦手なベクトルを克服',
     description:
-      '数2Bのベクトルが苦手で成績の足を引っ張っていたので、集中的に勉強して逆に得意分野にする。課題を戦略的に解決するという発想を手にいれる。',
+      '数2Bのベクトルが苦手で成績の足を引っ張っていたので、集中的に勉強して逆に得意分野にする。戦略的に課題を解決するという発想を手にいれる。',
   },
   {
     time: '2012.04.08 (16歳)',
