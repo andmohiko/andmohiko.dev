@@ -1,7 +1,7 @@
 .rightColumn {
   width: 100%;
   max-width: 616px;
-  height: 100vh;
+  height: 100dvh;
   overflow-y: auto;
   padding-top: 48px;
   padding-bottom: 80px;
