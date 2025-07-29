@@ -13,7 +13,7 @@ importers:
         version: 2.5.1
       contentful:
         specifier: ^11.7.7
-        version: 11.7.13
+        version: 11.7.15
       dayjs:
         specifier: ^1.11.13
         version: 1.11.13
@@ -75,8 +75,8 @@ importers:
 
 packages:
 
-  '@contentful/content-source-maps@0.11.29':
-    resolution: {integrity: sha512-ZxsHSQt9KktVhD+s4jbLzB4uwd+dl/NdBvh+1hh+kNj5ufp/7eAfvCq9BWeWiuTHUrciy8FlYdaqBMIaGXE1/Q==}
+  '@contentful/content-source-maps@0.11.30':
+    resolution: {integrity: sha512-pZ5FLK0owJldlVw+yomNijMTjkg++19uU3Rq3suYDsGQ4/liTJmnwu+7hf82WADGtk28BNbZWzl8hNisg2OZpQ==}
 
   '@contentful/rich-text-types@16.8.5':
     resolution: {integrity: sha512-q18RJuJCOuYveGiCIjE5xLCQc5lZ3L2Qgxrlg/H2YEobDFqdtmklazRi1XwEWaK3tMg6yVXBzKKkQfLB4qW14A==}
@@ -582,8 +582,8 @@ packages:
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
 
-  '@rollup/rollup-linux-x64-gnu@4.45.1':
-    resolution: {integrity: sha512-+E/lYl6qu1zqgPEnTrs4WysQtvc/Sh4fC2nByfFExqgYrqkKWp1tWIbe+ELhixnenSpBbLXNi6vbEEJ8M7fiHw==}
+  '@rollup/rollup-linux-x64-gnu@4.46.1':
+    resolution: {integrity: sha512-9OADZYryz/7E8/qt0vnaHQgmia2Y0wrjSSn1V/uL+zw/i7NUhxbX4cHXdEQ7dnJgzYDS81d8+tf6nbIdRFZQoQ==}
     cpu: [x64]
     os: [linux]
 
@@ -1011,8 +1011,8 @@ packages:
     resolution: {integrity: sha512-cUvHbC2u8ouJHhG3tofQhUc0FAmM/QBcalYjiczMtFKrR77BW+eSPcPg+A9DQlhIP0UGcQ/knXxoJpBvrERXTA==}
     engines: {node: '>=18'}
 
-  contentful@11.7.13:
-    resolution: {integrity: sha512-0/RpYHITELDTANzpKXt9IWEfu2nibZFb7PPyiZ2kBV/MH/x/C9SVAIIUdzI5hgkB1o9eXa2o+GvUXfnIcFW1rA==}
+  contentful@11.7.15:
+    resolution: {integrity: sha512-NVg0OWSUOq1f6nCGb8db8D6TlVVVEVVwC0Ap/z8FCuvCjCqiSBVxvkHFhaX7upmxfxCo+gRBiKmQFH/HHI1Qkw==}
     engines: {node: '>=18'}
 
   core-util-is@1.0.3:
@@ -2499,7 +2499,7 @@ packages:
 
 snapshots:
 
-  '@contentful/content-source-maps@0.11.29':
+  '@contentful/content-source-maps@0.11.30':
     dependencies:
       '@vercel/stega': 0.1.2
       json-pointer: 0.6.2
@@ -2951,7 +2951,7 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
-  '@rollup/rollup-linux-x64-gnu@4.45.1':
+  '@rollup/rollup-linux-x64-gnu@4.46.1':
     optional: true
 
   '@rtsao/scc@1.1.0': {}
@@ -3400,11 +3400,11 @@ snapshots:
       process: 0.11.10
       qs: 6.14.0
     optionalDependencies:
-      '@rollup/rollup-linux-x64-gnu': 4.45.1
+      '@rollup/rollup-linux-x64-gnu': 4.46.1
 
-  contentful@11.7.13:
+  contentful@11.7.15:
     dependencies:
-      '@contentful/content-source-maps': 0.11.29
+      '@contentful/content-source-maps': 0.11.30
       '@contentful/rich-text-types': 16.8.5
       axios: 1.11.0
       contentful-resolve-response: 1.9.3
