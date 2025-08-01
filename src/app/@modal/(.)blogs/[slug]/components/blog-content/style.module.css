@@ -153,6 +153,7 @@
 .body :global(a) {
   color: var(--color-primary);
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .body :global(a:hover) {
