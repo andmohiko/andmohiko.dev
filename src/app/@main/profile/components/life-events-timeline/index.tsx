@@ -328,7 +328,8 @@ const lifeEvents: LifeEvent[] = [
   {
     time: '2012.12.05 (16歳)',
     title: 'DTMを始める',
-    description: '歌ってみたのMixを始める。たまにニコニコ生放送もする。インターネットコミュニティに本格的に浸かり、学校では知り合わないような人たちと仲良くなる。自分とはバックグラウンドが異なる人との交流を通して社会性を身につける。',
+    description:
+      '歌ってみたのMixを始める。たまにニコニコ生放送もする。インターネットコミュニティに本格的に浸かり、学校では知り合わないような人たちと仲良くなる。自分とはバックグラウンドが異なる人との交流を通して社会性を身につける。',
   },
   {
     time: '2012.08.03 (15歳)',
@@ -478,7 +479,7 @@ const lifeEvents: LifeEvent[] = [
 
 export const LifeEventsTimeline = () => {
   return (
-    <div className={styles.lifeEventsTimeline}>
+    <div className={styles.lifeEventsTimeline} id="timeline">
       <TitleText level="h2" size="xl">
         人生年表
       </TitleText>
