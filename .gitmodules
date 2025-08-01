@@ -1,0 +1,3 @@
+[submodule "src/contents/blogs"]
+	path = src/contents/blogs
+	url = git@github.com:andmohiko/blogs.git
