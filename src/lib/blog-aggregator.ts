@@ -144,7 +144,6 @@ export const getAggregatedBlogBySlug = async (
     // サブモジュールで見つからなかった場合はContentfulから検索
     const contentfulResult = await getContentfulBlogById(slug)
     if (contentfulResult.blog) {
-      // ContentfulBlogを純粋なBlog型に変換（Markdownのまま）
       const blogData: Blog = {
         body: contentfulResult.blog.fields.body,
         description: contentfulResult.blog.fields.description,
