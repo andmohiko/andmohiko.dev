@@ -15,11 +15,9 @@ import { WorkList } from './components/work-list'
  * ページメタデータの設定
  */
 export const metadata: Metadata = {
-  title: 'andmohiko.dev',
   description:
     'andmohikoのポートフォリオサイト。ブログと人生と過去につくったもの。',
   openGraph: {
-    title: 'andmohiko.dev',
     description:
       'andmohikoのポートフォリオサイト。ブログと人生と過去につくったもの。',
     type: 'website',
