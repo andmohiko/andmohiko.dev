@@ -26,7 +26,11 @@ import { notFound } from 'next/navigation'
 import dayjs from 'dayjs'
 import { BlogContent } from './components/blog-content'
 import { getAllBlogPosts } from '@/lib/contentful'
-import { getAggregatedBlogBySlug } from '@/lib/blog-aggregator'
+import {
+  getAggregatedBlogBySlug,
+  getAllAggregatedBlogs,
+  convertToBlogArray,
+} from '@/lib/blog-aggregator'
 
 /**
  * 静的生成の設定
@@ -43,16 +47,21 @@ export const revalidate = false
  */
 export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
   try {
-    const posts = await getAllBlogPosts()
+    // 統合ブログ（Contentful + サブモジュール）からパラメータを生成
+    const aggregatedBlogs = await getAllAggregatedBlogs()
+    const blogs = convertToBlogArray(aggregatedBlogs)
 
-    if (!posts || posts.length === 0) {
+    if (!blogs || blogs.length === 0) {
       console.warn('generateStaticParams: ブログ記事が取得できませんでした')
       return []
     }
 
-    const params = posts.map((post) => ({
-      slug: post.fields.slug,
-    }))
+    // slugが存在する記事のみを対象とする
+    const params = blogs
+      .filter((blog) => blog.slug)
+      .map((blog) => ({
+        slug: blog.slug!,
+      }))
 
     console.log(
       `generateStaticParams: ${params.length}件のブログページを静的生成します`,
