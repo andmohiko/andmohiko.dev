@@ -131,18 +131,20 @@ export const getSubmoduleBlogPosts = async (): Promise<Blog[]> => {
       }
     }
 
-    // Blog型に変換（Markdownのまま）
+    // Blog型に変換（Markdownの画像パスを変換）
     const blogs: Blog[] = posts.map((post) => ({
       id: post.metadata.slug,
       title: post.metadata.title,
       description: post.metadata.description,
-      body: post.content,
+      body: transformImagePaths(post.content, post.filePath),
       slug: post.metadata.slug,
       publishedAt: post.metadata.date,
       headerImageUrl: post.metadata.headerImage
         ? resolveImagePath(post.metadata.headerImage, post.filePath)
         : undefined,
       url: undefined,
+      // 記事のディレクトリパスを追加（画像パス解決用）
+      articlePath: getArticlePath(post.filePath),
     }))
 
     // 公開日時でソート（新しい順）
@@ -191,6 +193,55 @@ export const getSubmoduleBlogBySlug = async (
       `サブモジュールブログ個別取得でエラーが発生しました (slug: ${slug}): ${error}`,
     )
     return { blog: null, previousSlug: undefined, nextSlug: undefined }
+  }
+}
+
+/**
+ * Markdownコンテンツ内の画像パスを変換
+ *
+ * @param markdownContent - Markdownコンテンツ
+ * @param markdownFilePath - Markdownファイルのパス
+ * @returns 画像パスが変換されたMarkdownコンテンツ
+ */
+const transformImagePaths = (
+  markdownContent: string,
+  markdownFilePath: string,
+): string => {
+  try {
+    // 画像の正規表現パターン: ![alt](./images/example.png) または ![alt](./path/to/image.jpg)
+    const imageRegex = /!\[([^\]]*)\]\(\.\/([^)]+)\)/g
+
+    return markdownContent.replace(imageRegex, (match, alt, imagePath) => {
+      // 相対パスを絶対パスに変換
+      const resolvedImagePath = resolveImagePath(
+        `./${imagePath}`,
+        markdownFilePath,
+      )
+      return `![${alt}](${resolvedImagePath})`
+    })
+  } catch (error) {
+    console.error(`画像パス変換でエラーが発生しました: ${error}`)
+    return markdownContent
+  }
+}
+
+/**
+ * Markdownファイルパスから記事ディレクトリパスを取得
+ *
+ * @param markdownFilePath - Markdownファイルのパス
+ * @returns 記事ディレクトリパス
+ */
+const getArticlePath = (markdownFilePath: string): string => {
+  try {
+    const submoduleDir = path.join(process.cwd(), 'src/contents/blogs')
+    const relativePath = path.relative(
+      submoduleDir,
+      path.dirname(markdownFilePath),
+    )
+    return relativePath.replace(/\\/g, '/')
+  } catch (error) {
+    console.error(`記事パス取得でエラーが発生しました: ${error}`)
+    return 'unknown'
   }
 }
 

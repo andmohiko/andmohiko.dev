@@ -31,4 +31,5 @@ export type Blog = {
   slug?: string
   title: string
   url?: string
+  articlePath?: string // サブモジュール記事のディレクトリパス
 }

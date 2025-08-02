@@ -176,4 +176,5 @@
   max-height: 450px;
   object-fit: contain;
   margin: 16px 0;
+  border-radius: 4px;
 }

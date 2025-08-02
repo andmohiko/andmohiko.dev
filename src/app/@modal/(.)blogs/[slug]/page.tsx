@@ -25,7 +25,6 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import dayjs from 'dayjs'
 import { BlogContent } from './components/blog-content'
-import { getAllBlogPosts } from '@/lib/contentful'
 import {
   getAggregatedBlogBySlug,
   getAllAggregatedBlogs,
