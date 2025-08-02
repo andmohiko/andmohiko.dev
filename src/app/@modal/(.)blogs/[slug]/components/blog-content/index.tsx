@@ -49,9 +49,11 @@ export const BlogContent: React.FC<BlogModalProps> = ({
             {blog.headerImageUrl && (
               <Image
                 src={
-                  blog.headerImageUrl.startsWith('http')
+                  blog.headerImageUrl.startsWith('/assets/posts/')
                     ? blog.headerImageUrl
-                    : `https:${blog.headerImageUrl}?fm=webp`
+                    : blog.headerImageUrl.startsWith('http')
+                      ? blog.headerImageUrl
+                      : `https:${blog.headerImageUrl}?fm=webp`
                 }
                 alt={blog.title}
                 width={568}

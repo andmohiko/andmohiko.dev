@@ -13,8 +13,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { remark } from 'remark'
-import remarkHtml from 'remark-html'
+
 import type { Blog } from '@/types/blog'
 
 /**
@@ -34,7 +33,6 @@ type MarkdownFrontMatter = {
 type MarkdownPost = {
   metadata: MarkdownFrontMatter
   content: string
-  htmlContent: string
   filePath: string
 }
 
@@ -99,14 +97,9 @@ const parseMarkdownFile = async (
       return null
     }
 
-    // MarkdownをHTMLに変換
-    const processedContent = await remark().use(remarkHtml).process(content)
-    const htmlContent = processedContent.toString()
-
     return {
       metadata: data as MarkdownFrontMatter,
       content,
-      htmlContent,
       filePath,
     }
   } catch (error) {
@@ -138,12 +131,12 @@ export const getSubmoduleBlogPosts = async (): Promise<Blog[]> => {
       }
     }
 
-    // Blog型に変換
+    // Blog型に変換（Markdownのまま）
     const blogs: Blog[] = posts.map((post) => ({
       id: post.metadata.slug,
       title: post.metadata.title,
       description: post.metadata.description,
-      body: post.htmlContent,
+      body: post.content,
       slug: post.metadata.slug,
       publishedAt: post.metadata.date,
       headerImageUrl: post.metadata.headerImage
@@ -202,7 +195,7 @@ export const getSubmoduleBlogBySlug = async (
 }
 
 /**
- * 相対画像パスを絶対パスに変換
+ * 相対画像パスをpublicディレクトリの画像パスに変換
  *
  * @param imagePath - front-matterで指定された画像パス
  * @param markdownFilePath - Markdownファイルのパス
@@ -219,13 +212,16 @@ const resolveImagePath = (
     }
 
     if (imagePath.startsWith('./')) {
-      // 相対パスの場合は、Markdownファイルを基準に解決
+      // 相対パスの場合は、publicディレクトリの対応するパスに変換
       const markdownDir = path.dirname(markdownFilePath)
       const resolvedPath = path.resolve(markdownDir, imagePath)
 
-      // プロジェクトルートからの相対パスに変換
-      const relativePath = path.relative(process.cwd(), resolvedPath)
-      return `/${relativePath.replace(/\\/g, '/')}`
+      // サブモジュールディレクトリからの相対パスを取得
+      const submoduleDir = path.join(process.cwd(), 'src/contents/blogs')
+      const relativeFromSubmodule = path.relative(submoduleDir, resolvedPath)
+
+      // publicディレクトリの対応するパスに変換
+      return `/assets/posts/${relativeFromSubmodule.replace(/\\/g, '/')}`
     }
 
     // その他の場合はそのまま返す

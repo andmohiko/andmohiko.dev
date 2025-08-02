@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "pnpm copy:images && next build",
+    "copy:images": "tsx scripts/copy-submodule-images.ts",
     "start": "next start",
     "lint": "next lint",
     "clean": "rimraf .next && rimraf node_modules"
@@ -14,6 +15,7 @@
     "contentful": "^11.7.7",
     "dayjs": "^1.11.13",
     "framer-motion": "^12.23.0",
+    "fs-extra": "^11.3.0",
     "gray-matter": "^4.0.3",
     "microcms-js-sdk": "^3.2.0",
     "next": "15.4.4",
@@ -27,6 +29,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/fs-extra": "^11.0.4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -35,6 +38,7 @@
     "eslint-config-next": "15.4.4",
     "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
+    "tsx": "^4.20.3",
     "typescript": "^5"
   },
   "browserslist": [
