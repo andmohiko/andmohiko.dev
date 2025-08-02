@@ -5,7 +5,7 @@
 'use client'
 
 import Image from 'next/image'
-import { ContentfulBlog } from '@/types/blog'
+import { Blog } from '@/types/blog'
 import styles from './style.module.css'
 import { BaseModal } from '@/components/layout/base-modal'
 import { TitleText } from '@/components/typography/TitleText'
@@ -20,7 +20,7 @@ import { LabelText } from '@/components/typography/LabelText'
  */
 type BlogModalProps = {
   /** ブログ記事データ */
-  blog: ContentfulBlog
+  blog: Blog
   /** サーバーサイドでフォーマット済みの日付文字列 */
   formattedDate: string
   /** 前の記事のスラッグ */
@@ -46,10 +46,14 @@ export const BlogContent: React.FC<BlogModalProps> = ({
       <BaseModal>
         {blog ? (
           <article className={styles.content}>
-            {blog.fields.headerImage && (
+            {blog.headerImageUrl && (
               <Image
-                src={`https:${blog.fields.headerImage.fields.file.url}?fm=webp`}
-                alt={blog.fields.title}
+                src={
+                  blog.headerImageUrl.startsWith('http')
+                    ? blog.headerImageUrl
+                    : `https:${blog.headerImageUrl}?fm=webp`
+                }
+                alt={blog.title}
                 width={568}
                 height={300}
                 className={styles.thumbnail}
@@ -57,7 +61,7 @@ export const BlogContent: React.FC<BlogModalProps> = ({
             )}
             <div className={styles.title}>
               <TitleText level="h1" size="lg" color="primary">
-                {blog.fields.title}
+                {blog.title}
               </TitleText>
             </div>
             <div className={styles.date}>
@@ -67,7 +71,7 @@ export const BlogContent: React.FC<BlogModalProps> = ({
             </div>
             <div className={styles.body}>
               <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                {blog.fields.body}
+                {blog.body || ''}
               </ReactMarkdown>
             </div>
           </article>

@@ -16,10 +16,11 @@
  */
 
 import React from 'react'
-import { getAllBlogPosts } from '@/lib/contentful'
-import { getAllEntries, getAllWorks } from '@/lib/microcms'
-import { Blog } from '@/types/blog'
-import dayjs from 'dayjs'
+import { getAllWorks } from '@/lib/microcms'
+import {
+  getAllAggregatedBlogs,
+  convertToBlogArray,
+} from '@/lib/blog-aggregator'
 import styles from './blogs/style.module.css'
 import { DefaultContainer } from './components/default-container'
 
@@ -37,34 +38,8 @@ export const revalidate = false
  * @returns {Promise<React.ReactElement>} ブログ一覧ページ
  */
 const MainDefault: React.FC = async () => {
-  const posts = await getAllBlogPosts()
-  const microcmsEntries = await getAllEntries()
-
-  const contentfulBlogs: Blog[] = posts.map((post) => ({
-    body: post.fields.body,
-    description: post.fields.description,
-    headerImageUrl: post.fields.headerImage?.fields.file.url,
-    id: post.sys.id,
-    publishedAt: post.fields.publishedAt,
-    slug: post.fields.slug,
-    title: post.fields.title,
-    url: undefined,
-  }))
-  const entries: Blog[] = microcmsEntries.map((entry) => ({
-    body: undefined,
-    description: undefined,
-    headerImageUrl: undefined,
-    id: entry.id,
-    media: entry.media,
-    publishedAt: entry.publishAt,
-    slug: undefined,
-    title: entry.title,
-    url: entry.link,
-  }))
-
-  const blogs = [...contentfulBlogs, ...entries].sort((a, b) =>
-    dayjs(a.publishedAt).isBefore(dayjs(b.publishedAt)) ? 1 : -1,
-  )
+  const aggregatedBlogs = await getAllAggregatedBlogs()
+  const blogs = convertToBlogArray(aggregatedBlogs)
   const works = await getAllWorks()
 
   return (

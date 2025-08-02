@@ -20,7 +20,8 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import dayjs from 'dayjs'
 import { BlogContent } from '../../(.)blogs/[slug]/components/blog-content'
-import { getBlogById, getAllBlogPosts } from '@/lib/contentful'
+import { getAllBlogPosts } from '@/lib/contentful'
+import { getAggregatedBlogBySlug } from '@/lib/blog-aggregator'
 
 /**
  * 静的生成の設定
@@ -99,7 +100,7 @@ export async function generateMetadata({
       }
     }
 
-    const { blog } = await getBlogById(slug)
+    const { blog } = await getAggregatedBlogBySlug(slug)
 
     if (!blog) {
       console.error(
@@ -116,10 +117,10 @@ export async function generateMetadata({
       }
     }
 
-    const blogTitle = blog.fields.title
-    const blogDescription = blog.fields.description
-    const blogHeaderImageUrl = blog.fields.headerImage?.fields.file.url
-    const blogPublishedAt = blog.fields.publishedAt
+    const blogTitle = blog.title
+    const blogDescription = blog.description
+    const blogHeaderImageUrl = blog.headerImageUrl
+    const blogPublishedAt = blog.publishedAt
 
     return {
       title: blogTitle,
@@ -195,7 +196,7 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = async ({
       notFound()
     }
 
-    const { blog, previousSlug, nextSlug } = await getBlogById(slug)
+    const { blog, previousSlug, nextSlug } = await getAggregatedBlogBySlug(slug)
 
     if (!blog) {
       console.error('BlogDetailPage: 指定されたslugのブログが見つかりません', {
@@ -207,7 +208,7 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = async ({
     }
 
     // サーバーサイドで日付をフォーマットしてHydrationエラーを防ぐ
-    const formattedDate = dayjs(blog.fields.publishedAt).format('YYYY.MM.DD')
+    const formattedDate = dayjs(blog.publishedAt).format('YYYY.MM.DD')
 
     return (
       <BlogContent

@@ -6,11 +6,11 @@
  * - ランタイムでのデータ更新なし
  */
 import { Metadata } from 'next'
-import { getAllBlogPosts } from '@/lib/contentful'
 import { BlogList } from './components/blog-list'
-import { getAllEntries } from '@/lib/microcms'
-import { Blog } from '@/types/blog'
-import dayjs from 'dayjs'
+import {
+  getAllAggregatedBlogs,
+  convertToBlogArray,
+} from '@/lib/blog-aggregator'
 import styles from './style.module.css'
 import { ContentPaginator } from '@/components/navigation/content-paginator'
 
@@ -42,34 +42,8 @@ export const revalidate = false
  * @returns {Promise<JSX.Element>} ブログ一覧ページ
  */
 export default async function BlogListPage(): Promise<React.ReactNode> {
-  const posts = await getAllBlogPosts()
-  const microcmsEntries = await getAllEntries()
-
-  const contentfulBlogs: Blog[] = posts.map((post) => ({
-    body: post.fields.body,
-    description: post.fields.description,
-    headerImageUrl: post.fields.headerImage?.fields.file.url,
-    id: post.sys.id,
-    publishedAt: post.fields.publishedAt,
-    slug: post.fields.slug,
-    title: post.fields.title,
-    url: undefined,
-  }))
-  const entries: Blog[] = microcmsEntries.map((entry) => ({
-    body: undefined,
-    description: undefined,
-    headerImageUrl: undefined,
-    id: entry.id,
-    media: entry.media,
-    publishedAt: entry.publishAt,
-    slug: undefined,
-    title: entry.title,
-    url: entry.link,
-  }))
-
-  const blogs = [...contentfulBlogs, ...entries].sort((a, b) =>
-    dayjs(a.publishedAt).isBefore(dayjs(b.publishedAt)) ? 1 : -1,
-  )
+  const aggregatedBlogs = await getAllAggregatedBlogs()
+  const blogs = convertToBlogArray(aggregatedBlogs)
 
   return (
     <main className={styles.blogListMain}>
