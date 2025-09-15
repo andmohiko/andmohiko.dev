@@ -39,7 +39,10 @@ type MarkdownPost = {
 /**
  * サブモジュールのコンテンツディレクトリパス
  */
-const CONTENT_DIRECTORY = path.join(process.cwd(), 'src/contents/blogs')
+const CONTENT_DIRECTORY = path.join(
+  process.cwd(),
+  'src/contents/blogs/articles',
+)
 
 /**
  * 指定されたディレクトリから再帰的にMarkdownファイルを検索
