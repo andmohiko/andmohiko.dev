@@ -192,6 +192,7 @@ export const convertToBlogArray = (
   aggregatedBlogs: AggregatedBlog[],
 ): Blog[] => {
   return aggregatedBlogs.map(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     ({ source: _source, originalData: _originalData, ...blog }) => blog,
   )
 }
