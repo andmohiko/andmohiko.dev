@@ -24,6 +24,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      animation: 1s closeOpacity 0.7s ease both;
 
       &:hover {
         background-color: var(--color-primary-light-alt);
@@ -42,5 +43,14 @@
         right: 24px;
       }
     }
+  }
+}
+
+@keyframes closeOpacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
