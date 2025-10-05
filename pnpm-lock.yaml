@@ -13,7 +13,7 @@ importers:
         version: 2.5.1
       contentful:
         specifier: ^11.7.7
-        version: 11.8.1
+        version: 11.8.4
       dayjs:
         specifier: ^1.11.13
         version: 1.11.18
@@ -93,8 +93,8 @@ importers:
 
 packages:
 
-  '@contentful/content-source-maps@0.11.33':
-    resolution: {integrity: sha512-5C5dLmG9L7se9i+DvO+sT3AocyRNmqVXWO/zoDKUsu7PuyWhDFbZHh/eZQCd0D15bGKOm3jN+lwxW13f8ogiYA==}
+  '@contentful/content-source-maps@0.11.35':
+    resolution: {integrity: sha512-cbZ9cRGid+G7V/QosOt1YW1fXOE47cb1rn+Da9ATe4qbYZsBv3XTcto4HVpHF2J2mlAjf+asl6YAkfj5epcQUg==}
 
   '@contentful/rich-text-types@16.8.5':
     resolution: {integrity: sha512-q18RJuJCOuYveGiCIjE5xLCQc5lZ3L2Qgxrlg/H2YEobDFqdtmklazRi1XwEWaK3tMg6yVXBzKKkQfLB4qW14A==}
@@ -756,8 +756,8 @@ packages:
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
 
-  '@rollup/rollup-linux-x64-gnu@4.52.2':
-    resolution: {integrity: sha512-opH8GSUuVcCSSyHHcl5hELrmnk4waZoVpgn/4FDao9iyE4WpQhyWJ5ryl5M3ocp4qkRuHfyXnGqg8M9oKCEKRA==}
+  '@rollup/rollup-linux-x64-gnu@4.52.4':
+    resolution: {integrity: sha512-Wi6AXf0k0L7E2gteNsNHUs7UMwCIhsCTs6+tqQ5GPwVRWMaflqGec4Sd8n6+FNFDw9vGcReqk2KzBDhCa1DLYg==}
     cpu: [x64]
     os: [linux]
 
@@ -1186,16 +1186,16 @@ packages:
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
 
-  contentful-resolve-response@1.9.3:
-    resolution: {integrity: sha512-1mPTz7bJLZsLdWAOEyjoVKys/eTXa7o3aV3EYLH7sqqF8V1fnRHlJqlDoxGZFsPxQPBYag+V89B1E/HYE0ENnQ==}
+  contentful-resolve-response@1.9.4:
+    resolution: {integrity: sha512-8qu2dM2IMoVQhBhp81BVGB9ISantPmPTZ3EELGxuM8e/t+jSe+xmsVk5yHE+a9AYMBKSwgupBnkjGZE4RzFowQ==}
     engines: {node: '>=4.7.2'}
 
-  contentful-sdk-core@9.2.0:
-    resolution: {integrity: sha512-cUvHbC2u8ouJHhG3tofQhUc0FAmM/QBcalYjiczMtFKrR77BW+eSPcPg+A9DQlhIP0UGcQ/knXxoJpBvrERXTA==}
+  contentful-sdk-core@9.2.1:
+    resolution: {integrity: sha512-Y+Qz2tGYE2ia6o42R8DG4uFSMSLJ6qfAbKQLU6p2+KxsqvbK1Fg60wKVKF+FHMShuCnlg2EwToOvxVsM2N+BrQ==}
     engines: {node: '>=18'}
 
-  contentful@11.8.1:
-    resolution: {integrity: sha512-EoSDFCEfoUgBvSQRZXTGB+lVxNRgWAd+pJMq2lg6zoqRdkt86h2SkUqF652e8sx45ykvlOqH7hC0sg4DG9jpgA==}
+  contentful@11.8.4:
+    resolution: {integrity: sha512-IBlItmyUneaIYEytG/oqv1GgySxDsKuyOltMxljoU0PigB6NNQ+OOhLm+3xcgO+LKpn4zh2pDyoRJoJANc2S0A==}
     engines: {node: '>=18'}
 
   core-util-is@1.0.3:
@@ -1507,9 +1507,6 @@ packages:
 
   extend@3.0.2:
     resolution: {integrity: sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==}
-
-  fast-copy@2.1.7:
-    resolution: {integrity: sha512-ozrGwyuCTAy7YgFCua8rmqmytECYk/JYAMXcswOcm0qvGoE3tPb7ivBeIHTOK2DiapBhDZgacIhzhQIKU5TCfA==}
 
   fast-copy@3.0.2:
     resolution: {integrity: sha512-dl0O9Vhju8IrcLndv2eU4ldt1ftXMqqfgN4H1cpmGV7P6jeB9FwpN9a2c8DPGE1Ys88rNUJVYDHq73CGAGOPfQ==}
@@ -2754,7 +2751,7 @@ packages:
 
 snapshots:
 
-  '@contentful/content-source-maps@0.11.33':
+  '@contentful/content-source-maps@0.11.35':
     dependencies:
       '@vercel/stega': 0.1.2
       json-pointer: 0.6.2
@@ -3284,7 +3281,7 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
-  '@rollup/rollup-linux-x64-gnu@4.52.2':
+  '@rollup/rollup-linux-x64-gnu@4.52.4':
     optional: true
 
   '@rtsao/scc@1.1.0': {}
@@ -3734,11 +3731,11 @@ snapshots:
 
   concat-map@0.0.1: {}
 
-  contentful-resolve-response@1.9.3:
+  contentful-resolve-response@1.9.4:
     dependencies:
-      fast-copy: 2.1.7
+      fast-copy: 3.0.2
 
-  contentful-sdk-core@9.2.0:
+  contentful-sdk-core@9.2.1:
     dependencies:
       fast-copy: 3.0.2
       lodash: 4.17.21
@@ -3746,15 +3743,15 @@ snapshots:
       process: 0.11.10
       qs: 6.14.0
     optionalDependencies:
-      '@rollup/rollup-linux-x64-gnu': 4.52.2
+      '@rollup/rollup-linux-x64-gnu': 4.52.4
 
-  contentful@11.8.1:
+  contentful@11.8.4:
     dependencies:
-      '@contentful/content-source-maps': 0.11.33
+      '@contentful/content-source-maps': 0.11.35
       '@contentful/rich-text-types': 16.8.5
       axios: 1.12.2
-      contentful-resolve-response: 1.9.3
-      contentful-sdk-core: 9.2.0
+      contentful-resolve-response: 1.9.4
+      contentful-sdk-core: 9.2.1
       json-stringify-safe: 5.0.1
       type-fest: 4.41.0
     transitivePeerDependencies:
@@ -4274,8 +4271,6 @@ snapshots:
       is-extendable: 0.1.1
 
   extend@3.0.2: {}
-
-  fast-copy@2.1.7: {}
 
   fast-copy@3.0.2: {}
 
