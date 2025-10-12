@@ -12,8 +12,30 @@ import { TitleText } from '@/components/typography/TitleText'
 import { ParagraphText } from '@/components/typography/ParagraphText'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import rehypeRaw from 'rehype-raw'
+import rehypeSanitize, { defaultSchema } from 'rehype-sanitize'
 import { ContentPaginator } from '@/components/navigation/content-paginator'
 import { LabelText } from '@/components/typography/LabelText'
+
+// iframe を許可するサニタイズ設定
+const schema = {
+  ...defaultSchema,
+  tagNames: [...(defaultSchema.tagNames || []), 'iframe'],
+  attributes: {
+    ...defaultSchema.attributes,
+    iframe: [
+      'src',
+      'width',
+      'height',
+      'title',
+      'frameborder',
+      'allow',
+      'allowfullscreen',
+      'referrerpolicy',
+      'style',
+    ],
+  },
+}
 
 /**
  * BlogModalコンポーネントのプロパティ型
@@ -72,7 +94,10 @@ export const BlogContent: React.FC<BlogModalProps> = ({
               </ParagraphText>
             </div>
             <div className={styles.body}>
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeRaw, [rehypeSanitize, schema]]}
+              >
                 {blog.body || ''}
               </ReactMarkdown>
             </div>
