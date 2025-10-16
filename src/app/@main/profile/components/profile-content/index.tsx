@@ -101,8 +101,6 @@ export const ProfileContent = () => {
                   <br />
                   GCP
                   <br />
-                  BigQuery
-                  <br />
                   PostgreSQL
                 </ParagraphText>
               </SectionTile>
@@ -151,7 +149,7 @@ export const ProfileContent = () => {
           </div>
           <div className={styles.section}>
             <SectionHeading label="Gears" />
-            <GridTwoColumnLayout gap={4}>
+            <GridThreeColumnLayout>
               <SectionTile>
                 <LabelText size="sm" color="primary">
                   Keyboard
@@ -170,7 +168,17 @@ export const ProfileContent = () => {
                   Sigma dp1Quattro
                 </ParagraphText>
               </SectionTile>
-            </GridTwoColumnLayout>
+              <SectionTile>
+                <LabelText size="sm" color="primary">
+                  Shisha
+                </LabelText>
+                <ParagraphText size="md" color="primary">
+                  Alpha Hookah model X
+                  <br />
+                  WD HOOKAH MINI
+                </ParagraphText>
+              </SectionTile>
+            </GridThreeColumnLayout>
           </div>
         </div>
       </div>
