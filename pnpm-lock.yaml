@@ -13,7 +13,7 @@ importers:
         version: 2.5.1
       contentful:
         specifier: ^11.7.7
-        version: 11.8.5
+        version: 11.8.6
       dayjs:
         specifier: ^1.11.13
         version: 1.11.18
@@ -99,8 +99,8 @@ importers:
 
 packages:
 
-  '@contentful/content-source-maps@0.11.36':
-    resolution: {integrity: sha512-J83SuySGJN6WdxBnprfpZRbvZ11q+0CxI7kyjFKC49XN7RzwlACMTIkB4bcKQ9j5sQTrfCoYs7QHiHXBCioyLg==}
+  '@contentful/content-source-maps@0.11.37':
+    resolution: {integrity: sha512-OLvUkHjfkGLmr9UydQlRt+EgN4mZv/nGsplnQh/DstzQhOAPMiH4/3wNEnF4oiC5OxAUMKrmzKaUpEagFvP1LA==}
 
   '@contentful/rich-text-types@16.8.5':
     resolution: {integrity: sha512-q18RJuJCOuYveGiCIjE5xLCQc5lZ3L2Qgxrlg/H2YEobDFqdtmklazRi1XwEWaK3tMg6yVXBzKKkQfLB4qW14A==}
@@ -1192,8 +1192,8 @@ packages:
     resolution: {integrity: sha512-Y+Qz2tGYE2ia6o42R8DG4uFSMSLJ6qfAbKQLU6p2+KxsqvbK1Fg60wKVKF+FHMShuCnlg2EwToOvxVsM2N+BrQ==}
     engines: {node: '>=18'}
 
-  contentful@11.8.5:
-    resolution: {integrity: sha512-qJJ41fy05s7tIpM6lLmlsH2z+j2GsWnkJmHFPu68gzLKxzWkwQEU7Bd4vPRKOrO96nRilynajcOAfN/3i8jGdQ==}
+  contentful@11.8.6:
+    resolution: {integrity: sha512-HCRusvMT4aKEEOUcZtacJm6SwirA+lIXeIQFzEVa1/jLDbHGs9h6hH2x/WDcxKQLaf4LRA8KnCJKvySXRH6lLw==}
     engines: {node: '>=18'}
 
   core-util-is@1.0.3:
@@ -2795,7 +2795,7 @@ packages:
 
 snapshots:
 
-  '@contentful/content-source-maps@0.11.36':
+  '@contentful/content-source-maps@0.11.37':
     dependencies:
       '@vercel/stega': 0.1.2
       json-pointer: 0.6.2
@@ -3785,9 +3785,9 @@ snapshots:
     optionalDependencies:
       '@rollup/rollup-linux-x64-gnu': 4.52.4
 
-  contentful@11.8.5:
+  contentful@11.8.6:
     dependencies:
-      '@contentful/content-source-maps': 0.11.36
+      '@contentful/content-source-maps': 0.11.37
       '@contentful/rich-text-types': 16.8.5
       axios: 1.12.2
       contentful-resolve-response: 1.9.4
