@@ -13,7 +13,7 @@ importers:
         version: 2.5.1
       contentful:
         specifier: ^11.7.7
-        version: 11.8.6
+        version: 11.8.9
       dayjs:
         specifier: ^1.11.13
         version: 1.11.18
@@ -99,8 +99,8 @@ importers:
 
 packages:
 
-  '@contentful/content-source-maps@0.11.37':
-    resolution: {integrity: sha512-OLvUkHjfkGLmr9UydQlRt+EgN4mZv/nGsplnQh/DstzQhOAPMiH4/3wNEnF4oiC5OxAUMKrmzKaUpEagFvP1LA==}
+  '@contentful/content-source-maps@0.11.39':
+    resolution: {integrity: sha512-fVhvAubuQRID3NeMJI11NXXMnOaLUDJ+yuqlyfJynfsFfvT2PNmiRzThgumjNuaSP344SceRzZPsonVzxI4qzg==}
 
   '@contentful/rich-text-types@16.8.5':
     resolution: {integrity: sha512-q18RJuJCOuYveGiCIjE5xLCQc5lZ3L2Qgxrlg/H2YEobDFqdtmklazRi1XwEWaK3tMg6yVXBzKKkQfLB4qW14A==}
@@ -754,8 +754,8 @@ packages:
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
 
-  '@rollup/rollup-linux-x64-gnu@4.52.4':
-    resolution: {integrity: sha512-Wi6AXf0k0L7E2gteNsNHUs7UMwCIhsCTs6+tqQ5GPwVRWMaflqGec4Sd8n6+FNFDw9vGcReqk2KzBDhCa1DLYg==}
+  '@rollup/rollup-linux-x64-gnu@4.52.5':
+    resolution: {integrity: sha512-hXGLYpdhiNElzN770+H2nlx+jRog8TyynpTVzdlc6bndktjKWyZyiCsuDAlpd+j+W+WNqfcyAWz9HxxIGfZm1Q==}
     cpu: [x64]
     os: [linux]
 
@@ -1073,8 +1073,8 @@ packages:
     resolution: {integrity: sha512-Xm7bpRXnDSX2YE2YFfBk2FnF0ep6tmG7xPh8iHee8MIcrgq762Nkce856dYtJYLkuIoYZvGfTs/PbZhideTcEg==}
     engines: {node: '>=4'}
 
-  axios@1.12.2:
-    resolution: {integrity: sha512-vMJzPewAlRyOgxV2dU0Cuz2O8zzzx9VYtbJOaBgXFeLc4IV/Eg50n4LowmehOOR61S8ZMpc2K5Sa7g6A4jfkUw==}
+  axios@1.13.1:
+    resolution: {integrity: sha512-hU4EGxxt+j7TQijx1oYdAjw4xuIp1wRQSsbMFwSthCWeBQur1eF+qJ5iQ5sN3Tw8YRzQNKb8jszgBdMDVqwJcw==}
 
   axobject-query@4.1.0:
     resolution: {integrity: sha512-qIj0G9wZbMGNLjLmg1PT6v2mE9AH2zlnADJD/2tC6E00hgmhUOfEB6greHPAfLRSufHqROIUTkw6E+M3lH0PTQ==}
@@ -1192,8 +1192,8 @@ packages:
     resolution: {integrity: sha512-Y+Qz2tGYE2ia6o42R8DG4uFSMSLJ6qfAbKQLU6p2+KxsqvbK1Fg60wKVKF+FHMShuCnlg2EwToOvxVsM2N+BrQ==}
     engines: {node: '>=18'}
 
-  contentful@11.8.6:
-    resolution: {integrity: sha512-HCRusvMT4aKEEOUcZtacJm6SwirA+lIXeIQFzEVa1/jLDbHGs9h6hH2x/WDcxKQLaf4LRA8KnCJKvySXRH6lLw==}
+  contentful@11.8.9:
+    resolution: {integrity: sha512-nP4FGhD2rmbDrZlctIAG27k572Lk4/k9G9YnUzeGyxFspjtfAFMYR/GiWcqdFZ70kmapIgeQS6iZ0osLCZGANA==}
     engines: {node: '>=18'}
 
   core-util-is@1.0.3:
@@ -2795,7 +2795,7 @@ packages:
 
 snapshots:
 
-  '@contentful/content-source-maps@0.11.37':
+  '@contentful/content-source-maps@0.11.39':
     dependencies:
       '@vercel/stega': 0.1.2
       json-pointer: 0.6.2
@@ -3321,7 +3321,7 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
-  '@rollup/rollup-linux-x64-gnu@4.52.4':
+  '@rollup/rollup-linux-x64-gnu@4.52.5':
     optional: true
 
   '@rtsao/scc@1.1.0': {}
@@ -3657,7 +3657,7 @@ snapshots:
 
   axe-core@4.10.3: {}
 
-  axios@1.12.2:
+  axios@1.13.1:
     dependencies:
       follow-redirects: 1.15.11
       form-data: 4.0.4
@@ -3783,13 +3783,13 @@ snapshots:
       process: 0.11.10
       qs: 6.14.0
     optionalDependencies:
-      '@rollup/rollup-linux-x64-gnu': 4.52.4
+      '@rollup/rollup-linux-x64-gnu': 4.52.5
 
-  contentful@11.8.6:
+  contentful@11.8.9:
     dependencies:
-      '@contentful/content-source-maps': 0.11.37
+      '@contentful/content-source-maps': 0.11.39
       '@contentful/rich-text-types': 16.8.5
-      axios: 1.12.2
+      axios: 1.13.1
       contentful-resolve-response: 1.9.4
       contentful-sdk-core: 9.2.1
       json-stringify-safe: 5.0.1
