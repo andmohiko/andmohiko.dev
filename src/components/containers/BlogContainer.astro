@@ -1,12 +1,31 @@
 ---
+/**
+ * ブログ記事のコンテンツを表示するコンテナコンポーネント
+ * 
+ * @fileoverview
+ * - Contentfulから取得したブログ記事を表示
+ * - Markdown形式の本文をHTMLに変換して表示
+ * - 公開日時を日本時間でフォーマットして表示
+ */
+
 import '~/styles/blog.css';
 
 import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
 import type { ContentfulBlog } from '~/types/blog';
 
 import styles from './style.module.scss'
 
 import markdownIt from "markdown-it";
+
+// dayjsプラグインを有効化
+dayjs.extend(utc);
+dayjs.extend(timezone);
+
+/**
+ * コンポーネントのプロパティ定義
+ */
 interface Props {
   blog: ContentfulBlog;
 }

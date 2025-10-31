@@ -1,7 +1,25 @@
 ---
+/**
+ * ブログ記事のタイトルと公開日を表示するカードコンポーネント
+ * 
+ * @fileoverview
+ * - ブログ記事のタイトルと公開日時を表示
+ * - 外部メディアの記事の場合は外部リンク、通常の記事の場合は内部リンクを設定
+ * - 公開日時を日本時間でフォーマットして表示
+ */
+
 import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
 import type { Blog } from '~/types/blog'
 
+// dayjsプラグインを有効化
+dayjs.extend(utc)
+dayjs.extend(timezone)
+
+/**
+ * コンポーネントのプロパティ定義
+ */
 interface Props {
   blog: Blog;
 }
