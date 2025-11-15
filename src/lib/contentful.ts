@@ -39,7 +39,7 @@ export const getAllBlogPosts = async (): Promise<Array<ContentfulBlog>> => {
 export const getBlogById = async (
   slug: string,
 ): Promise<{
-  blog: ContentfulBlog
+  blog: ContentfulBlog | undefined
   previousSlug: string | undefined
   nextSlug: string | undefined
 }> => {
@@ -51,7 +51,8 @@ export const getBlogById = async (
       limit: 1,
     })
     .then((entries) => {
-      return entries.items[0] as ContentfulBlog | undefined
+      const entry = entries.items[0]
+      return entry ? ((entry as unknown) as ContentfulBlog) : undefined
     })
     .catch(console.error)
 
