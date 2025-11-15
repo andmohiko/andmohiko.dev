@@ -183,9 +183,9 @@ export const getSubmoduleBlogBySlug = async (
     }
 
     const currentIndex = allBlogs.findIndex((b) => b.slug === slug)
-    const previousSlug =
-      currentIndex > 0 ? allBlogs[currentIndex - 1].slug : undefined
     const nextSlug =
+      currentIndex > 0 ? allBlogs[currentIndex - 1].slug : undefined
+    const previousSlug =
       currentIndex < allBlogs.length - 1
         ? allBlogs[currentIndex + 1].slug
         : undefined
