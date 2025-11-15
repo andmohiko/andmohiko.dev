@@ -43,6 +43,27 @@ export const getBlogById = async (
   previousSlug: string | undefined
   nextSlug: string | undefined
 }> => {
+  const targetBlog = await createContentfulClient()
+    .getEntries({
+      content_type: process.env.NEXT_PUBLIC_CTF_BLOG_POST_TYPE_ID!,
+      // @ts-ignore
+      'fields.slug': slug,
+      limit: 1,
+    })
+    .then((entries) => {
+      return entries.items[0] as ContentfulBlog | undefined
+    })
+    .catch(console.error)
+
+  if (!targetBlog) {
+    // @ts-ignore
+    return {
+      blog: undefined,
+      previousSlug: undefined,
+      nextSlug: undefined,
+    }
+  }
+
   const allPosts = await createContentfulClient()
     .getEntries({
       content_type: process.env.NEXT_PUBLIC_CTF_BLOG_POST_TYPE_ID!,
@@ -55,15 +76,18 @@ export const getBlogById = async (
       }
     })
     .catch(console.error)
+
   // @ts-ignore
   const posts = allPosts.posts
-  const blog = posts.find((post: ContentfulBlog) => post.fields.slug === slug)
-  const index = posts.indexOf(blog)
+  const index = posts.findIndex(
+    (post: ContentfulBlog) => post.fields.slug === slug,
+  )
   const nextSlug = index > 0 ? posts[index - 1].fields.slug : undefined
   const previousSlug =
     index < posts.length - 1 ? posts[index + 1].fields.slug : undefined
+
   return {
-    blog,
+    blog: targetBlog,
     previousSlug,
     nextSlug,
   }
