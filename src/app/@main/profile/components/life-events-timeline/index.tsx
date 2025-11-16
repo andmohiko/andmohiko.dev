@@ -93,6 +93,22 @@ const lifeEvents: LifeEvent[] = [
     ),
   },
   {
+    time: '2022.04.01 (25歳)',
+    title: '10歳上の部下ができる',
+    description: (
+      <>
+        <a
+          href="https://ascii.jp/elem/000/004/099/4099168/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ローンディールからの移籍により、10歳年上の部下ができました。
+        </a>
+        年上の人をマネジメントするむずかしさを感じました。
+      </>
+    ),
+  },
+  {
     time: '2021.08.01 (24歳)',
     title: 'メンヘラテクノロジーに転職',
     description: (
