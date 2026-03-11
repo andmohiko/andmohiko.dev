@@ -1,10 +1,15 @@
+'use client'
+
+import { useEffect } from 'react'
 import styles from './style.module.css'
 import { LabelText } from '@/components/typography/LabelText'
 import { TitleText } from '@/components/typography/TitleText'
 import { ParagraphText } from '@/components/typography/ParagraphText'
 import Link from 'next/link'
+import { MdContentCopy } from 'react-icons/md'
 
 type LifeEvent = {
+  id: string
   time: string
   title: string
   description: React.ReactNode
@@ -12,36 +17,42 @@ type LifeEvent = {
 
 const lifeEvents: LifeEvent[] = [
   {
+    id: '20250517',
     time: '2025.05.17 (28歳)',
     title: '自分のロゴを作る',
     description:
       'デザイナーに依頼し、自分のロゴを作ってもらう。シーシャをイメージしたロゴということで、「andmohiko」のoが吐いた煙がmになっているのがおしゃれポイント。',
   },
   {
+    id: '20250421',
     time: '2025.04.21 (28歳)',
     title: '自宅にシーシャを買う',
     description:
       'シーシャを自分で作るイベントに参加したことをきっかけに、シーシャ台一式を購入し、自宅でもシーシャを作るようになる。毎日AFチェリー単品を練習する。',
   },
   {
+    id: '20250118',
     time: '2025.01.18 (28歳)',
     title: 'ポケカの平日大会で優勝',
     description:
       'ポケモンカードのジムバトルで初めて優勝する。推しポケであるアチャモのデッキで参加する。最後はボスの指令をトップで引いて勝つ。',
   },
   {
+    id: '20240919',
     time: '2024.09.19 (27歳)',
     title: 'スマブラVIP入り',
     description:
       'スマブラで目標にしていたVIP入りを達成する。途中でロイからファルコにキャラ替えしたり、ひたすらトレモに潜ったりして、ようやくVIPに入れて嬉しかった。このゲームを5年間やってきてよかった',
   },
   {
+    id: '20240323',
     time: '2024.03.23 (27歳)',
     title: 'スーパーハムスターCTO就任',
     description:
       '株式会社スーパーハムスターのCTOに就任する。開発・マネジメント・採用などを担当する。',
   },
   {
+    id: '20231108',
     time: '2023.11.08 (27歳)',
     title: '地雷女子のChrome拡張をリリース',
     description: (
@@ -59,6 +70,7 @@ const lifeEvents: LifeEvent[] = [
     ),
   },
   {
+    id: '20230827',
     time: '2023.08.27 (26歳)',
     title: 'トラックボール一体型の40%キーボードを購入',
     description: (
@@ -76,11 +88,13 @@ const lifeEvents: LifeEvent[] = [
     ),
   },
   {
+    id: '20230624',
     time: '2023.06.24 (26歳)',
     title: '埼玉に引っ越す',
     description: '都内住みをやめ、拠点を埼玉に移す。家が広くなる。',
   },
   {
+    id: '20220227',
     time: '2022.02.27 (25歳)',
     title: '自作キーボードを始める',
     description: (
@@ -93,6 +107,7 @@ const lifeEvents: LifeEvent[] = [
     ),
   },
   {
+    id: '20220401',
     time: '2022.04.01 (25歳)',
     title: '10歳上の部下ができる',
     description: (
@@ -109,6 +124,7 @@ const lifeEvents: LifeEvent[] = [
     ),
   },
   {
+    id: '20210801',
     time: '2021.08.01 (24歳)',
     title: 'メンヘラテクノロジーに転職',
     description: (
@@ -121,12 +137,14 @@ const lifeEvents: LifeEvent[] = [
     ),
   },
   {
+    id: '20210401',
     time: '2021.04.01 (24歳)',
     title: '新卒でレアゾンホールディングスに入社',
     description:
       '新卒でmenuというフードデリバリーサービスのサーバーサイドエンジニアに就職する。Laravelを使って店舗向けシステムのサーバーサイド開発を担当する。',
   },
   {
+    id: '20210327',
     time: '2021.03.27 (24歳)',
     title: '公園に1日立ち続け、エンジニアを採用',
     description: (
@@ -143,6 +161,7 @@ const lifeEvents: LifeEvent[] = [
     ),
   },
   {
+    id: '20210218',
     time: '2021.02.18 (24歳)',
     title: 'スプラトゥーンを始める',
     description: (
@@ -160,6 +179,7 @@ const lifeEvents: LifeEvent[] = [
     ),
   },
   {
+    id: '20210203',
     time: '2021.02.03 (24歳)',
     title: 'メンヘラ×機械学習で修論を書く',
     description: (
@@ -176,6 +196,7 @@ const lifeEvents: LifeEvent[] = [
     ),
   },
   {
+    id: '20210107',
     time: '2021.01.07 (24歳)',
     title: 'スマレポをリリース',
     description: (
@@ -189,30 +210,35 @@ const lifeEvents: LifeEvent[] = [
     ),
   },
   {
+    id: '20200913',
     time: '2020.09.13 (23歳)',
     title: '初めてシーシャを体験',
     description:
       '友人に連れられ、初めてシーシャを吸う。よくわからず友達の強ミントを吸ったら意外と吸えてしまった。自分からシーシャに行き始めるのはまだ先。',
   },
   {
+    id: '20200801',
     time: '2020.08.01 (23歳)',
     title: '親友を亡くす',
     description:
       '親友が病気で亡くなる。人が死ぬということに実感を持つ。自分がいつ死んでもいいように生きようと思うようになる。',
   },
   {
+    id: '20200604',
     time: '2020.06.04 (23歳)',
     title: '初めて採用面接を担当',
     description:
       '気づけばメンヘラテクノロジーでリードエンジニアになっており、メンバーを採用するため、はじめて面接をする側にまわる。',
   },
   {
+    id: '20200413',
     time: '2020.04.13 (22歳)',
     title: '本格的にスマブラにハマる',
     description:
       'コロナ禍に入ったことをきっかけに、本格的にスマブラにのめり込む。それまでアクションゲームはほとんど経験がなかったため、逆VIPから始める。',
   },
   {
+    id: '20191218',
     time: '2019.12.18 (23歳)',
     title: 'メンヘラテクノロジーにジョイン',
     description: (
@@ -230,42 +256,49 @@ const lifeEvents: LifeEvent[] = [
     ),
   },
   {
+    id: '20191007',
     time: '2019.10.07 (22歳)',
     title: 'andmohiko.dev開設',
     description:
       'フロントエンドの勉強としてNuxt.jsとContentfulでJAM Stackなポートフォリオサイトをつくる。何度かのリプレイスを経て現在の形に至る。',
   },
   {
+    id: '20190929',
     time: '2019.09.29 (22歳)',
     title: 'Webエンジニアに進路を変更',
     description:
       '機械学習エンジニアとして就職することの難しさを感じ、Web開発にジョブチェンジする。HTMLとCSSの勉強から始め、インターン先でモダンフロントエンド開発のタスクをもらう。',
   },
   {
+    id: '20190915',
     time: '2019.09.15 (23歳)',
     title: 'DMMでインターン',
     description:
       '合同会社DMM.comの2週間のサマーインターンに参加し、動画配信プラットフォームのレコメンドエンジンの改善に取り組む。ドメイン知識を活かし、ユーザーの回遊率を上げることに成功する。商品のパッケージを会議室に映しながら「レコメンドエンジンとはどうあるべきか、どんな商品が表示されるべきか」という成果発表をする。詳しくは飲みに行ったときに聞いてください。',
   },
   {
+    id: '20190401',
     time: '2019.04.01 (22歳)',
     title: '大学院に進学',
     description:
       '早稲田大学大学院基幹理工学研究科情報理工・通信専攻へ進学する。学部の成績が悪くなかったため、内部進学で受験せずに大学院へ進めた。',
   },
   {
+    id: '20181008',
     time: '2018.10.08 (21歳)',
     title: 'ボードゲームにハマる',
     description:
       'インターン先の社員に誘われ、スプレンダーで遊ぶ。業後にボードゲームをするようになり、そこからカタン・ドミニオン・テラミスティカと順調にボドゲ沼にハマる。',
   },
   {
+    id: '20180814',
     time: '2018.08.14 (21歳)',
     title: 'JX通信社でインターンを始める',
     description:
       '株式会社JX通信社という報道×ITのベンチャーで機械学習エンジニアとしてインターンを始める。当時VPoEだったメンターの下でエンジニアとしてのスタンダードを教わる。',
   },
   {
+    id: '20180808',
     time: '2018.08.08 (21歳)',
     title: 'ハッシュタグ #駆け出しエンジニアと繋がりたい をつくる',
     description: (
@@ -282,162 +315,189 @@ const lifeEvents: LifeEvent[] = [
     ),
   },
   {
+    id: '20180521',
     time: '2018.05.21 (21歳)',
     title: 'TRUNKでインターンを始める',
     description:
       'TRUNK株式会社という教育×ITのスタートアップで機械学習エンジニアとしてインターンを始める。思想の強いドレッドのCTOの下でPythonを勉強する。',
   },
   {
+    id: '20171108',
     time: '2017.11.08 (20歳)',
     title: '日雇いバイトを通してエンジニアになることを決意',
     description:
       '左から流れてくるポケットWiFiの電源がつくことを確認して右に渡すという日雇いバイトを8時間立ちっぱなしで経験する。我々日雇いバイトに混ざって正社員もこの業務を担当していることに気づき、自分の将来に危機感を持つ。エンジニアとして働けるように勉強しようと決意する。',
   },
   {
+    id: '20170716',
     time: '2017.07.16 (20歳)',
     title: '留年しそうになる',
     description:
       '大学2年生で単位を落としすぎたため、留年しそうになる。再履修した科目で確実に単位をとるため、受験勉強を思い出して試験勉強をがんばったら留年を回避した。',
   },
   {
+    id: '20160401',
     time: '2016.04.01 (19歳)',
     title: '大学の情報科に進む',
     description:
       '進振りを経て早稲田大学基幹理工学部情報通信学科に進む。コンピュータサイエンスが始まる。',
   },
   {
+    id: '20160201',
     time: '2016.02.01 (19歳)',
     title: '本屋のバイトを始める',
     description:
       '最寄駅の個人店の本屋でバイトを始める。笑顔で接客するように指導される。あまり馴染めず9ヶ月で辞める。',
   },
   {
+    id: '20150522',
     time: '2015.05.22 (18歳)',
     title: 'アイセックに参加',
     description:
       'AIESECという世界平和を目指す学生団体の早稲田支部に参加する。親友と出会う。',
   },
   {
+    id: '20150414',
     time: '2015.04.14 (18歳)',
     title: 'TRIGGER2015に参加',
     description:
       'TRIGGERという学生起業家向けのビジコンの運営団体に参加する。広報担当としてSNSを運用する。ビジコン当日はハッシュタグがトレンド入りする。',
   },
   {
+    id: '20150401',
     time: '2015.04.01 (18歳)',
     title: '早稲田大学に入学',
     description:
       '早稲田大学基幹理工学部に入学する。進振りがある学部だったため、大学1年生の間は情報系以外にも数学や機械系の人とも過ごす。',
   },
   {
+    id: '20140705',
     time: '2014.07.05（17歳）',
     title: 'ブレフロにハマる',
     description:
       '「ブレイブフロンティア」という当時誰もやっていなかったソシャゲを始める。攻略のためにLINEグループを作り、Twitterで参加者を集める。最大で100人超えのグループの主を務める。趣味を共有できる人が周りにいなければ自分でコミュニティをつくるというムーブを身につける。',
   },
   {
+    id: '20140201',
     time: '2014.02.01 (17歳)',
     title: '苦手なベクトルを克服',
     description:
       '数2Bのベクトルが苦手で成績の足を引っ張っていたので、集中的に勉強して逆に得意分野にする。戦略的に課題を解決するという発想を手に入れる。',
   },
   {
+    id: '20130408',
     time: '2013.04.08 (16歳)',
     title: '受験勉強のスイッチが入る',
     description:
       '友達から「高3はみんな頑張るから受験で差がつくのは高2をどう過ごすか」ということを力説され、受験勉強を始める。1日4時間勉強するようになり、夏頃から数学の成績が伸び始める。',
   },
   {
+    id: '20121205',
     time: '2012.12.05 (16歳)',
     title: 'DTMを始める',
     description:
       '歌ってみたのMixを始める。たまにニコニコ生放送もする。インターネットコミュニティに本格的に浸かり、学校では知り合わないような人たちと仲良くなる。自分とはバックグラウンドが異なる人との交流を通して社会性を身につける。',
   },
   {
+    id: '20120803',
     time: '2012.08.03 (15歳)',
     title: '初めてのオフ会',
     description:
       'インターネットで知り合った人と会うということを初めて体験する。',
   },
   {
+    id: '20120408',
     time: '2012.04.08 (15歳)',
     title: '攻玉社高校に入学',
     description:
       '中高一貫校のため、そのまま高校に進学する。部活は引き続き水泳部を続ける。',
   },
   {
+    id: '20120115',
     time: '2012.01.15 (15歳)',
     title: 'Skypeで夜な夜な通話する',
     description:
       'インターネットで繋がった人と夜な夜なSkypeで通話するようになる。夜更かしをするようになり、身長の伸びが止まる。',
   },
   {
+    id: '20110111',
     time: '2011.01.11 (14歳)',
     title: 'インターネットを始める',
     description:
       'TwitterやBBSへの書き込みなどでインターネット上の人との交流を始める。「ネットの友達」というものができる。',
   },
   {
+    id: '20101126',
     time: '2010.11.26 (14歳)',
     title: 'ハロプロにハマる',
     description:
       'イナズマイレブンのEDで聴いたBerryz工房をきっかけにハロプロにハマる。この時に作ったメールアドレスで一生ベリヲタであることを背負う。',
   },
   {
+    id: '20100108',
     time: '2010.01.08 (13歳)',
     title: 'ボカロを聴き始める',
     description:
       'TSUTAYAでたまたま「初音ミク ベスト〜memories〜」を借りてボカロを聴き始める。',
   },
   {
+    id: '20090516',
     time: '2009.05.16 (12歳)',
     title: '水泳部に入る',
     description:
       '小学生から続けていたので水泳部に入る。土日含めて週6で練習があり、6年間毎日学校に通う生活が始まる。',
   },
   {
+    id: '20090408',
     time: '2009.04.08 (12歳)',
     title: '攻玉社中学校に入学',
     description:
       '攻玉社という都内の中高一貫の男子校に入学する。入学時にたまたま席が近かった開成落ちの2人と仲良くなる。この交友関係が中高生活の後半で効いてくる。',
   },
   {
+    id: '20070301',
     time: '2007.03.01 (10歳)',
     title: 'ディズニーチャンネルで英語を維持する',
     description:
       'ディズニーチャンネルで「ハイスクールミュージカル」「スイートライフ」「ウェイバリー通りのウィザードたち」などを観るようになる。毎日英語に触れることでなんとか英語のリスニング力を維持する。',
   },
   {
+    id: '20061201',
     time: '2006.12.01 (10歳)',
     title: '3.14の段を覚える',
     description:
       '塾の往復時間がひまだったので3.14の段を暗記したら円周率を使った計算が速くなった。自分は記憶力で戦うタイプだと気づく。',
   },
   {
+    id: '20060801',
     time: '2006.08.01 (10歳)',
     title: '中学受験の勉強を始める',
     description:
       'クラスの半分以上が中学受験するため、周りと同じように塾に通い始める。SAPIXの中だとレベルの低いクラスにいたため、自分は勉強ができない方だという自認を持つ。',
   },
   {
+    id: '20060501',
     time: '2006.05.01 (10歳)',
     title: 'ポケモンのルビーをやりこむ',
     description:
       '家がゲーム禁止だったため、周りがDSをやっている中、友達のもう使わなくなったゲームボーイアドバンスを借りてポケモンのルビーをやりこむ。人生で一番思い出に残っているゲーム。',
   },
   {
+    id: '20051101',
     time: '2005.11.01 (9歳)',
     title: 'ポケモンカードを自作して学校で配る',
     description:
       'ポケモンカードを買ってもらえなかったので自分で作り始める。壊れカードだったので同級生には受け入れられなかったが、無いものは作るという考え方を身につける。',
   },
   {
+    id: '20050801',
     time: '2005.08.01 (8歳)',
     title: '水泳を始める',
     description:
       'プールの授業でクラスで自分だけ泳げなかったことに危機感を持つ。小学生の間は毎年プールの授業があるため、今のうちに克服しておかなければと思い、スイミングスクールに通い始める。この頃は自分が高3まで水泳を続けるとは思っていなかった。',
   },
   {
+    id: '20040704',
     time: '2004.07.04 (7歳)',
     title: '日本に帰国する',
     description: (
@@ -449,24 +509,28 @@ const lifeEvents: LifeEvent[] = [
     ),
   },
   {
+    id: '20030901',
     time: '2003.09.01 (6歳)',
     title: 'フランスに引っ越す',
     description:
       'パリのブリティッシュスクールに通う。インド人の友達が優秀すぎて自分は勉強が得意という自認ではない。ハリーポッターを原書で読んでいた。',
   },
   {
+    id: '20030801',
     time: '2003.08.01 (5歳)',
     title: 'はじめてのテレビゲーム - スマブラDX',
     description:
       '一時帰国したときに近所の家で初めてテレビゲームというものを体験する。ゲームキューブのスマブラをやらされ、操作方法も勝利条件もわからないままロイを選んでとりあえずプレイする。今でも魂のメインキャラがロイなのはこの時がきっかけ。',
   },
   {
+    id: '20020401',
     time: '2002.04.01 (4歳)',
     title: 'バイオリンを始める',
     description:
       '同級生の影響でバイオリンを始める。小学生まで続けたがもう弾けない。',
   },
   {
+    id: '20000901',
     time: '2000.09.01 (3歳)',
     title: 'ドイツに引っ越す',
     description: (
@@ -478,6 +542,7 @@ const lifeEvents: LifeEvent[] = [
     ),
   },
   {
+    id: '19991201',
     time: '1999.12.01 (3歳)',
     title: 'アルファベットとひらがなを覚える',
     description: (
@@ -487,12 +552,14 @@ const lifeEvents: LifeEvent[] = [
     ),
   },
   {
+    id: '19980201',
     time: '1998.02.01 (1歳)',
     title: 'イギリスへ引っ越す',
     description:
       'イギリスの田舎に引っ越す。町から一歩出ると一面が草原であとは羊しかいないような場所に住む。近所のリトミックに通い、英語を覚える。機関車トーマスに激ハマりする。この頃は自分が町で唯一のアジア人という自覚がなく、人種という概念をまだ理解していない。',
   },
   {
+    id: '19961012',
     time: '1996.10.12 (0歳)',
     title: '生まれる',
     description: '埼玉県で生まれた。オギャー',
@@ -500,6 +567,21 @@ const lifeEvents: LifeEvent[] = [
 ]
 
 export const LifeEventsTimeline = () => {
+  useEffect(() => {
+    // URLのハッシュをチェックしてスクロール
+    const hash = window.location.hash
+    if (hash) {
+      const id = hash.replace('#', '')
+      const element = document.getElementById(id)
+      if (element) {
+        // 少し遅延させてからスクロール（レンダリング完了を待つ）
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        }, 100)
+      }
+    }
+  }, [])
+
   return (
     <div className={styles.lifeEventsTimeline} id="timeline">
       <TitleText level="h2" size="xl">
@@ -509,6 +591,7 @@ export const LifeEventsTimeline = () => {
         {lifeEvents.map((lifeEvent, index) => (
           <LifeEvent
             key={index}
+            id={lifeEvent.id}
             time={lifeEvent.time}
             title={lifeEvent.title}
             description={lifeEvent.description}
@@ -522,6 +605,7 @@ export const LifeEventsTimeline = () => {
 }
 
 type LifeEventProps = {
+  id: string
   time: string
   title: string
   description: string | React.ReactNode
@@ -530,18 +614,41 @@ type LifeEventProps = {
 }
 
 const LifeEvent = ({
+  id,
   time,
   title,
   description,
   isFirst,
   isLast,
 }: LifeEventProps) => {
+  const handleCopyUrl = async () => {
+    const url = `${window.location.origin}/profile#${id}`
+    try {
+      await navigator.clipboard.writeText(url)
+      // TODO: トーストやフィードバックを追加する場合はここに
+    } catch (err) {
+      console.error('Failed to copy URL:', err)
+    }
+  }
+
   return (
-    <div className={styles.lifeEvent}>
+    <div className={styles.lifeEvent} id={id}>
       {isFirst && <div className={styles.lineUpperFirst} />}
       {!isFirst && <div className={styles.lineUpper} />}
       {!isLast && <div className={styles.lineLower} />}
-      <LabelText size="sm">{time}</LabelText>
+
+      <div className={styles.lifeEventHeader}>
+        <LabelText size="sm">{time}</LabelText>
+        <button
+          className={styles.copyButton}
+          onClick={handleCopyUrl}
+          aria-label="Copy link to this event"
+          title="このイベントのリンクをコピー"
+        >
+          <MdContentCopy />
+        </button>
+      </div>
+
       <TitleText level="h3" size="md">
         {title}
       </TitleText>
