@@ -16,7 +16,7 @@
  */
 
 import React from 'react'
-import { getAllWorks } from '@/lib/microcms'
+import { getAllAggregatedWorks } from '@/lib/works-aggregator'
 import {
   getAllAggregatedBlogs,
   convertToBlogArray,
@@ -40,7 +40,7 @@ export const revalidate = false
 const MainDefault: React.FC = async () => {
   const aggregatedBlogs = await getAllAggregatedBlogs()
   const blogs = convertToBlogArray(aggregatedBlogs)
-  const works = await getAllWorks()
+  const works = await getAllAggregatedWorks()
 
   return (
     <main className={styles.blogListMain}>

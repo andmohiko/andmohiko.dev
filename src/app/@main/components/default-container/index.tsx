@@ -2,12 +2,12 @@
 
 import { usePathname } from 'next/navigation'
 import { Blog } from '@/types/blog'
-import { Work } from '@/types/work'
+import { AggregatedWork } from '@/types/work'
 import { BlogList } from '../../blogs/components/blog-list'
 import { WorkList } from '../work-list'
 
 type Props = {
-  works: Work[]
+  works: AggregatedWork[]
   blogs: Blog[]
 }
 

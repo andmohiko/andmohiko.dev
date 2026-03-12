@@ -19,7 +19,10 @@ import React from 'react'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { WorkContent } from '../../(.)works/[slug]/components/work-content'
-import { getAllWorks } from '@/lib/microcms'
+import {
+  getAllAggregatedWorks,
+  getAggregatedWorkBySlug,
+} from '@/lib/works-aggregator'
 
 /**
  * 静的生成の設定
@@ -35,7 +38,7 @@ export const revalidate = false
  */
 export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
   try {
-    const works = await getAllWorks()
+    const works = await getAllAggregatedWorks()
 
     if (!works || works.length === 0) {
       console.warn('generateStaticParams: ポートフォリオが取得できませんでした')
@@ -98,8 +101,7 @@ export async function generateMetadata({
       }
     }
 
-    const works = await getAllWorks()
-    const work = works.find((work) => work.id === slug)
+    const { work } = await getAggregatedWorkBySlug(slug)
 
     if (!work) {
       console.error(
@@ -107,7 +109,7 @@ export async function generateMetadata({
         {
           slug,
           function: 'generateMetadata',
-          source: 'getAllWorks',
+          source: 'getAggregatedWorkBySlug',
         },
       )
       return {
@@ -192,14 +194,8 @@ const WorkDetailPage: React.FC<WorkDetailPageProps> = async ({
       notFound()
     }
 
-    const works = await getAllWorks()
-    const work = works.find((work) => work.id === slug)
-    const workIndex = works.findIndex((work) => work.id === slug)
-    const nextWork = workIndex > 0 ? works[workIndex - 1] : null
-    const previousWork =
-      workIndex < works.length - 1 ? works[workIndex + 1] : null
-    const previousSlug = previousWork?.id
-    const nextSlug = nextWork?.id
+    const { work, previousSlug, nextSlug } =
+      await getAggregatedWorkBySlug(slug)
 
     if (!work) {
       console.error(
@@ -207,7 +203,7 @@ const WorkDetailPage: React.FC<WorkDetailPageProps> = async ({
         {
           slug,
           function: 'WorkDetailPage',
-          source: 'getAllWorks',
+          source: 'getAggregatedWorkBySlug',
         },
       )
       notFound()

@@ -4,7 +4,7 @@
 
 'use client'
 
-import { Work } from '@/types/work'
+import { AggregatedWork } from '@/types/work'
 import styles from './style.module.css'
 import { BaseModal } from '@/components/layout/base-modal'
 import { TitleText } from '@/components/typography/TitleText'
@@ -14,13 +14,17 @@ import Image from 'next/image'
 import { ParagraphText } from '@/components/typography/ParagraphText'
 import { LabelBadge } from '@/components/displays/label-badge'
 import { getBlurPlaceholder, generateImageSizes } from '@/lib/blur-placeholder'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import rehypeRaw from 'rehype-raw'
+import rehypeSanitize, { defaultSchema } from 'rehype-sanitize'
 
 /**
  * WorkModalコンポーネントのプロパティ型
  */
 type WorkModalProps = {
   /** ポートフォリオデータ */
-  work: Work
+  work: AggregatedWork
   /** 前のポートフォリオのスラッグ */
   previousSlug?: string
   /** 次のポートフォリオのスラッグ */
@@ -38,6 +42,15 @@ export const WorkContent: React.FC<WorkModalProps> = ({
   previousSlug,
   nextSlug,
 }) => {
+  // rehype-sanitizeのスキーマをカスタマイズ
+  const sanitizeSchema = {
+    ...defaultSchema,
+    attributes: {
+      ...defaultSchema.attributes,
+      '*': [...(defaultSchema.attributes?.['*'] || []), 'className', 'style'],
+    },
+  }
+
   return (
     <div className={styles.wrapper}>
       <BaseModal>
@@ -69,10 +82,21 @@ export const WorkContent: React.FC<WorkModalProps> = ({
                   ))}
                 </div>
               </div>
-              <div
-                dangerouslySetInnerHTML={{ __html: work.body }}
-                className={styles.body}
-              />
+              {work.source === 'markdown' ? (
+                <div className={styles.body}>
+                  <ReactMarkdown
+                    remarkPlugins={[remarkGfm]}
+                    rehypePlugins={[rehypeRaw, [rehypeSanitize, sanitizeSchema]]}
+                  >
+                    {work.body}
+                  </ReactMarkdown>
+                </div>
+              ) : (
+                <div
+                  dangerouslySetInnerHTML={{ __html: work.body }}
+                  className={styles.body}
+                />
+              )}
             </div>
           </article>
         ) : (
