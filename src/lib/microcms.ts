@@ -20,5 +20,10 @@ export const getAllWorks = async (): Promise<Array<Work>> => {
     endpoint: 'works',
     queries: { orders: '-startAt', limit: 100 },
   })
-  return data.contents
+
+  // microCMSのstartAtをpublishAtにマッピング
+  return data.contents.map((work: any) => ({
+    ...work,
+    publishAt: work.startAt,
+  }))
 }
