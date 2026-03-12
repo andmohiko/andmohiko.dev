@@ -6,7 +6,7 @@
  * - ランタイムでのデータ更新なし
  */
 import { Metadata } from 'next'
-import { getAllAggregatedWorks } from '@/lib/works-aggregator'
+import { getAllMarkdownWorks } from '@/lib/works-markdown'
 import styles from './page.module.css'
 import { ContentPaginator } from '@/components/navigation/content-paginator'
 import { WorkList } from './components/work-list'
@@ -37,7 +37,7 @@ export const revalidate = false
  * @returns {Promise<JSX.Element>} ポートフォリオページ
  */
 export default async function WorksListPage(): Promise<React.ReactNode> {
-  const works = await getAllAggregatedWorks()
+  const works = await getAllMarkdownWorks()
   return (
     <main className={styles.workListMain}>
       <WorkList works={works} />

@@ -4,7 +4,7 @@
 
 'use client'
 
-import { AggregatedWork } from '@/types/work'
+import { Work } from '@/types/work'
 import styles from './style.module.css'
 import { BaseModal } from '@/components/layout/base-modal'
 import { TitleText } from '@/components/typography/TitleText'
@@ -24,7 +24,7 @@ import rehypeSanitize, { defaultSchema } from 'rehype-sanitize'
  */
 type WorkModalProps = {
   /** ポートフォリオデータ */
-  work: AggregatedWork
+  work: Work
   /** 前のポートフォリオのスラッグ */
   previousSlug?: string
   /** 次のポートフォリオのスラッグ */
@@ -82,21 +82,14 @@ export const WorkContent: React.FC<WorkModalProps> = ({
                   ))}
                 </div>
               </div>
-              {work.source === 'markdown' ? (
-                <div className={styles.body}>
-                  <ReactMarkdown
-                    remarkPlugins={[remarkGfm]}
-                    rehypePlugins={[rehypeRaw, [rehypeSanitize, sanitizeSchema]]}
-                  >
-                    {work.body}
-                  </ReactMarkdown>
-                </div>
-              ) : (
-                <div
-                  dangerouslySetInnerHTML={{ __html: work.body }}
-                  className={styles.body}
-                />
-              )}
+              <div className={styles.body}>
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  rehypePlugins={[rehypeRaw, [rehypeSanitize, sanitizeSchema]]}
+                >
+                  {work.body}
+                </ReactMarkdown>
+              </div>
             </div>
           </article>
         ) : (

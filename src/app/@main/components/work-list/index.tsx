@@ -4,7 +4,7 @@
 
 'use client'
 
-import { AggregatedWork } from '@/types/work'
+import { Work } from '@/types/work'
 import { WorkItem } from '../work-item'
 import { usePathname } from 'next/navigation'
 
@@ -15,7 +15,7 @@ import styles from './style.module.css'
  */
 type Props = {
   /** 表示するポートフォリオ配列 */
-  works: AggregatedWork[]
+  works: Work[]
 }
 
 /**

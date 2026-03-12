@@ -16,7 +16,7 @@
  */
 
 import React from 'react'
-import { getAllAggregatedWorks } from '@/lib/works-aggregator'
+import { getAllMarkdownWorks } from '@/lib/works-markdown'
 import {
   getAllAggregatedBlogs,
   convertToBlogArray,
@@ -40,7 +40,7 @@ export const revalidate = false
 const MainDefault: React.FC = async () => {
   const aggregatedBlogs = await getAllAggregatedBlogs()
   const blogs = convertToBlogArray(aggregatedBlogs)
-  const works = await getAllAggregatedWorks()
+  const works = await getAllMarkdownWorks()
 
   return (
     <main className={styles.blogListMain}>

@@ -20,9 +20,9 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { WorkContent } from '../../(.)works/[slug]/components/work-content'
 import {
-  getAllAggregatedWorks,
-  getAggregatedWorkBySlug,
-} from '@/lib/works-aggregator'
+  getAllMarkdownWorks,
+  getMarkdownWorkBySlug,
+} from '@/lib/works-markdown'
 
 /**
  * 静的生成の設定
@@ -38,7 +38,7 @@ export const revalidate = false
  */
 export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
   try {
-    const works = await getAllAggregatedWorks()
+    const works = await getAllMarkdownWorks()
 
     if (!works || works.length === 0) {
       console.warn('generateStaticParams: ポートフォリオが取得できませんでした')
@@ -101,7 +101,7 @@ export async function generateMetadata({
       }
     }
 
-    const { work } = await getAggregatedWorkBySlug(slug)
+    const { work } = await getMarkdownWorkBySlug(slug)
 
     if (!work) {
       console.error(
@@ -109,7 +109,7 @@ export async function generateMetadata({
         {
           slug,
           function: 'generateMetadata',
-          source: 'getAggregatedWorkBySlug',
+          source: 'getMarkdownWorkBySlug',
         },
       )
       return {
@@ -195,7 +195,7 @@ const WorkDetailPage: React.FC<WorkDetailPageProps> = async ({
     }
 
     const { work, previousSlug, nextSlug } =
-      await getAggregatedWorkBySlug(slug)
+      await getMarkdownWorkBySlug(slug)
 
     if (!work) {
       console.error(
@@ -203,7 +203,7 @@ const WorkDetailPage: React.FC<WorkDetailPageProps> = async ({
         {
           slug,
           function: 'WorkDetailPage',
-          source: 'getAggregatedWorkBySlug',
+          source: 'getMarkdownWorkBySlug',
         },
       )
       notFound()
