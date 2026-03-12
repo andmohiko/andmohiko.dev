@@ -1,6 +1,5 @@
 import { createClient } from 'microcms-js-sdk'
 import type { Entry } from '@/types/entry'
-import type { Work } from '@/types/work'
 
 export const microcmsClient = createClient({
   serviceDomain: process.env.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN!,
@@ -14,16 +13,3 @@ export const getAllEntries = async (): Promise<Array<Entry>> => {
 
 export const getEntryById = async (id: string) =>
   await microcmsClient.get({ endpoint: 'entries', contentId: id })
-
-export const getAllWorks = async (): Promise<Array<Work>> => {
-  const data = await microcmsClient.get({
-    endpoint: 'works',
-    queries: { orders: '-startAt', limit: 100 },
-  })
-
-  // microCMSのstartAtをpublishAtにマッピング
-  return data.contents.map((work: any) => ({
-    ...work,
-    publishAt: work.startAt,
-  }))
-}

@@ -1,19 +1,3 @@
-// microCMS版のWork型
-export type Work = {
-  id: string
-  body: string
-  description: string
-  link: string
-  publishAt: string
-  tags: string[]
-  thumbnail: {
-    height: number
-    url: string
-    width: number
-  }
-  title: string
-}
-
 // Markdownファイルのfront-matter型
 export type MarkdownWorkFrontMatter = {
   id: string
@@ -25,8 +9,8 @@ export type MarkdownWorkFrontMatter = {
   thumbnail: string // 相対パス: "./images/thumbnail.png"
 }
 
-// Markdown版のWork型
-export type MarkdownWork = {
+// Work型（Markdownベース）
+export type Work = {
   id: string
   slug: string
   title: string
@@ -43,10 +27,5 @@ export type MarkdownWork = {
   source: 'markdown'
 }
 
-// microCMS版にsourceフィールドを追加した型
-export type WorkWithSource = Work & {
-  source: 'microcms'
-}
-
-// 統合されたWork型（どちらのソースからでも使える）
-export type AggregatedWork = WorkWithSource | MarkdownWork
+// 後方互換性のためのエイリアス
+export type MarkdownWork = Work

@@ -15,7 +15,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import sizeOf from 'image-size'
 
-import type { MarkdownWork, MarkdownWorkFrontMatter } from '@/types/work'
+import type { Work, MarkdownWorkFrontMatter } from '@/types/work'
 
 /**
  * Markdownファイルの完全データ型定義
@@ -193,9 +193,9 @@ const transformImagePaths = (
 /**
  * Markdown版の全works取得
  *
- * @returns MarkdownWork型の配列
+ * @returns Work型の配列
  */
-export const getAllMarkdownWorks = async (): Promise<MarkdownWork[]> => {
+export const getAllMarkdownWorks = async (): Promise<Work[]> => {
   try {
     const workDirectories = findWorkDirectories(WORKS_DIRECTORY)
     const posts: MarkdownWorkPost[] = []
@@ -213,8 +213,8 @@ export const getAllMarkdownWorks = async (): Promise<MarkdownWork[]> => {
       }
     }
 
-    // MarkdownWork型に変換
-    const works: MarkdownWork[] = posts.map((post) => {
+    // Work型に変換
+    const works: Work[] = posts.map((post) => {
       // サムネイル画像のパスを解決
       const thumbnailPath = resolveImagePath(
         post.metadata.thumbnail,
@@ -271,7 +271,7 @@ export const getAllMarkdownWorks = async (): Promise<MarkdownWork[]> => {
 export const getMarkdownWorkBySlug = async (
   slug: string,
 ): Promise<{
-  work: MarkdownWork | null
+  work: Work | null
   previousSlug: string | undefined
   nextSlug: string | undefined
 }> => {
