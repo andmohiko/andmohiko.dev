@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "pnpm copy:images && next dev --turbopack",
     "build": "pnpm copy:images && next build",
-    "copy:images": "tsx scripts/copy-submodule-images.ts",
+    "copy:images": "tsx scripts/copy-submodule-images.ts && tsx scripts/copy-works-images.ts",
     "start": "next start",
     "lint": "next lint",
     "clean": "rimraf .next && rimraf node_modules"
@@ -17,6 +17,7 @@
     "framer-motion": "^12.23.0",
     "fs-extra": "^11.3.0",
     "gray-matter": "^4.0.3",
+    "image-size": "^2.0.2",
     "microcms-js-sdk": "^3.2.0",
     "next": "15.4.4",
     "react": "^19.0.0",
@@ -32,6 +33,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/fs-extra": "^11.0.4",
+    "@types/image-size": "^0.8.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
