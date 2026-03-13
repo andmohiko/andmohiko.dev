@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './style.module.css'
 import { LabelText } from '@/components/typography/LabelText'
 import { TitleText } from '@/components/typography/TitleText'
@@ -567,6 +567,8 @@ const lifeEvents: LifeEvent[] = [
 ]
 
 export const LifeEventsTimeline = () => {
+  const [highlightedId, setHighlightedId] = useState<string | null>(null)
+
   useEffect(() => {
     // URLのハッシュをチェックしてスクロール
     const hash = window.location.hash
@@ -574,6 +576,9 @@ export const LifeEventsTimeline = () => {
       const id = hash.replace('#', '')
       const element = document.getElementById(id)
       if (element) {
+        // ハイライトを設定
+        setHighlightedId(id)
+
         // 少し遅延させてからスクロール（レンダリング完了を待つ）
         setTimeout(() => {
           element.scrollIntoView({ behavior: 'smooth', block: 'center' })
@@ -597,6 +602,7 @@ export const LifeEventsTimeline = () => {
             description={lifeEvent.description}
             isFirst={index === 0}
             isLast={index === lifeEvents.length - 1}
+            isHighlighted={highlightedId === lifeEvent.id}
           />
         ))}
       </div>
@@ -611,6 +617,7 @@ type LifeEventProps = {
   description: string | React.ReactNode
   isFirst?: boolean
   isLast?: boolean
+  isHighlighted?: boolean
 }
 
 const LifeEvent = ({
@@ -620,6 +627,7 @@ const LifeEvent = ({
   description,
   isFirst,
   isLast,
+  isHighlighted,
 }: LifeEventProps) => {
   const handleCopyUrl = async () => {
     const url = `${window.location.origin}/profile#${id}`
@@ -632,7 +640,10 @@ const LifeEvent = ({
   }
 
   return (
-    <div className={styles.lifeEvent} id={id}>
+    <div
+      className={`${styles.lifeEvent} ${isHighlighted ? styles.highlighted : ''}`}
+      id={id}
+    >
       {isFirst && <div className={styles.lineUpperFirst} />}
       {!isFirst && <div className={styles.lineUpper} />}
       {!isLast && <div className={styles.lineLower} />}

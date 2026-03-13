@@ -15,6 +15,7 @@
   padding-left: 8px;
   margin-left: 32px;
   scroll-margin-top: 100px;
+  transition: background-color 0.3s ease;
 
   .lineUpperFirst {
     position: absolute;
@@ -89,4 +90,8 @@
   &:active {
     opacity: 0.7 !important;
   }
+}
+
+.highlighted {
+  background-color: rgba(255, 255, 255, 0.1);
 }
