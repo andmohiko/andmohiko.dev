@@ -19,4 +19,4 @@ thumbnail: "./images/thumbnail.jpeg"
 [https://bingo.smarepo.me/](https://bingo.smarepo.me/)
 
 ## 制作期間
-2024年3月
+2025年3月
