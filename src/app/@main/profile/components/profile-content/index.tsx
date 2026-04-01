@@ -22,7 +22,7 @@ export const ProfileContent = () => {
             </TitleText>
             <div className={styles.description}>
               <LabelText size="sm" color="primary">
-                株式会社スーパーハムスターCTO
+                エンジニア
               </LabelText>
               <div className={styles.verticalBorder} />
               <div className={styles.social}>
@@ -52,12 +52,12 @@ export const ProfileContent = () => {
               <br />
               大学ではコンピュータサイエンスを専攻し、大学院では機械学習とメンヘラの研究をしていました。
               <br />
-              大学院を卒業後、フードデリバリーサービスを提供するmenu株式会社に新卒入社。サーバーサイドエンジニアとして従事。
+              大学院卒業後、新卒ではフードデリバリーサービスを提供するmenu株式会社にサーバーサイドエンジニアとして入社しました。
             </ParagraphText>
             <ParagraphText size="md" color="primary">
-              その後転職して、メンヘラテクノロジーに入社。開発責任者として複数のプロダクト開発やエンジニア採用、受託開発のプロジェクトマネジメントを担当しました。
+              転職し、学生の頃から働いていたメンヘラテクノロジーに正社員としてジョインしました。発責任者として複数のプロダクト開発やエンジニア採用、受託開発のプロジェクトマネジメントを担当しました。
               <br />
-              現在は株式会社スーパーハムスターでCTOをしており、開発・マネジメント・採用などをしています。
+              その後、株式会社スーパーハムスターではCTOとして開発・マネジメント・採用などに携わっていました。
             </ParagraphText>
           </GridTwoColumnLayout>
         </div>
