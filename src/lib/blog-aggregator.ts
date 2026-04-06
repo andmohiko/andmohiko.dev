@@ -15,6 +15,7 @@ import {
   getBlogById as getContentfulBlogById,
 } from '@/lib/contentful'
 import { getAllEntries } from '@/lib/microcms'
+import { embedOgpInMarkdown } from '@/lib/ogp'
 import {
   getSubmoduleBlogPosts,
   getSubmoduleBlogBySlug,
@@ -133,9 +134,12 @@ export const getAggregatedBlogBySlug = async (
     // まずサブモジュールから検索
     const submoduleResult = await getSubmoduleBlogBySlug(slug)
     if (submoduleResult.blog) {
-      // サブモジュールで見つかった場合、純粋なBlog型として返す
+      // OGP情報をMarkdownに埋め込み
+      const body = submoduleResult.blog.body
+        ? await embedOgpInMarkdown(submoduleResult.blog.body)
+        : submoduleResult.blog.body
       return {
-        blog: submoduleResult.blog,
+        blog: { ...submoduleResult.blog, body },
         previousSlug: submoduleResult.previousSlug,
         nextSlug: submoduleResult.nextSlug,
       }
@@ -144,8 +148,10 @@ export const getAggregatedBlogBySlug = async (
     // サブモジュールで見つからなかった場合はContentfulから検索
     const contentfulResult = await getContentfulBlogById(slug)
     if (contentfulResult.blog) {
+      const rawBody = contentfulResult.blog.fields.body
+      const body = rawBody ? await embedOgpInMarkdown(rawBody) : rawBody
       const blogData: Blog = {
-        body: contentfulResult.blog.fields.body,
+        body,
         description: contentfulResult.blog.fields.description,
         headerImageUrl:
           contentfulResult.blog.fields.headerImage?.fields.file.url,

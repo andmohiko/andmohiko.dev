@@ -10,19 +10,21 @@ import styles from './style.module.css'
 import { BaseModal } from '@/components/layout/base-modal'
 import { TitleText } from '@/components/typography/TitleText'
 import { ParagraphText } from '@/components/typography/ParagraphText'
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown, { Components } from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize'
 import { ContentPaginator } from '@/components/navigation/content-paginator'
 import { LabelText } from '@/components/typography/LabelText'
+import { LinkCard } from '../link-card'
 
-// iframe を許可するサニタイズ設定
+// iframe とOGPカードを許可するサニタイズ設定
 const schema = {
   ...defaultSchema,
   tagNames: [...(defaultSchema.tagNames || []), 'iframe'],
   attributes: {
     ...defaultSchema.attributes,
+    div: [...(defaultSchema.attributes?.div || []), 'data*'],
     iframe: [
       'src',
       'width',
@@ -34,6 +36,26 @@ const schema = {
       'referrerpolicy',
       'style',
     ],
+  },
+}
+
+// react-markdownのカスタムコンポーネント
+const markdownComponents: Components = {
+  div: ({ node, ...props }) => {
+    const ogpCard = props['data-ogp-card' as keyof typeof props]
+    if (ogpCard) {
+      return (
+        <LinkCard
+          url={(props['data-ogp-url' as keyof typeof props] as string) || ''}
+          title={(props['data-ogp-title' as keyof typeof props] as string) || ''}
+          description={(props['data-ogp-description' as keyof typeof props] as string) || ''}
+          image={(props['data-ogp-image' as keyof typeof props] as string) || ''}
+          siteName={(props['data-ogp-site-name' as keyof typeof props] as string) || ''}
+          favicon={(props['data-ogp-favicon' as keyof typeof props] as string) || ''}
+        />
+      )
+    }
+    return <div {...props} />
   },
 }
 
@@ -97,6 +119,7 @@ export const BlogContent: React.FC<BlogModalProps> = ({
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 rehypePlugins={[rehypeRaw, [rehypeSanitize, schema]]}
+                components={markdownComponents}
               >
                 {blog.body || ''}
               </ReactMarkdown>
