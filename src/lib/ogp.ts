@@ -64,7 +64,16 @@ const getFaviconUrl = (url: string): string => {
 /**
  * URLからOGP情報を取得
  */
-export const fetchOgp = async (url: string): Promise<OgpData | null> => {
+export const fetchOgp = async (url: string): Promise<OgpData> => {
+  const fallback: OgpData = {
+    url,
+    title: new URL(url).hostname,
+    description: '',
+    image: '',
+    siteName: '',
+    favicon: getFaviconUrl(url),
+  }
+
   try {
     const controller = new AbortController()
     const timeoutId = setTimeout(() => controller.abort(), 10000)
@@ -78,8 +87,8 @@ export const fetchOgp = async (url: string): Promise<OgpData | null> => {
     clearTimeout(timeoutId)
 
     if (!response.ok) {
-      console.warn(`OGP取得失敗 (HTTP ${response.status}): ${url}`)
-      return null
+      console.warn(`OGP取得スキップ (HTTP ${response.status}): ${url}`)
+      return fallback
     }
 
     const html = await response.text()
@@ -97,14 +106,14 @@ export const fetchOgp = async (url: string): Promise<OgpData | null> => {
     const favicon = getFaviconUrl(url)
 
     if (!title) {
-      console.warn(`OGPタイトルが取得できませんでした: ${url}`)
-      return null
+      console.warn(`OGP取得スキップ (タイトルなし): ${url}`)
+      return fallback
     }
 
     return { url, title, description, image, siteName, favicon }
-  } catch (error) {
-    console.warn(`OGP取得でエラーが発生しました (${url}):`, error)
-    return null
+  } catch {
+    console.warn(`OGP取得スキップ: ${url}`)
+    return fallback
   }
 }
 
@@ -155,12 +164,8 @@ export const embedOgpInMarkdown = async (
 
   const ogpMap = new Map<string, OgpData>()
   for (const { url, ogp } of ogpResults) {
-    if (ogp) {
-      ogpMap.set(url, ogp)
-    }
+    ogpMap.set(url, ogp)
   }
-
-  if (ogpMap.size === 0) return markdown
 
   let result = markdown
 
