@@ -19,7 +19,7 @@ const lifeEvents: LifeEvent[] = [
   {
     id: '20260601',
     time: '2026.06.01 (29歳)',
-    title: '株式会社チュパカブラ工藝社CTO・CHRO就任',
+    title: '株式会社チュパカブラ工藝社のCTOとCHROを兼任',
     description:
       '株式会社チュパカブラ工藝社の創業メンバーとしてジョインし、CTOとCHROを兼任することになる。光る展示会ブースを3Dで設計するWebアプリを開発している。',
   },
