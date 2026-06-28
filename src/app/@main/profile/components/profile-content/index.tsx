@@ -22,7 +22,7 @@ export const ProfileContent = () => {
             </TitleText>
             <div className={styles.description}>
               <LabelText size="sm" color="primary">
-                エンジニア
+                株式会社チュパカブラ工藝社 CTO・CHRO
               </LabelText>
               <div className={styles.verticalBorder} />
               <div className={styles.social}>
@@ -53,11 +53,15 @@ export const ProfileContent = () => {
               大学ではコンピュータサイエンスを専攻し、大学院では機械学習とメンヘラの研究をしていました。
               <br />
               大学院卒業後、新卒ではフードデリバリーサービスを提供するmenu株式会社にサーバーサイドエンジニアとして入社しました。
+              <br />
+              転職し、学生の頃から働いていたメンヘラテクノロジーに正社員としてジョインしました。
             </ParagraphText>
             <ParagraphText size="md" color="primary">
-              転職し、学生の頃から働いていたメンヘラテクノロジーに正社員としてジョインしました。発責任者として複数のプロダクト開発やエンジニア採用、受託開発のプロジェクトマネジメントを担当しました。
+              開発責任者として複数のプロダクト開発やエンジニア採用、受託開発のプロジェクトマネジメントを担当しました。
               <br />
-              その後、株式会社スーパーハムスターではCTOとして開発・マネジメント・採用などに携わっていました。
+              株式会社スーパーハムスターではCTOとして開発・マネジメント・採用などに携わっていました。
+              <br />
+              その後、株式会社チュパカブラ工藝社の創業メンバーとしてジョインし、CTOとCHROを兼任しています。
             </ParagraphText>
           </GridTwoColumnLayout>
         </div>
