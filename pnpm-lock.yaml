@@ -13,7 +13,7 @@ importers:
         version: 2.5.1
       contentful:
         specifier: ^11.12.0
-        version: 11.12.9(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2)
+        version: 11.12.10(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2)
       dayjs:
         specifier: ^1.11.20
         version: 1.11.23
@@ -1804,12 +1804,12 @@ packages:
     resolution: {integrity: sha512-IYjx6oI1G4wSlLecceDBKuXZRezVrNwZSxfmM0ZjwWtCeyR0B0iYPGNgEu3/p1kGJliFziZRFA61jM8wa1Trcg==}
     engines: {node: '>=22'}
 
-  contentful-sdk-core@9.4.5:
-    resolution: {integrity: sha512-8eGTMO11LXFAiosaiV38bjvW6cjoQFtNE38pNtVilZTXpmGFinClljihH0eriv11Ispd4q82TqtsXMJPYD/C+A==}
-    engines: {node: '>=18'}
+  contentful-sdk-core@10.0.0:
+    resolution: {integrity: sha512-4uNgDmAWYqvjQpc/nNQ2GkY/DuyFBivcoPPFFqvT9pWyQqLgxb46gTKdk5sc3YxjLv5tLSDKksRG/OC1uRbktw==}
+    engines: {node: '>=22'}
 
-  contentful@11.12.9:
-    resolution: {integrity: sha512-3eSYeXRiQOOmkwwAqwPXeTE37iiE/Ku4LOh1p5bj2CxgaLVLk6O2Ep1DdDwoGMonyTNrkbCFXfbXCkrTPYBWHw==}
+  contentful@11.12.10:
+    resolution: {integrity: sha512-/fUK6ySEZzLhiKFuUAxO7sFXxZeuEGKmhKQFdV/Iikm430up8v85PAkyi1N/dYTBS3l+yww9bfNssWHljExn+g==}
     engines: {node: '>=18'}
 
   convert-hrtime@3.0.0:
@@ -5748,7 +5748,7 @@ snapshots:
     dependencies:
       fast-copy: 3.0.2
 
-  contentful-sdk-core@9.4.5:
+  contentful-sdk-core@10.0.0:
     dependencies:
       fast-copy: 3.0.2
       lodash: 4.18.1
@@ -5757,13 +5757,13 @@ snapshots:
     optionalDependencies:
       '@rollup/rollup-linux-x64-gnu': 4.62.4
 
-  contentful@11.12.9(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2):
+  contentful@11.12.10(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2):
     dependencies:
       '@contentful/content-source-maps': 0.12.3
       '@contentful/rich-text-types': 17.2.7
       axios: 1.19.0(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2)
       contentful-resolve-response: 2.0.1
-      contentful-sdk-core: 9.4.5
+      contentful-sdk-core: 10.0.0
       json-stringify-safe: 5.0.1
       tslib: 2.8.1
       type-fest: 4.41.0
