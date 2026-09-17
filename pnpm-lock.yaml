@@ -28,7 +28,7 @@ importers:
         version: 2.0.2
       microcms-js-sdk:
         specifier: ^3.3.0
-        version: 3.4.0
+        version: 3.5.1
       motion:
         specifier: ^12.38.0
         version: 12.43.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -3092,8 +3092,8 @@ packages:
     engines: {node: '>= 8.0.0'}
     hasBin: true
 
-  microcms-js-sdk@3.4.0:
-    resolution: {integrity: sha512-WJDHNHZlgyO7tzcEnnUaKOZDD3l5tnQjqDb32zWYt4H4auLbx+yc9yHHzcNn1vIGkF4xFW5gbLlZnlIDnMq0+A==}
+  microcms-js-sdk@3.5.1:
+    resolution: {integrity: sha512-chD6xUYxFJfuBMQwfsYl0QNO9cfSTOI2Gic4kCoynd/ZeexNzP1ETcjjLfMSzMLs+nU2H9gI13wlTO3+gNe5yA==}
     engines: {node: '>=18.0.0'}
 
   micromark-core-commonmark@2.0.3:
@@ -7350,7 +7350,7 @@ snapshots:
       content-type: 1.0.4
       raw-body: 2.4.1
 
-  microcms-js-sdk@3.4.0:
+  microcms-js-sdk@3.5.1:
     dependencies:
       async-retry: 1.3.3
 
