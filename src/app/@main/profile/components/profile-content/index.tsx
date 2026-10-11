@@ -61,7 +61,7 @@ export const ProfileContent = () => {
               <br />
               株式会社スーパーハムスターではCTOとして開発・マネジメント・採用などに携わっていました。
               <br />
-              その後、株式会社チュパカブラ工藝社の創業メンバーとしてジョインし、CTOとCHROを兼任しています。
+              2026年6月に株式会社チュパカブラ工藝社の創業メンバーとしてジョインし、現在はCTOとCHROを兼任しています。
             </ParagraphText>
           </GridTwoColumnLayout>
         </div>
